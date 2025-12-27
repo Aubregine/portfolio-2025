@@ -1,5 +1,5 @@
-import { MainLayout } from "@/components/custom/main-layout";
-import { MetadataProvider, useMetadata } from "@/lib/providers/app-metadata";
+import {MainLayout} from "@/components/custom/main-layout";
+import {MetadataProvider, useMetadata} from "@/lib/providers/app-metadata";
 import type {ComponentType, ReactNode} from "react";
 import {ThemeProvider} from "@/lib/providers/theme-provider.tsx";
 
@@ -34,7 +34,7 @@ function App() {
         <Providers>
             <MainLayout>
                 <WelcomeMessage />
-                Add things here!
+                I should move this somewhere else...
             </MainLayout>
         </Providers>
     );
