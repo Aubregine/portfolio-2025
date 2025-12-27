@@ -1,38 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { MainLayout } from "@/components/custom/main-layout";
+import { MetadataProvider, useMetadata } from "@/lib/providers/app-metadata";
+import type {ComponentType, ReactNode} from "react";
+import {ThemeProvider} from "@/lib/providers/theme-provider.tsx";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-          <ul className="list">
-
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <button onClick={() => setCount(0)}>
-            Reset
-        </button>
-          </ul>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+// Testing injection
+function WelcomeMessage() {
+    const metadata = useMetadata(); // hopefully returns something
+    return (
+        <div className="space-y-4 text-center">
+            <h1 className="text-4xl font-extrabold tracking-tight">
+                Project name: {metadata.name}
+            </h1>
+            <p className="text-muted-foreground">
+                Version: {metadata.version}
+            </p>
+        </div>
+    );
 }
 
-export default App
+const compose = (providers: ComponentType<{ children: ReactNode }>[]) => providers.reduce((Prev, Curr) => ({ children }) => (
+    <Prev>
+        <Curr>{ children }</Curr>
+    </Prev>
+));
+
+const Providers = compose([
+    MetadataProvider,
+    ThemeProvider,
+]);
+
+function App() {
+    return (
+        <Providers>
+            <MainLayout>
+                <WelcomeMessage />
+                Add things here!
+            </MainLayout>
+        </Providers>
+    );
+}
+
+export default App;
