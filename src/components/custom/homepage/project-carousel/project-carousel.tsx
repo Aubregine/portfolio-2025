@@ -15,7 +15,7 @@ export function ProjectsCarousel() {
 
   return (
     <Carousel
-      className="w-full max-w-4/5"
+      className="w-full max-w-6xl"
       opts={{ loop: true, duration: 45 }}
       plugins={[Autoplay({ delay: 10000 })]}
     >
