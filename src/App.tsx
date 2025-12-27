@@ -1,18 +1,9 @@
 import { MainLayout } from "@/components/custom/main-layout";
-import { MetadataProvider, useMetadata } from "@/lib/providers/app-metadata";
+import { MetadataProvider } from "@/lib/providers/metadata-provider.tsx";
 import type { ComponentType, ReactNode } from "react";
 import { ThemeProvider } from "@/lib/providers/theme-provider.tsx";
-
-// Testing injection
-function WelcomeMessage() {
-  const metadata = useMetadata(); // hopefully returns something
-  return (
-    <div className="space-y-4 text-center">
-      <h1 className="text-4xl font-extrabold tracking-tight">Project name: {metadata.name}</h1>
-      <p className="text-muted-foreground">Version: {metadata.version}</p>
-    </div>
-  );
-}
+import { Homepage } from "@/components/custom/homepage/homepage.tsx";
+import { PortfolioProvider } from "@/lib/providers/portfolio-provider.tsx";
 
 const compose = (providers: ComponentType<{ children: ReactNode }>[]) =>
   providers.reduce((Prev, Curr) => ({ children }) => (
@@ -21,13 +12,13 @@ const compose = (providers: ComponentType<{ children: ReactNode }>[]) =>
     </Prev>
   ));
 
-const Providers = compose([MetadataProvider, ThemeProvider]);
+const Providers = compose([MetadataProvider, ThemeProvider, PortfolioProvider]);
 
 function App() {
   return (
     <Providers>
       <MainLayout>
-        <WelcomeMessage />I should move this somewhere else...
+        <Homepage />
       </MainLayout>
     </Providers>
   );
