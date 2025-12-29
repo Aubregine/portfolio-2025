@@ -178,7 +178,7 @@ And the transitions are also pretty straightforward:
 - if it was the last line, depending on the `loop` prop, we change state accordingly
 - if we are in *deleting* mode and we reach the end of the line, we simply change state
 
-![Typewriter State Machine](/src/blog-posts/i-built-a-typewriter-in-react-graph-dark.png)
+![Typewriter State Machine](/public/blog-posts/i-built-a-typewriter-in-react-graph-dark.png)
 
 And after expressing the state machine with the XState syntax, it was just a matter of calling `useMachine` with our
 state
