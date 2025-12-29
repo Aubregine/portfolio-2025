@@ -20,7 +20,7 @@ const Providers = compose([MetadataProvider, ThemeProvider, PortfolioProvider]);
 function App() {
   return (
     <Providers>
-      <Router>
+      <Router basename="/portfolio-2025/">
         <Routes>
           <Route element={<MainLayout />}>
             <Route path="/" element={<Homepage />} />

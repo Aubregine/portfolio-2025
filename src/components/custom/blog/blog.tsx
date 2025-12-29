@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { type ChangeEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import type { BlogFrontMatter, BlogPost as BlogPostType } from "@/lib/types.ts";
@@ -64,7 +64,7 @@ export function Blog() {
         <Input
           placeholder="Filter by title or tags..."
           value={filter}
-          onChange={(e) => setFilter(e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => setFilter(e.target.value)}
           className="max-w-sm"
         />
       </div>

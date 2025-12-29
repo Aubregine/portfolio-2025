@@ -114,11 +114,11 @@ export function BlogPost() {
       <div className="space-y-2">
         <Markdown
           components={{
-            code({ node, inline, children, className, ...rest }) {
+            code({ node, children, className, ...rest }) {
               const match = /language-(\w+)/.exec(className || "");
               const lang = match?.[1];
               const args = node?.data?.meta?.split(" ") ?? [];
-              if (inline || !lang) {
+              if (!lang) {
                 return (
                   <code
                     {...rest}
