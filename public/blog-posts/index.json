@@ -1,0 +1,11 @@
+[
+  {
+    "slug": "i-built-a-typewriter-in-react",
+    "metadata": {
+      "title": "I built a cool Typewriter Component for my Website",
+      "date": "28-12-2025",
+      "tags": ["react"],
+      "excerpt": "Building a typewriter component using XState"
+    }
+  }
+]
