@@ -29,8 +29,8 @@ export default defineConfig([
       "object-curly-spacing": ["error", "always"],
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "off",
-      "unused-imports/no-unused-imports": "error",
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+      "unused-imports/no-unused-imports": "error",
       "unused-imports/no-unused-vars": [
         "warn",
         {
