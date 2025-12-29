@@ -13,7 +13,7 @@ export default function OpenMenu() {
     <>
       <Drawer direction="right">
         <DrawerTrigger asChild>
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost" size="icon" className="cursor-pointer">
             <Menu />
           </Button>
         </DrawerTrigger>
@@ -24,10 +24,10 @@ export default function OpenMenu() {
             </DrawerHeader>
             <nav className="flex flex-col gap-2 p-4">
               <Button variant="ghost" className="justify-start">
-                Accueil
+                Home
               </Button>
               <Button variant="ghost" className="justify-start">
-                Projets
+                Projects
               </Button>
               <Button variant="ghost" className="justify-start">
                 Contact
