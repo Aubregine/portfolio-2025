@@ -21,7 +21,7 @@ Should look like this:
   "
 }
  */
-const postModule = import.meta.glob("/src/blog-posts/*.md", { query: "?raw" });
+const postModule = import.meta.glob("/public/blog-posts/*.md", { query: "?raw" });
 
 async function getAllPosts(): Promise<BlogPostType[]> {
   return await Promise.all(

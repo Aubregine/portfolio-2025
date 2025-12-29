@@ -12,7 +12,7 @@ import { oneDark, oneLight } from "react-syntax-highlighter/dist/cjs/styles/pris
 import { Typewriter } from "@/components/custom/generic/typewriter.tsx";
 import { useTheme } from "@/lib/providers/theme-provider.tsx";
 
-const modules = import.meta.glob("/src/blog-posts/*.md", { query: "?raw" });
+const modules = import.meta.glob("/public/blog-posts/*.md", { query: "?raw" });
 
 const customDarkTheme = {
   ...oneDark,
@@ -55,7 +55,7 @@ const widgets: {
 };
 
 async function loadPost(slug: string): Promise<BlogPostType | null> {
-  const loader = modules[`/src/blog-posts/${slug}.md`];
+  const loader = modules[`/public/blog-posts/${slug}.md`];
   if (!loader) return null;
 
   const raw = (await loader()) as { default: string };
@@ -183,8 +183,19 @@ export function BlogPost() {
                 </ul>
               );
             },
-            img({ className, alt, ...rest }) {
-              return <img {...rest} alt={alt} className={cn("justify-self-center", className)} />;
+            img({ className, alt, src, ...rest }) {
+              const BASE_PATH = import.meta.env.BASE_URL;
+              // check if the image is local and remove the leading slash if so
+              const cleanSrc = src?.startsWith("/") ? `${BASE_PATH}${src.slice(1)}` : src;
+              console.log(cleanSrc);
+              return (
+                <img
+                  src={cleanSrc}
+                  {...rest}
+                  alt={alt}
+                  className={cn("justify-self-center rounded-lg", className)}
+                />
+              );
             },
           }}
         >

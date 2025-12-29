@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button.tsx";
+import linkedin from "@/assets/linkedin.png";
 
 export default function Footer() {
   return (
@@ -9,7 +10,7 @@ export default function Footer() {
       <div className="absolute left-2">
         <Button variant="ghost" asChild>
           <a href="https://www.linkedin.com/in/aurore-kerlero/" target="_blank" rel="noreferrer">
-            <img src="src/assets/linkedin.png" alt="LinkedIn" className="w-6" />
+            <img src={linkedin} alt="LinkedIn" className="w-6" />
             <div className="sr-only">LinkedIn</div>
             My LinkedIn
           </a>

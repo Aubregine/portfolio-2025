@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
+import githubLogo from "@/assets/github.svg";
 
 interface ProjectCardProps {
   name: string;
@@ -45,7 +46,7 @@ export default function ProjectCard({ name, description, link, github }: Project
           <Button asChild variant="secondary" className="flex-1">
             <a href={github} target="_blank" rel="noopener noreferrer">
               <span>Source</span>
-              <img src="src/assets/github.svg" alt="Github" className="w-6" />
+              <img src={githubLogo} alt="Github" className="w-6" />
               <span className="sr-only">GitHub</span>
             </a>
           </Button>
