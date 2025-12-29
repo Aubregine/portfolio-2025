@@ -7,6 +7,7 @@ export default function ToggleTheme() {
   return (
     <Button
       variant="ghost"
+      className="cursor-pointer"
       size="icon"
       onClick={() => themeContext.setTheme(themeContext.theme === "dark" ? "light" : "dark")}
     >

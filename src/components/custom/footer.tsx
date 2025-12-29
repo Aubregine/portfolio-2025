@@ -7,10 +7,11 @@ export default function Footer() {
         © {new Date().getFullYear()} - Aurore Kerlero
       </div>
       <div className="absolute left-2">
-        <Button variant="ghost" size="icon" asChild>
+        <Button variant="ghost" asChild>
           <a href="https://www.linkedin.com/in/aurore-kerlero/" target="_blank" rel="noreferrer">
-            <img src="src/assets/linkedin.png" alt="LinkedIn" />
+            <img src="src/assets/linkedin.png" alt="LinkedIn" className="w-6" />
             <div className="sr-only">LinkedIn</div>
+            My LinkedIn
           </a>
         </Button>
       </div>
