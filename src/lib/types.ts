@@ -1,10 +1,10 @@
 export type BlogPost = {
-  data: BlogFrontMatter;
+  data: BlogMetadata;
   slug: string;
   content: string;
 };
 
-export type BlogFrontMatter = {
+export type BlogMetadata = {
   title: string;
   date: string;
   tags: string[];

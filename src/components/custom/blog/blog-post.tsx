@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import React, { type JSX, useEffect, useState } from "react";
-import type { BlogFrontMatter, BlogPost as BlogPostType } from "@/lib/types.ts";
+import type { BlogMetadata, BlogPost as BlogPostType } from "@/lib/types.ts";
 import fm from "front-matter";
 import Markdown from "react-markdown";
 import { cn } from "@/lib/utils.ts";
@@ -11,8 +11,6 @@ import { Terminal } from "@/components/custom/generic/terminal.tsx";
 import { oneDark, oneLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Typewriter } from "@/components/custom/generic/typewriter.tsx";
 import { useTheme } from "@/lib/providers/theme-provider.tsx";
-
-const modules = import.meta.glob("/public/blog-posts/*.md", { query: "?raw" });
 
 const customDarkTheme = {
   ...oneDark,
@@ -42,7 +40,7 @@ const languageNames: { [key: string]: string } = {
   css: "CSS",
 };
 
-const widgets: {
+const customWidgets: {
   [key: string]: (args: { args: string[]; children: React.ReactNode }) => JSX.Element;
 } = {
   typewriter: ({ args, children }) => (
@@ -54,13 +52,32 @@ const widgets: {
   ),
 };
 
-async function loadPost(slug: string): Promise<BlogPostType | null> {
-  const loader = modules[`/public/blog-posts/${slug}.md`];
-  if (!loader) return null;
+/*
+Resolves an image URL if it is relative to the md file.
+If it is already absolute, it returns it as-is.
 
-  const raw = (await loader()) as { default: string };
-  const { attributes, body } = fm<BlogFrontMatter>(raw.default);
-  return { data: attributes, content: body, slug } as BlogPostType;
+The img and the md files need to be in the same folder.
+ */
+function resolveImageUrl(src: string, markdownUrl: string): string {
+  try {
+    const url = new URL(src);
+    // If src is already absolute (starts with http(s):// or /), return as-is
+    return url.href;
+  } catch {
+    // If src is relative, resolve against markdownUrl
+    return new URL(src, markdownUrl).toString();
+  }
+}
+
+async function loadPost(slug: string): Promise<BlogPostType | null> {
+  const url = `${import.meta.env.BASE_URL}blog-posts/${slug}.md`;
+  const res = await fetch(url);
+  if (!res.ok) return null;
+
+  const raw = await res.text();
+  const { attributes, body } = fm<BlogMetadata>(raw);
+
+  return { data: attributes, content: body, slug };
 }
 
 export function BlogPost() {
@@ -75,6 +92,11 @@ export function BlogPost() {
       .then((post) => setPost(post))
       .then(() => setIsLoading(false));
   }, [slug]);
+
+  const markdownUrl = new URL(
+    `blog-posts/${slug}.md`,
+    window.location.origin + import.meta.env.BASE_URL
+  ).toString();
 
   // TODO return a skeleton
   if (isLoading) return <div className="py-20 text-center">Loading post...</div>;
@@ -128,8 +150,8 @@ export function BlogPost() {
                   </code>
                 );
               }
-              if (widgets[lang]) {
-                return widgets[lang]({ args, children: String(children).trim().split("\n") });
+              if (customWidgets[lang]) {
+                return customWidgets[lang]({ args, children: String(children).trim().split("\n") });
               }
               switch (lang) {
                 case "typewriter":
@@ -184,13 +206,9 @@ export function BlogPost() {
               );
             },
             img({ className, alt, src, ...rest }) {
-              const BASE_PATH = import.meta.env.BASE_URL;
-              // check if the image is local and remove the leading slash if so
-              const cleanSrc = src?.startsWith("/") ? `${BASE_PATH}${src.slice(1)}` : src;
-              console.log(cleanSrc);
               return (
                 <img
-                  src={cleanSrc}
+                  src={resolveImageUrl(src ?? "", markdownUrl)}
                   {...rest}
                   alt={alt}
                   className={cn("justify-self-center rounded-lg", className)}
