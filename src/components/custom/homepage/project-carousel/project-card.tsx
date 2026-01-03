@@ -18,7 +18,7 @@ interface ProjectCardProps {
   image?: string;
 }
 
-export default function ProjectCard({ name, description, link, github }: ProjectCardProps) {
+export default function ProjectCard({ name, description, link, github, image }: ProjectCardProps) {
   return (
     <Card className="flex flex-col text-center">
       <CardHeader>
@@ -28,10 +28,12 @@ export default function ProjectCard({ name, description, link, github }: Project
         </CardDescription>
       </CardHeader>
       <CardContent>
-        {/* Add img with src=image */}
-        <div className="bg-muted flex aspect-3/1 items-center justify-center rounded-md border border-dashed">
-          <span className="text-muted-foreground text-sm">Project Preview</span>
-        </div>
+        <img src={image} alt={name} className="aspect-video w-full rounded-md object-cover" />
+        {!image && (
+          <div className="bg-muted flex aspect-3/1 items-center justify-center rounded-md border border-dashed">
+            <span className="text-muted-foreground text-sm">No preview available :(</span>
+          </div>
+        )}
       </CardContent>
       <CardFooter className="flex gap-2">
         {link && (

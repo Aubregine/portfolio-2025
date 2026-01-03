@@ -12,7 +12,7 @@ export default function Footer() {
           <a href="https://www.linkedin.com/in/aurore-kerlero/" target="_blank" rel="noreferrer">
             <img src={linkedin} alt="LinkedIn" className="w-6" />
             <div className="sr-only">LinkedIn</div>
-            My LinkedIn
+            <span className="hidden lg:inline">My LinkedIn</span>
           </a>
         </Button>
       </div>

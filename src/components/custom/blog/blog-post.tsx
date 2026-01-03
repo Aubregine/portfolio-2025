@@ -115,7 +115,7 @@ export function BlogPost() {
   const { data, content } = post;
 
   return (
-    <article className="mx-auto max-w-2/3 py-12">
+    <article className="mx-auto lg:max-w-2/3 lg:py-12">
       <Button variant="ghost" asChild className="mb-8 -ml-4">
         <Link to="/blog">
           <ChevronLeft className="mr-2 h-4 w-4" />

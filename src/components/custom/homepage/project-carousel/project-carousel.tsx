@@ -1,10 +1,4 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, } from "@/components/ui/carousel";
 import ProjectCard from "@/components/custom/homepage/project-carousel/project-card.tsx";
 import { usePortfolio } from "@/lib/providers/portfolio-provider.tsx";
 import { ProjectCardSkeleton } from "@/components/custom/homepage/project-carousel/project-card-skeleton.tsx";
@@ -42,8 +36,8 @@ export function ProjectsCarousel() {
           </CarouselItem>
         )}
       </CarouselContent>
-      <CarouselNext />
-      <CarouselPrevious />
+      <CarouselNext className="hidden lg:flex" />
+      <CarouselPrevious className="hidden lg:flex" />
     </Carousel>
   );
 }
