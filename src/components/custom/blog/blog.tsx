@@ -36,7 +36,7 @@ export function Blog() {
   if (isLoading) return <div className="py-20 text-center">Loading posts...</div>;
 
   return (
-    <div className="mx-auto max-w-2/3 px-4 py-12">
+    <div className="mx-auto px-4 lg:max-w-2/3 lg:py-12">
       <h1 className="mb-8 text-4xl font-bold">Blog Posts</h1>
 
       <div className="mb-8">
