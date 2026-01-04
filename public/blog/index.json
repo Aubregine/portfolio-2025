@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "i-built-a-typewriter-in-react",
+    "metadata": {
+      "title": "I built a cool Typewriter Component for my Website",
+      "date": "28-12-2025",
+      "tags": ["React", "XState", "TypeScript"],
+      "excerpt": "Building a typewriter component using XState"
+    }
+  },
+  {
+    "slug": "from-markdown-to-blogpost",
+    "metadata": {
+      "title": "How to turn Markdown files into ✨beautiful✨ blog posts :)",
+      "date": "04-01-2026",
+      "tags": ["React", "TypeScript"],
+      "excerpt": "Using React Markdown to parse and render Markdown files as blog posts"
+    }
+  }
+]
