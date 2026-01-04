@@ -1,39 +1,31 @@
 import { type ChangeEvent, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Input } from "@/components/ui/input";
-import type { BlogMetadata } from "@/lib/types.ts";
-
-type BlogPostNoContent = {
-  metadata: BlogMetadata;
-  slug: string;
-};
-
-// TODO: this is Alice in wonderland error handling right there
-async function getAllPosts(): Promise<BlogPostNoContent[]> {
-  const url = `${import.meta.env.BASE_URL}blog-posts/index.json`;
-  return await fetch(url).then((res) => res.json());
-}
+import { useBlogService } from "@/lib/providers/blog-provider.tsx";
 
 export function Blog() {
+  const [searchParams] = useSearchParams();
+  const tagParam = searchParams.get("tag") || "";
   const [filter, setFilter] = useState("");
-  const [posts, setPosts] = useState<BlogPostNoContent[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { blogPosts, isLoading } = useBlogService();
 
   useEffect(() => {
-    getAllPosts().then((posts) => {
-      setPosts(posts);
-      setIsLoading(false);
-    });
+    setFilter(tagParam);
   }, []);
 
-  const filteredPosts = posts.filter(
+  const handleFilterChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setFilter(value);
+  };
+
+  // TODO return a skeleton
+  if (isLoading) return <div className="py-20 text-center">Loading posts...</div>;
+
+  const filteredPosts = blogPosts.filter(
     (post) =>
       post.metadata.title.toLowerCase().includes(filter.toLowerCase()) ||
       post.metadata.tags.some((t) => t.toLowerCase().includes(filter.toLowerCase()))
   );
-
-  // TODO return a skeleton
-  if (isLoading) return <div className="py-20 text-center">Loading posts...</div>;
 
   return (
     <div className="mx-auto px-4 lg:max-w-2/3 lg:py-12">
@@ -43,7 +35,7 @@ export function Blog() {
         <Input
           placeholder="Filter by title or tags..."
           value={filter}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => setFilter(e.target.value)}
+          onChange={handleFilterChange}
           className="max-w-sm"
         />
       </div>

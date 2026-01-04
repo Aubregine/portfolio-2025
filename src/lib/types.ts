@@ -1,5 +1,5 @@
 export type BlogPost = {
-  data: BlogMetadata;
+  metadata: BlogMetadata;
   slug: string;
   content: string;
 };
@@ -9,4 +9,13 @@ export type BlogMetadata = {
   date: string;
   tags: string[];
   excerpt?: string;
+};
+
+export type Project = {
+  id: number;
+  name: string;
+  description: string;
+  link?: string;
+  github?: string;
+  image?: string;
 };
