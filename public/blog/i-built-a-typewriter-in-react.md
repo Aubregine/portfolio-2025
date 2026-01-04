@@ -171,7 +171,7 @@ The *state* of my component is now clear:
 - or it is *deleting*
 - (or *done* but that state is trivial and has no transition to any other state)
 
-And the transitions are also pretty straightforward:
+And the transitions are also pretty [straight](https://en.wikipedia.org/wiki/Heterosexuality)forward:
 
 - we (delete | write) a character based on the state
 - while in *writing* mode, if we reach the end of the line, we check `reverse` and change state accordingly
