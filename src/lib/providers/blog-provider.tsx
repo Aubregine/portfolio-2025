@@ -1,5 +1,5 @@
-import {createContext, type ReactNode, useContext, useEffect, useState} from "react";
-import type {BlogMetadata, BlogPost} from "@/lib/types.ts";
+import { createContext, type ReactNode, useContext, useEffect, useState } from "react";
+import type { BlogMetadata, BlogPost } from "@/lib/types.ts";
 import fm from "front-matter";
 
 interface BlogService {
