@@ -1,14 +1,5 @@
 import { createContext, type ReactNode, useContext, useEffect, useState } from "react";
-import PortfolioPreview from "public/portfolio/portfolio-2025-preview.png";
-
-interface Project {
-  id: number;
-  name: string;
-  description: string;
-  link?: string;
-  github?: string;
-  image?: string;
-}
+import type { Project } from "@/lib/types.ts";
 
 interface PortfolioService {
   isLoading: boolean;
@@ -25,7 +16,7 @@ const MOCK_PROJECTS: any[] = [
     description: "My portfolio website :) You'll find my other projects there too",
     link: "https://aubregine.github.io/portfolio-2025/",
     github: "https://github.com/Aubregine/portfolio-2025",
-    image: PortfolioPreview,
+    image: "portfolio/portfolio-2025-preview.png",
   },
 ];
 

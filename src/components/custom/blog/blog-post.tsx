@@ -1,9 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
-import React, { type JSX, useEffect, useState } from "react";
-import type { BlogMetadata, BlogPost as BlogPostType } from "@/lib/types.ts";
-import fm from "front-matter";
+import React, { type JSX } from "react";
 import Markdown from "react-markdown";
 import { cn } from "@/lib/utils.ts";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -11,6 +9,7 @@ import { Terminal } from "@/components/custom/generic/terminal.tsx";
 import { oneDark, oneLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Typewriter } from "@/components/custom/generic/typewriter.tsx";
 import { useTheme } from "@/lib/providers/theme-provider.tsx";
+import { useBlogPost } from "@/lib/providers/blog-provider.tsx";
 
 const customDarkTheme = {
   ...oneDark,
@@ -58,48 +57,21 @@ If it is already absolute, it returns it as-is.
 
 The img and the md files need to be in the same folder.
  */
-function resolveImageUrl(src: string, markdownUrl: string): string {
-  try {
-    const url = new URL(src);
-    // If src is already absolute (starts with http(s):// or /), return as-is
-    return url.href;
-  } catch {
-    // If src is relative, resolve against markdownUrl
-    return new URL(src, markdownUrl).toString();
-  }
-}
-
-async function loadPost(slug: string): Promise<BlogPostType | null> {
-  const url = `${import.meta.env.BASE_URL}blog-posts/${slug}.md`;
-  const res = await fetch(url);
-  if (!res.ok) return null;
-
-  const raw = await res.text();
-  const { attributes, body } = fm<BlogMetadata>(raw);
-
-  return { data: attributes, content: body, slug };
+function resolveUrl(url: string): string {
+  const currentUrl = new URL("blog/", window.location.origin + import.meta.env.BASE_URL);
+  // this will return url if it's absolute, or currentUrl/url if it's relative
+  return new URL(url, currentUrl).toString();
 }
 
 export function BlogPost() {
   const { slug } = useParams();
-  const [post, setPost] = useState<BlogPostType | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
   const { theme } = useTheme();
-
-  useEffect(() => {
-    if (!slug) return; // something went terribly wrong
-    loadPost(slug)
-      .then((post) => setPost(post))
-      .then(() => setIsLoading(false));
-  }, [slug]);
-
-  const markdownUrl = new URL(
-    `blog-posts/${slug}.md`,
-    window.location.origin + import.meta.env.BASE_URL
-  ).toString();
+  const { post, isLoading, error } = useBlogPost(slug ?? "");
 
   // TODO return a skeleton
   if (isLoading) return <div className="py-20 text-center">Loading post...</div>;
+  if (error) return <div className="py-20 text-center">Error loading post :(</div>;
+
   // TODO redirect to 404 page instead
   if (!post) {
     return (
@@ -112,7 +84,7 @@ export function BlogPost() {
     );
   }
 
-  const { data, content } = post;
+  const { metadata, content } = post;
 
   return (
     <article className="mx-auto lg:max-w-2/3 lg:py-12">
@@ -124,13 +96,15 @@ export function BlogPost() {
       </Button>
 
       <header className="mb-8">
-        {data.tags.map((tag) => (
-          <span key={tag} className="text-primary mb-2 text-sm font-medium">
-            {tag}
-          </span>
-        ))}
-        <h1 className="mb-2 text-4xl font-extrabold tracking-tight">{data.title}</h1>
-        <time className="text-muted-foreground text-sm">{data.date}</time>
+        <div className="flex flex-row gap-2">
+          {metadata.tags.map((tag) => (
+            <span key={tag} className="text-primary mb-2 text-sm font-medium">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <h1 className="text-4xl font-extrabold tracking-tight">{metadata.title}</h1>
+        <time className="text-muted-foreground text-sm">{metadata.date}</time>
       </header>
 
       <div className="space-y-2">
@@ -153,29 +127,17 @@ export function BlogPost() {
               if (customWidgets[lang]) {
                 return customWidgets[lang]({ args, children: String(children).trim().split("\n") });
               }
-              switch (lang) {
-                case "typewriter":
-                  return (
-                    <Typewriter
-                      reverse={args.includes("reverse")}
-                      loop={args.includes("loop")}
-                      lines={String(children).trim().split("\n")}
-                    />
-                  );
-                // add custom widgets here
-                default:
-                  return (
-                    <Terminal title={languageNames[lang] ?? "Code"} className="my-2">
-                      {/* @ts-ignore*/}
-                      <SyntaxHighlighter
-                        {...rest}
-                        style={theme === "light" ? customLightTheme : customDarkTheme}
-                        children={String(children).replace(/\n$/, "")}
-                        language={lang}
-                      />
-                    </Terminal>
-                  );
-              }
+              return (
+                <Terminal title={languageNames[lang] ?? "Code"} className="my-2">
+                  {/* @ts-ignore*/}
+                  <SyntaxHighlighter
+                    {...rest}
+                    style={theme === "light" ? customLightTheme : customDarkTheme}
+                    children={String(children).replace(/\n$/, "")}
+                    language={lang}
+                  />
+                </Terminal>
+              );
             },
             h1({ children, className, ...rest }) {
               return (
@@ -205,10 +167,22 @@ export function BlogPost() {
                 </ul>
               );
             },
+            a({ className, href, children }) {
+              return (
+                <Link
+                  to={resolveUrl(href ?? "")}
+                  className={cn("text-primary underline", className)}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {children}
+                </Link>
+              );
+            },
             img({ className, alt, src, ...rest }) {
               return (
                 <img
-                  src={resolveImageUrl(src ?? "", markdownUrl)}
+                  src={resolveUrl(src ?? "")}
                   {...rest}
                   alt={alt}
                   className={cn("justify-self-center rounded-lg", className)}
