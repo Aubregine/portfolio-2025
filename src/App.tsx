@@ -7,6 +7,7 @@ import { Homepage } from "@/components/custom/homepage/homepage.tsx";
 import MainLayout from "@/components/custom/main-layout.tsx";
 import { Blog } from "@/components/custom/blog/blog.tsx";
 import { BlogPost } from "@/components/custom/blog/blog-post.tsx";
+import { BlogProvider } from "@/lib/providers/blog-provider.tsx";
 
 const compose = (providers: ComponentType<{ children: ReactNode }>[]) =>
   providers.reduce((Prev, Curr) => ({ children }) => (
@@ -15,7 +16,7 @@ const compose = (providers: ComponentType<{ children: ReactNode }>[]) =>
     </Prev>
   ));
 
-const Providers = compose([MetadataProvider, ThemeProvider, PortfolioProvider]);
+const Providers = compose([MetadataProvider, ThemeProvider, PortfolioProvider, BlogProvider]);
 
 function App() {
   return (

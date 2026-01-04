@@ -72,24 +72,27 @@ function resolveImageUrl(src: string, markdownUrl: string): string {
 async function loadPost(slug: string): Promise<BlogPostType | null> {
   const url = `${import.meta.env.BASE_URL}blog-posts/${slug}.md`;
   const res = await fetch(url);
-  if (!res.ok) return null;
 
   const raw = await res.text();
   const { attributes, body } = fm<BlogMetadata>(raw);
 
-  return { data: attributes, content: body, slug };
+  if (!attributes.title || !body) return null;
+
+  return { metadata: attributes, content: body, slug };
 }
 
 export function BlogPost() {
   const { slug } = useParams();
   const [post, setPost] = useState<BlogPostType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<Error | undefined>();
   const { theme } = useTheme();
 
   useEffect(() => {
     if (!slug) return; // something went terribly wrong
     loadPost(slug)
       .then((post) => setPost(post))
+      .catch(setError)
       .then(() => setIsLoading(false));
   }, [slug]);
 
@@ -100,6 +103,8 @@ export function BlogPost() {
 
   // TODO return a skeleton
   if (isLoading) return <div className="py-20 text-center">Loading post...</div>;
+  if (error) return <div className="py-20 text-center">Error loading post :(</div>;
+
   // TODO redirect to 404 page instead
   if (!post) {
     return (
@@ -112,7 +117,7 @@ export function BlogPost() {
     );
   }
 
-  const { data, content } = post;
+  const { metadata, content } = post;
 
   return (
     <article className="mx-auto lg:max-w-2/3 lg:py-12">
@@ -124,13 +129,15 @@ export function BlogPost() {
       </Button>
 
       <header className="mb-8">
-        {data.tags.map((tag) => (
-          <span key={tag} className="text-primary mb-2 text-sm font-medium">
-            {tag}
-          </span>
-        ))}
-        <h1 className="mb-2 text-4xl font-extrabold tracking-tight">{data.title}</h1>
-        <time className="text-muted-foreground text-sm">{data.date}</time>
+        <div className="flex flex-row gap-2">
+          {metadata.tags.map((tag) => (
+            <span key={tag} className="text-primary mb-2 text-sm font-medium">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <h1 className="text-4xl font-extrabold tracking-tight">{metadata.title}</h1>
+        <time className="text-muted-foreground text-sm">{metadata.date}</time>
       </header>
 
       <div className="space-y-2">

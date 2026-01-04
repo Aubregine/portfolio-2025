@@ -28,8 +28,16 @@ export default function ProjectCard({ name, description, link, github, image }: 
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <img src={image} alt={name} className="aspect-video w-full rounded-md object-cover" />
-        {!image && (
+        {image ? (
+          <img
+            src={new URL(
+              image || "/assets/placeholder.png",
+              window.location.origin + import.meta.env.BASE_URL
+            ).toString()}
+            alt={name}
+            className="aspect-video w-full rounded-md object-cover"
+          />
+        ) : (
           <div className="bg-muted flex aspect-3/1 items-center justify-center rounded-md border border-dashed">
             <span className="text-muted-foreground text-sm">No preview available :(</span>
           </div>

@@ -1,7 +1,7 @@
 ---
 title: I built a cool Typewriter Component for my Website
 date: "28-12-2025"
-tags: [ "react" ]
+tags: [ "React", "XState", "TypeScript" ]
 excerpt: Building a typewriter component using XState
 ---
 
