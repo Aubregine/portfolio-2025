@@ -1,5 +1,6 @@
-import { createContext, type ReactNode, useContext, useEffect, useState } from "react";
-import type { BlogPost } from "@/lib/types.ts";
+import {createContext, type ReactNode, useContext, useEffect, useState} from "react";
+import type {BlogMetadata, BlogPost} from "@/lib/types.ts";
+import fm from "front-matter";
 
 interface BlogService {
   blogPosts: Omit<BlogPost, "content">[];
@@ -9,7 +10,7 @@ interface BlogService {
 
 // TODO: this is Alice in wonderland error handling right there
 async function getAllPosts(): Promise<BlogPost[]> {
-  const url = `${import.meta.env.BASE_URL}blog-posts/index.json`;
+  const url = `${import.meta.env.BASE_URL}blog/index.json`;
   return await fetch(url).then((res) => res.json());
 }
 
@@ -55,4 +56,26 @@ export const useBlogSlugs = (): string[] => {
 export const useBlogTags = (): string[] => {
   const { blogPosts } = useBlogService();
   return Array.from(new Set(blogPosts.map((post) => post.metadata.tags).flat())).sort();
+};
+
+export const useBlogPost = (
+  slug: string
+): { post?: BlogPost; error?: Error; isLoading: boolean } => {
+  const [post, setPost] = useState<BlogPost | undefined>();
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<Error | undefined>();
+
+  useEffect(() => {
+    const url = `${import.meta.env.BASE_URL}blog/${slug}.md`;
+    fetch(url)
+      .then((res) => res.text())
+      .then((raw) => {
+        const { attributes, body } = fm<BlogMetadata>(raw);
+        setPost({ metadata: attributes, content: body, slug });
+        setIsLoading(false);
+      })
+      .catch(setError);
+  }, []);
+
+  return { isLoading, error, post };
 };
