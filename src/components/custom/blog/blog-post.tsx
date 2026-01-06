@@ -10,6 +10,10 @@ import { oneDark, oneLight } from "react-syntax-highlighter/dist/cjs/styles/pris
 import { Typewriter } from "@/components/custom/generic/typewriter.tsx";
 import { useTheme } from "@/lib/providers/theme-provider.tsx";
 import { useBlogPost } from "@/lib/providers/blog-provider.tsx";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
 
 const customDarkTheme = {
   ...oneDark,
@@ -109,6 +113,8 @@ export function BlogPost() {
 
       <div className="space-y-2">
         <Markdown
+          remarkPlugins={[remarkGfm, remarkMath]}
+          rehypePlugins={[rehypeKatex]}
           components={{
             code({ node, children, className, ...rest }) {
               const match = /language-(\w+)/.exec(className || "");
