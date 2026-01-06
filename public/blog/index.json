@@ -16,5 +16,14 @@
       "tags": ["React", "TypeScript"],
       "excerpt": "Using React Markdown to parse and render Markdown files as blog posts"
     }
+  },
+  {
+    "slug": "mandelbrot-set-viewer-in-rust",
+    "metadata": {
+      "title": "I built a Mandelbrot Set viewer in Rust",
+      "date": "06-01-2026",
+      "tags": ["Rust"],
+      "excerpt": "Building an efficient Mandelbrot Set viewer in Rust, from naive implementation to low-level optimizations."
+    }
   }
 ]
