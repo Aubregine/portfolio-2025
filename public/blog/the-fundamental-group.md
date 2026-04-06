@@ -67,11 +67,14 @@ that $$\forall t \in \left[ 0, 1 \right],\ \gamma (t) = (1 - t) x + t y$$
 &nbsp;Therefore, $$\left] 0, 1 \right[$$ is path connected  
 **c) Show that $$\left] 0, 1 \right[ \smallsetminus \left\{ \frac{1}{2} \right\}$$ is not path connected**  
 &nbsp;Let $$x = \frac{1}{4}$$ and $$y = \frac{3}{4}$$  
-&nbsp;Let $$\gamma : [0,1] \to ]0,1[$$ be a continuous function with $$\gamma (0) = x$$ and $$\gamma (1) = y$$  
-&nbsp;Since $$\gamma$$ is continuous, we can apply the Intermediate Value Theorem, giving us $$t_{0} \in ]0, 1[$$ such
+&nbsp;Let $$\gamma : [0,1] \to ]0,1[$$ be a continuous map with $$\gamma (0) = x$$ and $$\gamma (1) = y$$  
+&nbsp;Since $$\gamma$$ is continuous, $$\gamma(0) = \frac{1}{4}$$ and $$\gamma(1) = \frac{3}{4}$$, we can apply the
+Intermediate Value Theorem, giving us $$t_{0} \in [0, 1]$$ such
 that $$\gamma (t_{0}) = \frac{1}{2}$$  
-&nbsp;$$\gamma$$ is not continuous on $$]0,1[ \smallsetminus \left\{ \frac{1}{2} \right\}$$, $$\gamma$$ is not a path  
-&nbsp;Therefore, $$]0,1[ \smallsetminus \left\{ \frac{1}{2} \right\}$$ is not path connected
+&nbsp;$$\gamma$$ is not a map onto $$]0,1[\ \smallsetminus \ \{ \frac{1}{2} \}$$. $$\gamma$$
+is not a path  
+&nbsp;There are no path between $$x$$ and $$y$$  
+&nbsp;Therefore, $$]0,1[\ \smallsetminus \ \{ \frac{1}{2} \}$$ is not path connected
 
 ### **Definition 1.2: Homeomorphism**
 
@@ -82,7 +85,32 @@ write $$X \cong Y$$. Hence $$\cong$$ is an equivalence relation on topological s
 did 🫡)
 
 3) **Show that the map $$e :\ ]0,1[\ \to \mathbb{S}^{1} \smallsetminus \{(0,1)\}$$ defined
-   by $$e(t):= \big( cost(2 \pi t), sin(2 \pi t)\big)$$ is a homeomorphism**
+   by $$e(t):= \big( cost(2 \pi t), sin(2 \pi t)\big)$$ is a homeomorphism**  
+   &nbsp;$$e$$ is continuous because both $$t \mapsto \cos(2 \pi t)$$ and $$t \mapsto \sin(2 \pi t)$$ are continuous
+   on $$[0,1]$$    
+   &nbsp;Let $$f : \mathbb{S}^{1} \smallsetminus \{(0,1)\} \to ]0,1[$$ defined
+   as $$f((x, y)) = \begin{cases} \frac{1}{2 \pi} \arccos (x) &\quad\text{if } y \ge 0 \\ 1-\frac{1}{2 \pi} \arccos (x) &\quad\text{if } y \le 0 \end{cases}$$  
+   &nbsp;$$f$$ is well defined because $$\frac{1}{2 \pi} \arccos(-1) = \frac{1}{2}$$
+   and $$1 - \frac{1}{2 \pi} \arccos(1) = \frac{1}{2}$$  
+   &nbsp;$$f$$ is continuous because both $$t \mapsto \frac{1}{2 \pi} \arccos(t)$$
+   and $$t \mapsto 1 - \frac{1}{2 \pi} \arccos(t)$$ are continuous  
+   &nbsp;We
+   have $$\forall (x,y) \in \mathbb{S}^{1},$$  
+   &nbsp;$$(e \circ f)((x, y)) = \begin{cases} \Big( \cos \big( 2 \pi \frac{1}{2 \pi } \arccos(x) \big), sin \big( 2 \pi \frac{1}{2 \pi} \arccos (x) \big) \Big) &\quad\text{if } y \ge 0 \\ \Big( \cos \big( -2 \pi \frac{1}{2 \pi } \arccos(x) \big), sin \big( -2 \pi \frac{1}{2 \pi} \arccos (x) \big) \Big) &\quad\text{if } y \le 0\end{cases}$$  
+   &nbsp;$$(e \circ f)((x, y)) = \begin{cases} \Big( \cos \big( \arccos(x) \big), sin \big( \arccos (x) \big) \Big) &\quad\text{if } y \ge 0 \\ \Big( \cos \big( \arccos(x) \big), sin \big( \arccos (x) \big) \Big) &\quad\text{if } y \le 0\end{cases}$$  
+   &nbsp;$$(e \circ f)((x, y)) = \begin{cases} \Big( x, \sqrt{1 - x^{2}} \Big) &\quad\text{if } y \ge 0 \\ \Big( x , -\sqrt{1-x^{2}} \Big) &\quad\text{if } y \le 0\end{cases}$$  
+   &nbsp;$$(e \circ f)((x, y)) = \begin{cases} \Big( x, |y| \Big) &\quad\text{if } y \ge 0 \\ \Big( x , -|y| \Big) &\quad\text{if } y \le 0\end{cases}$$  
+   &nbsp;$$(e \circ f)((x,y)) = (x, y)$$, i.e: $$e \circ f = id_{\mathbb{S}^{1}}$$  
+   &nbsp;And $$\forall t \in ]0, 1[$$,  
+   &nbsp;$$(f \circ e)(t) = \begin{cases} \frac{1}{2 \pi} \arccos \big( cos(2 \pi t) \big) &\quad\text{if } sin(2 \pi t) \ge 0 \\ 1 - \frac{1}{2 \pi} \arccos \big( cos(2 \pi t) \big) &\quad\text{if } sin(2 \pi t) \le 0 \end{cases}$$  
+   &nbsp;Using $$\cos(2 \pi t - \pi) = -cos(2 \pi t)$$, we get  
+   &nbsp;$$(f \circ e)(t) = \begin{cases} t &\quad\text{if } 2 \pi t \le \pi \\ 1 - \frac{1}{2 \pi} \arccos(-cos(2 \pi t - \pi)) &\quad\text{if } 2 \pi t \ge \pi \end{cases}$$  
+   &nbsp;Using $$\arccos(-z) = \pi - \arccos(z)$$, we get  
+   &nbsp;$$(f \circ e)(t) = \begin{cases} t &\quad\text{if } 2 \pi t \le \pi \\ 1 - \frac{1}{2 \pi} (\pi - \arccos \big( cos(2 \pi t - \pi)) \big) &\quad\text{if } 2 \pi t \ge \pi \end{cases}$$  
+   &nbsp;$$(f \circ e)(t) = \begin{cases} t &\quad\text{if } 2 \pi t \le \pi \\ 1 - \frac{1}{2 \pi} (\pi - (2 \pi t - \pi)) &\quad\text{if } 2 \pi t \ge \pi \end{cases}$$  
+   &nbsp;$$(f \circ e)(t) = \begin{cases} t &\quad\text{if } 2 \pi t \le \pi \\ t &\quad\text{if } 2 \pi t \ge \pi \end{cases}$$  
+   &nbsp;$$(f \circ e)(t) = t, i.e: f \circ e = id_{]0,1[}$$  
+   &nbsp;We have thus $$f = e^{-1}$$, $$e$$ is a homeomorphism
 4) **Let $$X \cong Y$$ be two homeomorphic spaces, show that $$X$$ is path connected iif $$Y$$ is**
 5) **Show that if $$f : X \to Y$$ is a homeomorphism, then for any $$x \in X$$ it induces an homeomorphism $$X
    \smallsetminus \{x\} \to Y \smallsetminus \{f(x)\}$$**
