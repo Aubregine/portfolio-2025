@@ -1,19 +1,20 @@
-import {Link, useParams} from "react-router-dom";
-import {Button} from "@/components/ui/button";
-import {ChevronLeft} from "lucide-react";
-import React, {type JSX} from "react";
+import { Link, useParams } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft } from "lucide-react";
+import React, { type JSX } from "react";
 import Markdown from "react-markdown";
-import {cn} from "@/lib/utils.ts";
-import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
-import {Terminal} from "@/components/custom/generic/terminal.tsx";
-import {oneDark, oneLight} from "react-syntax-highlighter/dist/cjs/styles/prism";
-import {Typewriter} from "@/components/custom/generic/typewriter.tsx";
-import {useTheme} from "@/lib/providers/theme-provider.tsx";
-import {useBlogPost} from "@/lib/providers/blog-provider.tsx";
+import { cn } from "@/lib/utils.ts";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { Terminal } from "@/components/custom/generic/terminal.tsx";
+import { oneDark, oneLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { Typewriter } from "@/components/custom/generic/typewriter.tsx";
+import { useTheme } from "@/lib/providers/theme-provider.tsx";
+import { useBlogPost } from "@/lib/providers/blog-provider.tsx";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
+import { Blackboard } from "@/components/custom/generic/blackboard.tsx";
 
 const customDarkTheme = {
   ...oneDark,
@@ -185,6 +186,13 @@ export function BlogPost() {
                 <li {...rest} className={cn(className, "mb-2")}>
                   {children}
                 </li>
+              );
+            },
+            blockquote({ children, className, ...rest }) {
+              return (
+                <Blackboard {...rest} className={className}>
+                  {children}
+                </Blackboard>
               );
             },
             a({ className, href, children }) {
