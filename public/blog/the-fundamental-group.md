@@ -9,7 +9,7 @@ excerpt: Fundamental groups and Brouwer’s fixed point theorem
 
 This assignment was given to me by a dear friend of mine, I did my best and had a lot of fun, I hope you'll enjoy the
 beauty of Mathematics as much as I did :)  
-You can find the assignment [here](https://luyise.github.io//teaching/2026-04-06-BFP.pdf).
+You can find the assignment [here](https://luyise.github.io//teaching/).
 
 ## Part 1: The fundamental group of a space
 
@@ -84,11 +84,11 @@ We say that $$X$$ and $$Y$$ are _homeomorphic_ whenever there is such homeomorph
 write $$X \cong Y$$. Hence $$\cong$$ is an equivalence relation on topological spaces (if not convinced, check it!) (I
 did 🫡)
 
-3) **Show that the map $$e :\ ]0,1[\ \to \mathbb{S}^{1} \setminus \{(0,1)\}$$ defined
+3) **Show that the map $$e :\ ]0,1[\ \to \mathbb{S}^{1} \setminus \{(1,0)\}$$ defined
    by $$e(t):= \big( cost(2 \pi t), sin(2 \pi t)\big)$$ is a homeomorphism**  
    &nbsp;$$e$$ is continuous because both $$t \mapsto \cos(2 \pi t)$$ and $$t \mapsto \sin(2 \pi t)$$ are continuous
    on $$[0,1]$$    
-   &nbsp;Let $$f : \mathbb{S}^{1} \setminus \{(0,1)\} \to ]0,1[$$ defined
+   &nbsp;Let $$f : \mathbb{S}^{1} \setminus \{(1,0)\} \to ]0,1[$$ defined
    as $$f((x, y)) = \begin{cases} \frac{1}{2 \pi} \arccos (x) &\quad\text{if } y \ge 0 \\ 1-\frac{1}{2 \pi} \arccos (x) &\quad\text{if } y \le 0 \end{cases}$$  
    &nbsp;$$f$$ is well defined because $$\frac{1}{2 \pi} \arccos(-1) = \frac{1}{2}$$
    and $$1 - \frac{1}{2 \pi} \arccos(1) = \frac{1}{2}$$  
@@ -108,14 +108,14 @@ did 🫡)
    &nbsp;$$(f \circ e)(t) = \begin{cases} t &\quad\text{if } 2 \pi t \le \pi \\ 1 - \frac{1}{2 \pi} (\pi - \arccos \big( cos(2 \pi t - \pi)) \big) &\quad\text{if } 2 \pi t \ge \pi \end{cases}$$  
    &nbsp;$$(f \circ e)(t) = \begin{cases} t &\quad\text{if } 2 \pi t \le \pi \\ 1 - \frac{1}{2 \pi} (\pi - (2 \pi t - \pi)) &\quad\text{if } 2 \pi t \ge \pi \end{cases}$$  
    &nbsp;$$(f \circ e)(t) = \begin{cases} t &\quad\text{if } 2 \pi t \le \pi \\ t &\quad\text{if } 2 \pi t \ge \pi \end{cases}$$  
-   &nbsp;$$(f \circ e)(t) = t, i.e: f \circ e = id_{]0,1[}$$  
+   &nbsp;$$(f \circ e)(t) = t$$, i.e: $$f \circ e = id_{]0,1[}$$  
    &nbsp;We have thus $$f = e^{-1}$$, $$e$$ is a homeomorphism
-4) **Let $$X \cong Y$$ be two homeomorphic spaces, show that $$X$$ is path connected iif $$Y$$ is**
+4) **Let $$X \cong Y$$ be two homeomorphic spaces, show that $$X$$ is path connected iif $$Y$$ is**  
    &nbsp;Part 1: $$X$$ is path connected $$\Rightarrow Y$$ is path connected:  
    &nbsp;Let $$y_{1}, y_{2} \in Y$$ be twe points of $$Y$$.  
    &nbsp;Since $$Y \cong X$$, there is $$f: Y \to X$$ an homeomorphism between $$Y$$ and $$X$$.  
-   &nbsp;Since both $$f(y_{1})$$ and $$f(y_{2})$$ are points of $$X$$, there is a path $$\gamma : [0,1] \to X$$ such
-   that $$\gamma(0) = f(y_{1})$$ and $$\gamma(1) = f(y_{2})$$  
+   &nbsp;Since both $$f(y_{1})$$ and $$f(y_{2})$$ are points of $$X$$ and $$X$$ is connected, there is a
+   path $$\gamma : [0,1] \to X$$ such that $$\gamma(0) = f(y_{1})$$ and $$\gamma(1) = f(y_{2})$$  
    &nbsp;We define $$\delta : [0,1] \to Y$$ as $$\forall t \in [0, 1],\ \delta(t) := f^{-1}(\gamma(t))$$  
    &nbsp;$$\delta$$ is continuous because it is a composition of continuous
    maps, $$\delta(0) = f^{-1}(\gamma(0)) = f^{-1}(f(y_{1})) = y_{1}$$ and $$\delta(1) = f^{-1}(f(y_{2})) = y_{2}$$  
@@ -159,7 +159,14 @@ did 🫡)
    contraposition of 4))  
    &nbsp;And finally, from the contraposition of 5, $$f$$ is not a homeomorphism, i.e: $$\mathbb{S}^{1}$$ is not
    homeomorphic to $$\mathbb{R}^{n}$$  
-   &nbsp;For $$n = 1$$
+   &nbsp;For $$n = 1$$, let $$f : \mathbb{S}^{1} \to \mathbb{R}$$ be a map and $$x = (1,0)$$ an element
+   of $$\mathbb{R}$$. We define $$f' : \mathbb{S}^{1} \setminus \{x\} \to \mathbb{R} \setminus \{0\}$$ defined
+   as $$\forall s \in \mathbb{S}^{1}$$, $$f'(s) = f(s) - f(x)$$ and we have $$f'(x) = 0$$  
+   &nbsp;Since $$\mathbb{S}^{1} \setminus \{x\}$$ is path connected (from 6) but $$\mathbb{R} \setminus \{0\}$$
+   isn't (from 1)b)), $$f'$$ cannot be an homeomorphism (from the contraposition of 4))  
+   &nbsp;And finally, from the contraposition of 5, $$f$$ is not a homeomorphism, i.e: $$\mathbb{S}^{1}$$ is not
+   homeomorphic to $$\mathbb{R}$$  
+   &nbsp;Therefore, $$\mathbb{S}^{1}$$ is not homeomorphic to any $$\mathbb{R}^{n}$$
 
 These first questions illustrated that the connectedness of a space is an interesting property which is
 invariant by homeomorphism. Hence it may help to know whether two spaces are homeomorphic or not.
