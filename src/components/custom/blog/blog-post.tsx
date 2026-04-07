@@ -1,15 +1,19 @@
-import { Link, useParams } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { ChevronLeft } from "lucide-react";
-import React, { type JSX } from "react";
+import {Link, useParams} from "react-router-dom";
+import {Button} from "@/components/ui/button";
+import {ChevronLeft} from "lucide-react";
+import React, {type JSX} from "react";
 import Markdown from "react-markdown";
-import { cn } from "@/lib/utils.ts";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { Terminal } from "@/components/custom/generic/terminal.tsx";
-import { oneDark, oneLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { Typewriter } from "@/components/custom/generic/typewriter.tsx";
-import { useTheme } from "@/lib/providers/theme-provider.tsx";
-import { useBlogPost } from "@/lib/providers/blog-provider.tsx";
+import {cn} from "@/lib/utils.ts";
+import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
+import {Terminal} from "@/components/custom/generic/terminal.tsx";
+import {oneDark, oneLight} from "react-syntax-highlighter/dist/cjs/styles/prism";
+import {Typewriter} from "@/components/custom/generic/typewriter.tsx";
+import {useTheme} from "@/lib/providers/theme-provider.tsx";
+import {useBlogPost} from "@/lib/providers/blog-provider.tsx";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
 
 const customDarkTheme = {
   ...oneDark,
@@ -109,6 +113,8 @@ export function BlogPost() {
 
       <div className="space-y-2">
         <Markdown
+          remarkPlugins={[remarkGfm, remarkMath]}
+          rehypePlugins={[rehypeKatex]}
           components={{
             code({ node, children, className, ...rest }) {
               const match = /language-(\w+)/.exec(className || "");
@@ -165,6 +171,20 @@ export function BlogPost() {
                 <ul {...rest} className={cn("ml-3 list-inside list-disc", className)}>
                   {children}
                 </ul>
+              );
+            },
+            ol({ children, className, ...rest }) {
+              return (
+                <ol {...rest} className={cn("ml-3 list-decimal", className)}>
+                  {children}
+                </ol>
+              );
+            },
+            li({ children, className, ...rest }) {
+              return (
+                <li {...rest} className={cn(className, "mb-2")}>
+                  {children}
+                </li>
               );
             },
             a({ className, href, children }) {
