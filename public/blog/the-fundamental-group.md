@@ -26,18 +26,22 @@ there is a path from $$x$$ to $$y$$
 
 1) **Let $$n \in \mathbb{N}$$**  
    **a) Show that $$\mathbb{R}^{n}$$ is path connected**
-   > Let $$x, y \in \mathbb{R}^{n}$$  
-   > Let $$\gamma : \left[ 0, 1 \right] \to \mathbb{R}^{n}$$ such
-   that $$\forall t \in \left[ 0, 1 \right],\ \gamma (t) = (1 - t) x + t y$$  
-   > $$\gamma$$ is continuous, $$\gamma (0) = x$$ and $$\gamma (1) = y$$  
-   > $$\gamma$$ is a path between $$x$$ and $$y$$  
-   > Therefore, $$\mathbb{R}^{n}$$ is path connected  
-   **b) For $$n \ge 2$$, show that $$\mathbb{R}^{n} \setminus \left\{ 0 \right\} $$ is path connected**  
-   > J'ai pas trouvé 😣 mais géométriquement c'est obviouuuus ouin  
-   **c) Let $$a_{1}, \ldots, a_{n} \in \mathbb{R}^{n}$$, show
-   that $$\mathbb{R}^{n} \setminus \left\{ a_{1}, \ldots, a_{n} \right\}$$ is path connected**  
-   > Pareil, géométriquement c'est pas difficile tant que la famille des $$\left\{a_{1}, \ldots, a_{n}\right\}$$ est
-   finie 😣
+
+> Let $$x, y \in \mathbb{R}^{n}$$  
+> Let $$\gamma : \left[ 0, 1 \right] \to \mathbb{R}^{n}$$ such
+> that $$\forall t \in \left[ 0, 1 \right],\ \gamma (t) = (1 - t) x + t y$$  
+> $$\gamma$$ is continuous, $$\gamma (0) = x$$ and $$\gamma (1) = y$$  
+> $$\gamma$$ is a path between $$x$$ and $$y$$  
+> Therefore, $$\mathbb{R}^{n}$$ is path connected
+
+**b) For $$n \ge 2$$, show that $$\mathbb{R}^{n} \setminus \left\{ 0 \right\} $$ is path connected**
+> J'ai pas trouvé 😣 mais géométriquement c'est obviouuuus ouin
+
+**c) Let $$a_{1}, \ldots, a_{n} \in \mathbb{R}^{n}$$, show
+that $$\mathbb{R}^{n} \setminus \left\{ a_{1}, \ldots, a_{n} \right\}$$ is path connected**
+> Pareil, géométriquement c'est pas difficile tant que la famille des $$\left\{a_{1}, \ldots, a_{n}\right\}$$ est
+> finie 😣
+
 2)
 
 **a) Show that $$\mathbb{S}^1 := \left\{ (x, y) \in \mathbb{R}^2\ |\ x^{2} + y^{2} = 1 \right\}$$ is path connected**
@@ -57,15 +61,17 @@ there is a path from $$x$$ to $$y$$
 > $$ \gamma' (1) = \begin{cases} ( x_{2} ,\ |y_{2}| ) &\quad\text{if } y_{2} \ge 0 \\ ( x_{2},\ -|y_{2}|) &\quad\text{if } y_{2} \lt 0 \end{cases}$$  
 > $$ \gamma' (0) = a$$, $$ \gamma' (1) = b$$  
 > $$\gamma'$$ is a path between $$a$$ and $$b$$  
-> Therefore, $$\mathbb{S}^1$$ is path connected  
-**b) Show that $$\left] 0, 1 \right[$$ is path connected**  
+> Therefore, $$\mathbb{S}^1$$ is path connected
+
+**b) Show that $$\left] 0, 1 \right[$$ is path connected**
 > Let $$x, y \in \left]0,1\right[$$  
 > Let $$\gamma : \left[ 0, 1 \right] \to \left]0,1\right[$$ such
 > that $$\forall t \in \left[ 0, 1 \right],\ \gamma (t) = (1 - t) x + t y$$  
 > $$\gamma$$ is continuous, $$\gamma (0) = x$$ and $$\gamma (1) = y$$  
 > $$\gamma$$ is a path between $$x$$ and $$y$$  
-> Therefore, $$\left] 0, 1 \right[$$ is path connected  
-**c) Show that $$\left] 0, 1 \right[ \setminus \left\{ \frac{1}{2} \right\}$$ is not path connected**  
+> Therefore, $$\left] 0, 1 \right[$$ is path connected
+
+**c) Show that $$\left] 0, 1 \right[ \setminus \left\{ \frac{1}{2} \right\}$$ is not path connected**
 > Let $$x = \frac{1}{4}$$ and $$y = \frac{3}{4}$$  
 > Let $$\gamma : [0,1] \to ]0,1[$$ be a continuous map with $$\gamma (0) = x$$ and $$\gamma (1) = y$$  
 > Since $$\gamma$$ is continuous, $$\gamma(0) = \frac{1}{4}$$ and $$\gamma(1) = \frac{3}{4}$$, we can apply the
