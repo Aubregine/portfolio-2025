@@ -27,8 +27,3 @@ jobs:
       - run: npm ci
 
       - uses: actions/deploy-pages@v4
-        id: deployment
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
