@@ -25,7 +25,8 @@ The space $$X$$ is said to be path connected if for any two points $$x, y$$ of $
 there is a path from $$x$$ to $$y$$.
 
 1) **Let $$n \in \mathbb{N}$$**.
-   **a) Show that $$\mathbb{R}^{n}$$ is path connected**.
+
+**a) Show that $$\mathbb{R}^{n}$$ is path connected**.
 
 > Let $$x, y \in \mathbb{R}^{n}$$.  
 > Let $$\gamma : \left[ 0, 1 \right] \to \mathbb{R}^{n}$$ such that $$\forall t \in \left[ 0, 1 \right],\ \gamma (t) = (1 - t) x + t y$$.  
@@ -138,7 +139,7 @@ did 🫡)
    \setminus \{x\} \to Y \setminus \{f(x)\}$$**.
 
 > We consider $$f_{|X \setminus \{x\}}$$ the restriction of $$f$$ to $$X \setminus \{x\}$$.  
-> Since $$f$$ is injective, $$f(\{x\})$$ has at most one element in $$Y$$ ($$\{f(x)\}$$) and $$f(X \setminus \{x\}) = Y \setminus \{f(x)\}$$.  
+> Since $$f$$ is injective, $$f^{-1}(\{f(x)\})$$ has at most one element in $$X$$ : $$x$$ and $$f(X \setminus \{x\}) = Y \setminus \{f(x)\}$$.  
 > We can corestrict $$f_{|X \setminus \{x\}}$$ to its image $$f_{X \setminus \{x\}}(X \setminus \{x\}) = Y \setminus \{f(x)\}$$ and we denote the corestriction by $$f_{|X \setminus \{x\}}'$$.  
 > We first prove that $$f_{|X \setminus \{x\}}' : X \setminus \{x\} \to Y \setminus \{f(x)\}$$ is injective.  
 > Let $$x_{1}, x_{2} \in X \setminus \{x\}$$.  
@@ -156,10 +157,11 @@ did 🫡)
 
 7) **Deduce similarly that $$\mathbb{S}^{1}$$ is not homeomorphic to any $$\mathbb{R}^{n}$$**.
 
-> For $$n \ge 2$$, let $$f : \mathbb{S}^{1} \to \mathbb{R}^{n}$$ be a map and $$x = (1,0), y = (-1,0)$$ two elements of $$\mathbb{S}^{1}$$. We define $$f' : \mathbb{S}^{1} \setminus \{x, y\} \to \mathbb{R}^{n} \setminus \{f(x),f(y)\}$$ the restriction of $$f$$ to $$\mathbb{S}^{1} \setminus \{x,y\}$$.  
+> For $$n \ge 2$$, let $$f : \mathbb{S}^{1} \to \mathbb{R}^{n}$$ be a map and $$x = (1,0), y = (-1,0)$$ two elements of $$\mathbb{S}^{1}$$.  
+> We define $$f' : \mathbb{S}^{1} \setminus \{x, y\} \to \mathbb{R}^{n} \setminus \{f(x),f(y)\}$$ the restriction of $$f$$ to $$\mathbb{S}^{1} \setminus \{x,y\}$$.  
 > Since $$\mathbb{S}^{1} \setminus \{x,y\}$$ is not connected (from 6) and $$\mathbb{R}^{n} \setminus \{e(x), e(y)\}$$ is (from 1)c)), $$f'$$ cannot be a homeomorphism (from the contraposition of 4)).  
 > And finally, from the contraposition of 5, $$f$$ is not a homeomorphism, i.e: $$\mathbb{S}^{1}$$ is not homeomorphic to $$\mathbb{R}^{n}$$.  
-> For $$n = 1$$, let $$f : \mathbb{S}^{1} \to \mathbb{R}$$ be a map and $$x = (1,0)$$ an element of $$\mathbb{R}$$. We define $$f' : \mathbb{S}^{1} \setminus \{x\} \to \mathbb{R} \setminus \{0\}$$ defined as $$\forall s \in \mathbb{S}^{1}$$, $$f'(s) = f(s) - f(x)$$ and we have $$f'(x) = 0$$.  
+> For $$n = 1$$, let $$f : \mathbb{S}^{1} \to \mathbb{R}$$ be an injective map and $$x = (1,0)$$ an element of $$\mathbb{S}^{1}$$. Since $$f$$ is injective, $$f^{-1}(\{f(x)\})$$ has at most one element in $$\mathbb{S}^{1}$$ : $$x$$. We define $$f' : \mathbb{S}^{1} \setminus \{x\} \to \mathbb{R} \setminus \{0\}$$ as $$\forall s \in \mathbb{S}^{1}$$, $$f'(s) := f(s) - f(x)$$.  
 > Since $$\mathbb{S}^{1} \setminus \{x\}$$ is path connected (from 6) but $$\mathbb{R} \setminus \{0\}$$ isn't (from 1)b)), $$f'$$ cannot be an homeomorphism (from the contraposition of 4)).  
 > And finally, from the contraposition of 5, $$f$$ is not a homeomorphism, i.e: $$\mathbb{S}^{1}$$ is not homeomorphic to $$\mathbb{R}$$.  
 > Therefore, $$\mathbb{S}^{1}$$ is not homeomorphic to any $$\mathbb{R}^{n}$$.
@@ -173,7 +175,7 @@ between paths.
 ### **Definition 1.3: Homotopy of paths**
 
 Let $$X$$ be a space and $$\alpha, \beta : [0, 1] \to X$$ be two paths from $$x$$ to $$y$$. A (fixed endpoints) homotopy
-between $$\alpha$$ and $$\beta$$ is the data of a map $$H : [0,1]^{2} \to X$$ such that
+between $$\alpha$$ and $$\beta$$ is the data of a continuous map $$H : [0,1]^{2} \to X$$ such that
 
 * $$\forall t, H (0, t) = \alpha (t)$$ and $$H(1, t) = \beta (t)$$
 * $$\forall s, H(s, 0) = x$$ and $$H(s, 1) = y$$
@@ -182,7 +184,35 @@ We write $$\alpha \sim \beta$$ when they are _homotopic_, that is when there is 
 
 8) **Let $$X$$ be a space and $$x, y \in X$$, show that $$\sim$$ induces an equivalence relation on paths of $$X$$
    from $$x$$ to $$y$$**.
-   >
+
+> We first prove that $$\sim$$ is reflexive.  
+> Let $$\alpha$$ be a path from $$x$$ to $$y$$.  
+> We define $$H : [0,1]^{2} \to X$$ as $$\forall (t, s) \in [0,1]^{2},\ H(s,t) := \alpha(t)$$.  
+> We have then:  
+> $$H$$ is continuous,  
+> $$\forall t \in [0,1]$$, $$H(0, t) = \alpha(t)$$ and $$H(1,t) = \alpha(t)$$  
+> $$\forall s \in [0,1]$$, $$H(s, 0) = \alpha(0) = x$$ and $$H(s,1) = \alpha(1) = y$$  
+> $$H$$ is a homotopy between $$\alpha$$ and $$\alpha$$, i.e: $$\alpha \sim \alpha$$.  
+> We now prove that $$\sim$$ is symmetric.  
+> Let $$\alpha$$ and $$\beta$$ be two paths from $$x$$ to $$y$$.  
+> Let $$H$$ be a homotopy between $$\alpha$$ and $$\beta$$.  
+> We define $$H': [0,1]^{2} \to X$$ as $$\forall (t,s) \in [0,1]^{2}$$, $$H'(s,t) := H(1-s,t)$$.  
+> We have then:  
+> $$H'$$ is continuous,  
+> $$\forall t \in [0,1]$$, $$H'(0, t) = H(1, t) = \beta(t)$$ and $$H'(1,t) = H(0,t) = \alpha(t)$$  
+> $$\forall s \in [0,1]$$, $$H'(s, 0) = H(1-s, 0) = x$$ and $$H'(s,1) = H(1-s,1) = y$$  
+> $$H'$$ is an homotopy between $$\beta$$ and $$\alpha$$, i.e: $$\alpha \sim \beta \Rightarrow \beta \sim \alpha$$.  
+> We now prove that $$\sim$$ is transitive.  
+> Let $$\alpha$$, $$\beta$$ and $$\gamma$$ be three paths from $$x$$ to $$y$$.  
+> Let $$H_{1}$$ be a homotopy between $$\alpha$$ and $$\beta$$ and $$H_{2}$$ be a homotopy between $$\beta$$ and $$\gamma$$.  
+> We define $$H : [0,1]^{2} \to X$$ as $$\forall (t,s) \in [0,1]^{2}$$,  
+> $$H(s, t) := \begin{cases} H_{1}(2s, t) & \text{if } s \le \frac{1}{2} \\ H_{2}(2s - 1,t) & \text{if } s \ge \frac{1}{2} \end{cases}$$.  
+> We have then:  
+> $$\forall t \in [0,1]$$, $$H(\frac{1}{2}, t) = H_{1}(1, t) = H_{2}(0, t) = \beta(t)$$, and since $$H_{1}$$ and $$H_{2}$$ are continuous, $$H'$$ is continuous on $$[0, \frac{1}{2}] \times [0, 1]$$ and $$[\frac{1}{2},1] \times [0, 1]$$ respectively.  
+> $$\forall t \in [0,1]$$, $$H(0, t) = \alpha(t)$$ and $$H(1,t) = \gamma(t)$$  
+> $$\forall s \in [0,1]$$, $$H(s, 0) = \begin{cases} H_{1}(2s, 0) = x & \text{if } s \le \frac{1}{2} \\ H_{2}(2s - 1,0) = x & \text{if } s \ge \frac{1}{2} \end{cases}$$ and $$H(s, 1) = \begin{cases} H_{1}(2s, 1) = y & \text{if } s \le \frac{1}{2} \\ H_{2}(2s - 1,1) = y & \text{if } s \ge \frac{1}{2} \end{cases}$$  
+> $$H$$ is a homotopy between $$\alpha$$ and $$\gamma$$, i.e: $$\alpha \sim \beta \wedge \beta \sim \gamma \Rightarrow \alpha \sim \gamma$$.  
+> Therefore, $$\sim$$ is an equivalence relation on paths of $$X$$ from $$x$$ to $$y$$.
 
 ### **Definition 1.4: Concatenation of paths**
 
@@ -195,8 +225,57 @@ if $$s \ge \frac{1}{2}$$.
 
 **a) Let $$\alpha : x \to y$$ be a path. Show that $$c_{x} * \alpha \sim \alpha$$ and $$\alpha * c_{x} \sim \alpha$$.**
 
+> We first prove that $$c_{x} * \alpha \sim \alpha$$.  
+> Let $$\phi : [0, 1]^{2} \to \mathbb{R}$$ be defined as $$\forall (t, s) \in [0,1]^{2}$$, $$\phi (s, t) := (1-s)(2t-1) + st$$.
+> $$\phi$$ is continuous on $$[0, 1]^{2}$$ as a polynome of degree 2, and $$\forall (s, t) \in [0,1]^{2}$$, $$\phi (s, t) \le 1$$.  
+> Let $$\phi' : [0,1]^{2} \to [0, 1]$$ be defined as $$\forall (s, t) \in [0,1]^{2}$$, $$\phi'(s,t) := max(0, \phi(s, t))$$. $$\phi'$$ is continuous on $$[0,1]^{2}$$ as a composition of $$\phi$$ and $$t \mapsto \max(0, t)$$, both continuous.  
+> Let $$H : [0,1]^{2} \to X$$ be defined as $$H := \alpha \circ \phi'$$.  
+> We have then:  
+> $$H$$ is continuous, as a composition of two continuous maps, and $$\forall t \in [0,1]$$,  
+> $$H(0, t) = \alpha(max(0, 2t - 1)) = \begin{cases} 0 & \text{if } t \le \frac{1}{2} \\ 2t - 1 & \text{if } t \ge \frac{1}{2} \end{cases}$$  
+> $$H(0, t) = (c_{x} * \alpha)(t)$$  
+> $$H(1, t) = \alpha(max(0, t)) = \alpha(t)$$  
+> and $$\forall s \in [0,1]$$,  
+> $$H(s, 0) = \alpha(0) = x$$ and $$H(s,1) = \alpha(1) = y$$.  
+> $$H$$ is a homotopy between $$c_{x} * \alpha$$ and $$\alpha$$, i.e: $$\alpha \circ c_{x} \sim \alpha$$.
+> We now prove that $$\alpha * c_{y} \sim \alpha$$.  
+> Let $$\phi : [0,1]^{2} \to \mathbb{R}$$ be defined as $$\forall (t,s) \in [0,1]^{2}$$, $$\phi (s,t) := (1-s)2t + st$$.  
+> $$\phi$$ is continuous on $$[0,1]^{2}$$ as a polynome of degree 2, and $$\forall (s,t) \in [0,1]^{2}$$, $$\phi (s,t) \ge 0$$.  
+> Let $$phi' : [0,1]^{2} \to [0,1]$$ be defined as $$\forall (s,t) \in [0,1]^{2}$$, $$phi'(s,t) := min(1,\phi(s,t))$$. $$\phi'$$ is continuous on $$[0,1]^{2}$$ as a composition of $$\phi$$ and $$t \mapsto \min(1, t)$$, both continuous.  
+> Let $$H : [0,1]^{2} \to X$$ be defined as $$H := \alpha{y} * \phi'$$.  
+> We have then:  
+> $$H$$ is continuous, as a composition of two continuous maps, and $$\forall t \in [0,1]$$,  
+> $$H(0,t) = \alpha(min(1, 2t)) = \begin{cases} \alpha(2t) & \text{if } t \le \frac{1}{2} \\ 1 & \text{if } t \ge \frac{1}{2} \end{cases}$$  
+> $$H(0,t) = (c_{y} * \alpha)(t)$$  
+> $$H(1,t) = \alpha(min(1, t)) = \alpha(t)$$  
+> and $$\forall s \in [0,1]$$,  
+> $$H(s,0) = \alpha(min(1, 0)) = \alpha(0) = x$$ and $$H(s,1) = \alpha(min(1, 2 - s)) = \alpha(1) = y$$.  
+> $$H$$ is a homotopy between $$\alpha * c_{y}$$ and $$\alpha$$, i.e: $$\alpha * c_{y} \sim \alpha$$.
+
 **b) Let $$\alpha : w \to x$$, $$\beta : x \to y$$, $$\gamma : y \to z$$ three paths in $$X$$. Show
 that $$(\alpha * \beta) * \gamma \sim \alpha * (\beta * \gamma)$$.**
+
+> We first compute $$(\alpha * \beta) * \gamma$$ and $$\alpha * (\beta * \gamma)$$.  
+> $$\forall t \in [0,1]$$,  
+> $$((\alpha * \beta) * \gamma)(t) = \begin{cases} \alpha(4t) &\quad 0 \le t \le \frac{1}{4} \\ \beta(4t - 1) &\quad \frac{1}{4} \le \frac{1}{2} \\ \gamma(2t - 1) &\quad \frac{1}{2} \le t \le 1 \end{cases}$$  
+> and  
+> $$(\alpha * \beta) * \gamma = \begin{cases} \alpha(2t) &\quad 0 \le t \le \frac{1}{2} \\ \beta(4t - 2) &\quad \frac{1}{2} \le t \le \frac{3}{4} \\ \gamma(4t - 3) &\quad \frac{3}{4} \le t 1 \end{cases}$$.  
+> Let $$F_{1} := \{(s,t) \in [0,1]^{2}\ | 0 \le t \le \frac{s+1}{4} \}  
+> Let $$F_{2} := \{(s,t) \in [0,1]^{2}\ | \frac{s+1}{4} \le t \le \frac{s+2}{4} \}  
+> Let $$F_{3} := \{(s,t) \in [0,1]^{2}\ | \frac{s+2}{4} \le t \le 1 \}  
+> and  
+> $$f_{1} : F_{1} \to [0,1], \forall (s, t) \in F_{1}$$, $$f_{1}(s,t) := min(1, 2t(2-s))$$  
+> $$f_{2} : F_{2} \to [0,1], \forall (s, t) \in F_{2}$$, $$f_{2}(s,t) := 4t - (1+s)$$  
+> $$f_{3} : F_{3} \to [0,1], \forall (s, t) \in F_{3}$$, $$f_{3}(s,t) := min(1, (2t-a-\frac{s}{2})(2+s)$$
+> Since $$F_{1}, F_{2}, and F_{3}$$ are closed as intersections of closed half-planes, and $$\forall (s,t) \in [0,1]^{2}$$, we have:  
+> $$\forall (s, t) \in F_{1} \cap F_{2}$$ (i.e.: $$s + 1 = 4t$$), $$f_{1}(s,t) = min(1, 6t - 8t^{2}).  
+> Let $$P \in \mathbb{R}[X]$$ be a polynome defined as $$P(x) := 6x - 8x^{2}$$.  
+> $$P - 1$$ can be factorized as $$-8(x+\frac{1}{4})(x+\frac{1}{2})$$ and the sign of $$P(x)-1$$ is the sign of $$-8$$ outside of its roots, i.e.: $$\forall t \in [0, 1]$$, $$P(t) \gt 1$$  
+> Thus, $$f_{1}(s,t) = \alpha(1) = y$$, and $$f_{2}(s,t) = \beta(0) = y$$.  
+> $$\forall (s, t) \in F_{2} \cap F_{3}$$ (i.e.: $$s + 2 = 4t$$), $$f_{3}(s,t) = \gamma(min(1, (\frac{s+2}{2} -1 -\frac{s}{2})(1+s))) = \gamma(min(1, 0))$$.   
+> Thus, $$f_{3}(s,t) = \gamma(1) = z$$, and $$f_{2}(s,t) = \beta(1) = z$$.  
+> Since all $$F_{i}$$ are closed and their reunion $$F_{1} \cup F_{2} \cup F_{3} = [0,1]^{2}$$, there is a unique map $$H : [0,1]^{2} \to X$$ such that:  
+> $$\forall i \in [0,1]$$,
 
 **c) Let $$\alpha : x \to y$$ be a path, exhibit a path $$\beta : y \to x$$ such that $$\alpha * \beta \sim c_{x}$$
 and $$\beta * \alpha \sim c_{y}$$.**
