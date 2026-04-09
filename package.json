@@ -6,8 +6,6 @@
   "homepage": "https://aubregine.github.io/portfolio-2025/",
   "scripts": {
     "dev": "vite",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
