@@ -288,8 +288,68 @@ that $$(\alpha * \beta) * \gamma \sim \alpha * (\beta * \gamma)$$.**
 **c) Let $$\alpha : x \to y$$ be a path, exhibit a path $$\beta : y \to x$$ such that $$\alpha * \beta \sim c_{x}$$
 and $$\beta * \alpha \sim c_{y}$$.**
 
+> Let $$\beta : [0, 1] \to X$$ be defined as $$\forall t \in [0,1]$$, $$\beta(t) := \alpha(1-t)$$.  
+> $$\beta$$ is a path from $$\alpha(1) = y$$ to $$\alpha(0) = x$$.    
+> We first prove that $$\alpha * \beta \sim c_{x}$$.  
+> We have: $$\forall t \in [0,1]$$,  
+> $$(\alpha * \beta)(t) = \begin{cases} \alpha(2t) &\quad 0 \le t \le \frac{1}{2} \\ \beta(2t-1) = \alpha(2 - 2t) &\quad t \ge \frac{1}{2} \end{cases}$$  
+> Let $$H : [0, 1]^{2} \to X$$ be defined as $$\forall (s, t) \in [0,1]^{2}$$,  
+> $$H(s, t) := \begin{cases} \alpha((1-s)2t) &\quad t \le \frac{1}{2} \\ \alpha((1-s)(2 - 2t)) &\quad t \ge \frac{1}{2} \end{cases}$$  
+> Since both $$\alpha \circ \big((s,t) \mapsto (1-s)2t \big)$$ and $$\alpha \circ \big((s,t) \mapsto (1-s)(2 - 2t) \big)$$ are continuous and coincide on the intersection of $$\{(s,t) \in [0,1] \times [0,\frac{1}{2}] \}$$ and $$\{(s,t) \in [0,1] \times [\frac{1}{2},1] \}$$ (both are equal to $$\alpha(1-s)$$), $$H$$ is continuous.  
+> We have then:  
+> $$\forall t \in [0,1]$$,  
+> $$H(0, t) = \begin{cases} \alpha(2t) &\quad t \le \frac{1}{2} \\ \alpha(2-2t) &\quad t \ge \frac{1}{2} \end{cases}$$  
+> $$H(0, t) = (\alpha * \beta)(t)$$  
+> $$H(1, t) = \begin{cases} \alpha(0) = x &\quad t \le \frac{1}{2} \\ \alpha(0) = x &\quad t \ge \frac{1}{2} \end{cases}$$  
+> $$H(1, t) = c_{x}(t)$$  
+> and $$\forall s \in [0,1]$$, $$H(s, 0) = \alpha(0) = x$$ and $$H(s,1) = \alpha(0) = x$$.  
+> Thus, $$H$$ is a homotopy between $$\alpha * \beta$$ and $$c_{x}$$.  
+> We then prove that $$\beta * \alpha \sim c_{y}$$.  
+> We have: $$\forall t \in [0,1]$$,  
+> $$(\beta * \alpha)(t) = \begin{cases} \beta(2t) = \alpha(1 - 2t) &\quad t \le \frac{1}{2} \\ \alpha(2t-1) &\quad t \ge \frac{1}{2} \end{cases}$$  
+> Let $$H : [0, 1]^{2} \to X$$ be defined as $$\forall (s, t) \in [0,1]^{2}$$,  
+> $$H(s,t) := \begin{cases} \alpha((1-s)(1-2t)+s) &\quad t \le \frac{1}{2} \\ \alpha((1-s)(2t-1)+s) &\quad t \ge \frac{1}{2} \end{cases}$$  
+> Since both $$\alpha \circ \big((s,t) \mapsto (1-s)(1-2t)+s \big)$$ and $$\alpha \circ \big(t \mapsto (1-s)(2t-1)+s \big)$$ are continuous and coincide on the intersection of $$\{(s,t) \in [0,1] \times [0,\frac{1}{2}] \}$$ and $$\{(s,t) \in [0,1] \times [\frac{1}{2},1] \}$$ (both are equal to $$\alpha(s)$$), $$H$$ is continuous.  
+> We have then:  
+> $$\forall t \in [0,1]$$,  
+> $$H(0,t) = \begin{cases} \alpha(1-2t) &\quad t \le \frac{1}{2} \\ \alpha(2t-1) &\quad t \ge \frac{1}{2} \end{cases}$$  
+> $$H(0,t) = (\beta * \alpha)(t)$$  
+> $$H(1,t) = \begin{cases} \alpha(1) = y &\quad t \le \frac{1}{2} \\ \alpha(1) = y &\quad t \ge \frac{1}{2} \end{cases}$$  
+> $$H(1, t) = c_{y}(t)$$  
+> and $$\forall s \in [0,1]$$, $$H(s, 0) = \alpha(1) = y$$ and $$H(s,1) = \alpha(1) = y$$.  
+> Thus, $$H$$ is a homotopy between $$\beta * \alpha$$ and $$c_{y}$$, i.e.: $$\beta * \alpha \sim c_{y}$$.
+
 **d) Let $$x \in X$$. Deduce that $$*$$ induces a group structure on homotopy classes of loops $$x \to x$$ in $$X$$,
 that is, on $$\{ \gamma : x \to x \}_{/\sim}$$.**
+
+> We first prove that the induced law is an intern composition law  
+> Let $$A, B \in (\gamma : x \to x)_{/\sim}$$ and $$\alpha_{1}, \alpha{2} \in A$$ and $$\beta_{1}, \beta_{2} \in B$$  
+> Then $$\alpha_{1} * \beta_{1}$$ (respectively $$\alpha_{2} * \beta_{2}$$) is a path from $$x$$ to $$x$$, and the class of $$\alpha_{1} * \beta_{1}$$ (respectively $$\alpha_{2} * \beta_{2}$$) by $$\sim$$ is in $$(\gamma : x \to x)_{/\sim}$$  
+> Since $$\alpha_{1} \sim \alpha_{2}$$ and $$\beta_{1} \sim \beta_{2}$$, there exist $$H_{1}$$ and $$H_{2}$$ homotopies between them  
+> Let $$H := \begin{cases} H_{1}(s, 2t) &\quad\text{if } t \le \frac{1}{2} \\ H_{2}(s, 2t-1) &\quad\text{if } t \ge \frac{1}{2} \end{cases}$$  
+> Since both $$H_{1}$$ and $$H_{2}$$ are continuous and coincide on the the intersection of $$\{(s,t) \in [0,1] \times [0,\frac{1}{2}]\}$$ and $$\{(s,t) \in [0,1] \times [\frac{1}{2},1]\}$$ (both are equal to $$c_{x}$$), $$H$$ is continuous.  
+> We also have $$\forall t \in [0,1]$$,  
+> $$H(0, t) = \begin{cases} H_{1}(0, 2t) = \alpha_{1}(2t) &\quad\text{if } t \le \frac{1}{2} \\ H_{2}(0, 2t-1) = \beta_{1}(2t-1) &\quad\text{if } t \ge \frac{1}{2} \end{cases}$$  
+> $$H(1, t) = \begin{cases} H_{1}(1, 2t) = \alpha_{2}(2t) &\quad\text{if } t \le \frac{1}{2} \\ H_{2}(1, 2t-1) = \beta_{2}(2t-1) &\quad\text{if } t \ge \frac{1}{2} \end{cases}$$  
+> $$H(0, t) = (\alpha_{1} * \beta_{1})(t)$$ and $$H(1, t) = (\alpha_{2} * \beta_{2})(t)$$  
+> and $$\forall s \in [0,1]$$, $$H(s, 0) = H_{1}(s, 0) = x$$ and $$H(s, 1) = H_{2}(s, 1) = x$$.  
+> $$H$$ is a homotopy between $$\alpha_{1} * \beta_{1}$$ and $$\alpha_{2} * \beta_{2}$$, i.e.: $$\alpha_{1} * \beta_{1} \sim \alpha_{2} * \beta_{2}$$, they both are in the same equivalence class.  
+> We note $$A * B$$ this class  
+> Thus the induced law $$*$$ is an intern composition law  
+> We then prove that there is an identity element for the induced law $$*$$  
+> Let $$c$$ be an element of the class of $$c_{x}$$, $$A \in (\gamma : x \to x)_{/\sim}$$ and $$a \in A$$.  
+> Then $$c * a \sim c_{x} * a \sim a$$ and $$a * c \sim a * cx \sim a$$ (from 9)a))  
+> Thus the class of $$c_{x}$$ is the identity element of $$(\gamma : x \to x)_{/\sim}$$ for the induced law $$*$$, we note it $$C_{x}$$  
+> We prove that the induced law $$*$$ is associative  
+> Let $$A, B, C \in (\gamma : x \to x)_{/\sim}$$ and $$\alpha, \beta, \gamma$$ in them respectively  
+> Then $$(\alpha * \beta) * \gamma$$ and $$\alpha * (\beta * \gamma)$$ are in the same equivalence class (from 9)b)), i.e.: $$(A * B) * C$$ and $$A * (B * C)$$ are equal and we note it $$A * B * C$$.  
+> Thus the induced law $$*$$ is associative  
+> And finally we prove that every element of $$(\gamma : x \to x)_{/\sim}$$ has an inverse by the induced law $$*$$  
+> Let $$A \in (\gamma : x \to x)_{/\sim}$$ and $$\alpha \in A$$  
+> Let $$\beta$$ a path $$(x \to x)$$ such that $$\alpha * \beta \sim c_{x}$$ and $$\beta * \alpha \sim c_{x}$$ (from 9)c)) and $$B$$ its class  
+> Then $$A * B = C_{x}$$ and $$B * A = C_{x}$$  
+> $$B$$ is the inverse of $$A$$ by the induced law, and we note it $$A^{-1}$$  
+> The induced law $$*$$ is an intern composition law, it has an identity element, it is associative, and all elements of $$(\gamma : x \to x)_{/\sim}$$ are inversible, i.e.: $$*$$ induces a group structure on $$(\gamma : x \to x)_{/\sim}$$
 
 ### **Definition 1.5: Fundamental Group**
 
