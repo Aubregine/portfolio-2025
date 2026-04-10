@@ -205,10 +205,10 @@ We write $$\alpha \sim \beta$$ when they are _homotopic_, that is when there is 
 > We now prove that $$\sim$$ is transitive.  
 > Let $$\alpha$$, $$\beta$$ and $$\gamma$$ be three paths from $$x$$ to $$y$$.  
 > Let $$H_{1}$$ be a homotopy between $$\alpha$$ and $$\beta$$ and $$H_{2}$$ be a homotopy between $$\beta$$ and $$\gamma$$.  
-> We define $$H : [0,1]^{2} \to X$$ as $$\forall (t,s) \in [0,1]^{2}$$,  
-> $$H(s, t) := \begin{cases} H_{1}(2s, t) & \text{if } s \le \frac{1}{2} \\ H_{2}(2s - 1,t) & \text{if } s \ge \frac{1}{2} \end{cases}$$.  
+> We define $$f_{1} : [0, \frac{1}{2}] \times [0, 1] \to X$$ as $$\forall (s,t) \in [0, \frac{1}{2}],\ f_{1}(s,t) := H_{1}(2s,t)$$.  
+> We define $$f_{2} : [\frac{1}{2}, 1] \times [0, 1] \to X$$ as $$\forall (s,t) \in [\frac{1}{2}, 1],\ f_{2}(s,t) := H_{2}(2s - 1,t)$$.  
+> Since $$[0, \frac{1}{2}] \times [0, 1]$$ and $$[\frac{1}{2}, 1] \times [0, 1]$$ are closed and their union is $$[0,1]^{2}$$, and $$f_{1}$$ and $$f_{2}$$ are continuous, and $$\forall (s,t) \in [0, \frac{1}{2}] \times [0, 1] \cap [\frac{1}{2}, 1] \times [0, 1]$$, $$f_{1}(s, t) = H_{1}(1, t) = \beta(t) = H_{2}(0, t) = f_{2}(s, t)$$, there exist a unique continuous map $$H: [0,1]^{2} \to X$$ such that $$H_{|[0, \frac{1}{2}] \times [0,1]} = f_{1}$$ and $$H_{|\frac{1}{2}, 1] \times [0, 1]} = f_{2}$$.  
 > We have then:  
-> $$\forall t \in [0,1]$$, $$H(\frac{1}{2}, t) = H_{1}(1, t) = H_{2}(0, t) = \beta(t)$$, and since $$H_{1}$$ and $$H_{2}$$ are continuous, $$H'$$ is continuous on $$[0, \frac{1}{2}] \times [0, 1]$$ and $$[\frac{1}{2},1] \times [0, 1]$$ respectively.  
 > $$\forall t \in [0,1]$$, $$H(0, t) = \alpha(t)$$ and $$H(1,t) = \gamma(t)$$  
 > $$\forall s \in [0,1]$$, $$H(s, 0) = \begin{cases} H_{1}(2s, 0) = x & \text{if } s \le \frac{1}{2} \\ H_{2}(2s - 1,0) = x & \text{if } s \ge \frac{1}{2} \end{cases}$$ and $$H(s, 1) = \begin{cases} H_{1}(2s, 1) = y & \text{if } s \le \frac{1}{2} \\ H_{2}(2s - 1,1) = y & \text{if } s \ge \frac{1}{2} \end{cases}$$  
 > $$H$$ is a homotopy between $$\alpha$$ and $$\gamma$$, i.e: $$\alpha \sim \beta \wedge \beta \sim \gamma \Rightarrow \alpha \sim \gamma$$.  
@@ -227,9 +227,9 @@ if $$s \ge \frac{1}{2}$$.
 
 > We first prove that $$c_{x} * \alpha \sim \alpha$$.  
 > Let $$\phi : [0, 1]^{2} \to \mathbb{R}$$ be defined as $$\forall (t, s) \in [0,1]^{2}$$, $$\phi (s, t) := (1-s)(2t-1) + st$$.
-> $$\phi$$ is continuous on $$[0, 1]^{2}$$ as a polynome of degree 2, and $$\forall (s, t) \in [0,1]^{2}$$, $$\phi (s, t) \le 1$$.  
+> $$\phi$$ is continuous on $$[0, 1]^{2}$$ as a polynomial of degree 2, and $$\forall (s, t) \in [0,1]^{2}$$, $$\phi (s, t) \le 1$$.  
 > Let $$\phi' : [0,1]^{2} \to [0, 1]$$ be defined as $$\forall (s, t) \in [0,1]^{2}$$, $$\phi'(s,t) := max(0, \phi(s, t))$$. $$\phi'$$ is continuous on $$[0,1]^{2}$$ as a composition of $$\phi$$ and $$t \mapsto \max(0, t)$$, both continuous.  
-> Let $$H : [0,1]^{2} \to X$$ be defined as $$H := \alpha \circ \phi'$$.  
+> Let $$H : [0,1]^{2} \to X$$ be defined as $$\forall (s, t) \in [0,1]^{2}$$, $$H(s, t) := (\alpha \circ \phi')(t) = \alpha(max(0, (1-s)(2t-1) + st))$$.  
 > We have then:  
 > $$H$$ is continuous, as a composition of two continuous maps, and $$\forall t \in [0,1]$$,  
 > $$H(0, t) = \alpha(max(0, 2t - 1)) = \begin{cases} 0 & \text{if } t \le \frac{1}{2} \\ 2t - 1 & \text{if } t \ge \frac{1}{2} \end{cases}$$  
@@ -237,12 +237,12 @@ if $$s \ge \frac{1}{2}$$.
 > $$H(1, t) = \alpha(max(0, t)) = \alpha(t)$$  
 > and $$\forall s \in [0,1]$$,  
 > $$H(s, 0) = \alpha(0) = x$$ and $$H(s,1) = \alpha(1) = y$$.  
-> $$H$$ is a homotopy between $$c_{x} * \alpha$$ and $$\alpha$$, i.e: $$\alpha \circ c_{x} \sim \alpha$$.
+> $$H$$ is a homotopy between $$c_{x} * \alpha$$ and $$\alpha$$, i.e: $$\alpha \circ c_{x} \sim \alpha$$.  
 > We now prove that $$\alpha * c_{y} \sim \alpha$$.  
 > Let $$\phi : [0,1]^{2} \to \mathbb{R}$$ be defined as $$\forall (t,s) \in [0,1]^{2}$$, $$\phi (s,t) := (1-s)2t + st$$.  
-> $$\phi$$ is continuous on $$[0,1]^{2}$$ as a polynome of degree 2, and $$\forall (s,t) \in [0,1]^{2}$$, $$\phi (s,t) \ge 0$$.  
-> Let $$phi' : [0,1]^{2} \to [0,1]$$ be defined as $$\forall (s,t) \in [0,1]^{2}$$, $$phi'(s,t) := min(1,\phi(s,t))$$. $$\phi'$$ is continuous on $$[0,1]^{2}$$ as a composition of $$\phi$$ and $$t \mapsto \min(1, t)$$, both continuous.  
-> Let $$H : [0,1]^{2} \to X$$ be defined as $$H := \alpha{y} * \phi'$$.  
+> $$\phi$$ is continuous on $$[0,1]^{2}$$ as a polynomial of degree 2, and $$\forall (s,t) \in [0,1]^{2}$$, $$\phi (s,t) \ge 0$$.  
+> Let $$\phi' : [0,1]^{2} \to [0,1]$$ be defined as $$\forall (s,t) \in [0,1]^{2}$$, $$\phi'(s,t) := min(1,\phi(s,t))$$. $$\phi'$$ is continuous on $$[0,1]^{2}$$ as a composition of $$\phi$$ and $$t \mapsto \min(1, t)$$, both continuous.  
+> Let $$H : [0,1]^{2} \to X$$ be defined as $$\forall (s, t) \in [0,1]^{2}$$, $$H := (\alpha \circ \phi')(t) = \alpha(min(1, (1-s)2t + st))$$.    
 > We have then:  
 > $$H$$ is continuous, as a composition of two continuous maps, and $$\forall t \in [0,1]$$,  
 > $$H(0,t) = \alpha(min(1, 2t)) = \begin{cases} \alpha(2t) & \text{if } t \le \frac{1}{2} \\ 1 & \text{if } t \ge \frac{1}{2} \end{cases}$$  
@@ -257,31 +257,99 @@ that $$(\alpha * \beta) * \gamma \sim \alpha * (\beta * \gamma)$$.**
 
 > We first compute $$(\alpha * \beta) * \gamma$$ and $$\alpha * (\beta * \gamma)$$.  
 > $$\forall t \in [0,1]$$,  
-> $$((\alpha * \beta) * \gamma)(t) = \begin{cases} \alpha(4t) &\quad 0 \le t \le \frac{1}{4} \\ \beta(4t - 1) &\quad \frac{1}{4} \le \frac{1}{2} \\ \gamma(2t - 1) &\quad \frac{1}{2} \le t \le 1 \end{cases}$$  
+> $$((\alpha * \beta) * \gamma)(t) = \begin{cases} \alpha(4t) &\quad 0 \le t \le \frac{1}{4} \\ \beta(4t - 1) &\quad \frac{1}{4} \le t \le \frac{1}{2} \\ \gamma(2t - 1) &\quad \frac{1}{2} \le t \le 1 \end{cases}$$  
 > and  
-> $$(\alpha * \beta) * \gamma = \begin{cases} \alpha(2t) &\quad 0 \le t \le \frac{1}{2} \\ \beta(4t - 2) &\quad \frac{1}{2} \le t \le \frac{3}{4} \\ \gamma(4t - 3) &\quad \frac{3}{4} \le t 1 \end{cases}$$.  
-> Let $$F_{1} := \{(s,t) \in [0,1]^{2}\ | 0 \le t \le \frac{s+1}{4} \}  
-> Let $$F_{2} := \{(s,t) \in [0,1]^{2}\ | \frac{s+1}{4} \le t \le \frac{s+2}{4} \}  
-> Let $$F_{3} := \{(s,t) \in [0,1]^{2}\ | \frac{s+2}{4} \le t \le 1 \}  
+> $$((\alpha * \beta) * \gamma)(t) = \begin{cases} \alpha(2t) &\quad 0 \le t \le \frac{1}{2} \\ \beta(4t - 2) &\quad \frac{1}{2} \le t \le \frac{3}{4} \\ \gamma(4t - 3) &\quad \frac{3}{4} \le t \le 1 \end{cases}$$  
+> Then, we exhibit a family of subsets of $$[0,1]^{2}$$ that form a closed cover of it, and we define a continuous map from each of them to $$[0,1]$$.  
+> $$\begin{cases} F_{1} := \{(s,t) \in [0,1]^{2}\ | 0 \le t \le \frac{s+1}{4} \} \\ F_{2} := \{(s,t) \in [0,1]^{2}\ | \frac{s+1}{4} \le t \le \frac{s+2}{4} \} \\ F_{3} := \{(s,t) \in [0,1]^{2}\ | \frac{s+2}{4} \le t \le 1 \} \end{cases}$$  
 > and  
-> $$f_{1} : F_{1} \to [0,1], \forall (s, t) \in F_{1}$$, $$f_{1}(s,t) := min(1, 2t(2-s))$$  
-> $$f_{2} : F_{2} \to [0,1], \forall (s, t) \in F_{2}$$, $$f_{2}(s,t) := 4t - (1+s)$$  
-> $$f_{3} : F_{3} \to [0,1], \forall (s, t) \in F_{3}$$, $$f_{3}(s,t) := min(1, (2t-a-\frac{s}{2})(2+s)$$
-> Since $$F_{1}, F_{2}, and F_{3}$$ are closed as intersections of closed half-planes, and $$\forall (s,t) \in [0,1]^{2}$$, we have:  
-> $$\forall (s, t) \in F_{1} \cap F_{2}$$ (i.e.: $$s + 1 = 4t$$), $$f_{1}(s,t) = min(1, 6t - 8t^{2}).  
-> Let $$P \in \mathbb{R}[X]$$ be a polynome defined as $$P(x) := 6x - 8x^{2}$$.  
-> $$P - 1$$ can be factorized as $$-8(x+\frac{1}{4})(x+\frac{1}{2})$$ and the sign of $$P(x)-1$$ is the sign of $$-8$$ outside of its roots, i.e.: $$\forall t \in [0, 1]$$, $$P(t) \gt 1$$  
-> Thus, $$f_{1}(s,t) = \alpha(1) = y$$, and $$f_{2}(s,t) = \beta(0) = y$$.  
+> $$\begin{cases} f_{1} : F_{1} \to [0,1],\ \forall (s, t) \in F_{1},\ f_{1}(s,t) := min(1, 2t(2-s)) \\ f_{2} : F_{2} \to [0,1],\ \forall (s, t) \in F_{2}\, f_{2}(s,t) := 4t - (1+s) \\ f_{3} : F_{3} \to [0,1],\ \forall (s, t) \in F_{3},\ f_{3}(s,t) := min(1, (2t-a-\frac{s}{2})(2+s) \end{cases}$$  
+> We make sure that the $$f_{i}$$ coincide on the intersections of the $$F_{i}$$:  
+> $$F_{1} \cap F_{3} = \emptyset$$,  
 > $$\forall (s, t) \in F_{2} \cap F_{3}$$ (i.e.: $$s + 2 = 4t$$), $$f_{3}(s,t) = \gamma(min(1, (\frac{s+2}{2} -1 -\frac{s}{2})(1+s))) = \gamma(min(1, 0))$$.   
-> Thus, $$f_{3}(s,t) = \gamma(1) = z$$, and $$f_{2}(s,t) = \beta(1) = z$$.  
-> Since all $$F_{i}$$ are closed and their reunion $$F_{1} \cup F_{2} \cup F_{3} = [0,1]^{2}$$, there is a unique map $$H : [0,1]^{2} \to X$$ such that:  
-> $$\forall i \in [0,1]$$,
+> $$f_{3}(s,t) = \gamma(1) = z$$, and $$f_{2}(s,t) = \beta(1) = z$$, they coincide on the intersection of the $$F_{2}$$ and $$F_{3}$$.   
+> $$\forall (s, t) \in F_{1} \cap F_{2}$$ (i.e.: $$s + 1 = 4t$$), $$f_{1}(s,t) = min(1, 6t - 8t^{2})$$.  
+> Let $$P \in \mathbb{R}[X]$$ be a polynomial defined as $$P(x) := 6x - 8x^{2}$$.  
+> $$P - 1$$ can be factorized as $$-8(x+\frac{1}{4})(x+\frac{1}{2})$$ and the sign of $$P(x)-1$$ is the sign of $$-8$$ outside of its roots, i.e.: $$\forall t \in [0, 1]$$, $$P(t) \ge 1$$  
+> $$f_{1}(s,t) = \alpha(1) = x$$, and $$f_{2}(s,t) = \beta(0) = x$$, they coincide on the intersection of the $$F_{1}$$ and $$F_{2}$$.    
+> We then construct the map $$H$$:  
+> Since all $$F_{i}$$ are closed (as intersection of closed half-planes), and $$F_{1} \cup F_{2} \cup F_{3} = [0,1]^{2}$$, and the $$f_{i}$$ are continuous and coincide on the intersection of the $$F_{i}$$, there is a unique map $$H : [0,1]^{2} \to X$$ such that:  
+> $$\forall i \in [0,1]$$, $$H_{|f_{i}} = f_{i}$$.  
+> And finally we check that $$H$$ is a homotopy between $$(\alpha * \beta) * \gamma$$ and $$\alpha * (\beta * \gamma)$$:    
+> $$\forall t \in [0,1]$$, $$H(0,t) = \begin{cases} \alpha(4t) &\quad 0 \le t \le \frac{1}{4} \\ \beta(4t - 1) &\quad \frac{1}{4} \le t \le \frac{1}{2} \\ \gamma(2t - 1) &\quad \frac{1}{2} \le t \le 1 \end{cases}$$  
+> i.e.: $$H(0, t) = (\alpha * \beta) * \gamma))(t)$$.  
+> $$\forall t \in [0,1]$$, $$H(1, t) = \begin{cases} \alpha(2t) &\quad 0 \le t \le \frac{1}{2} \\ \beta(4t - 2) &\quad \frac{1}{2} \le t \le \frac{3}{4} \\ \gamma(4t - 3) &\quad \frac{3}{4} \le t \le 1 \end{cases}$$  
+> i.e.: $$H(1,t) = (\alpha * (\beta * \gamma))(t)$$.  
+> Let $$P \in \mathbb{R}[X]$$ be a polynomial defined as $$P(x) := (1-\frac{x}{2})(1+x)$$.  
+> $$P - 1$$ can be factorized as $$\frac{1}{2}x(1-x)$$, and $$\forall s \in [0,1]$$, the sign of $$P(s) - 1$$ is the sign of $$\frac{1}{2}$$ between its roots, i.e.: $$P(s) \ge 1$$.  
+> $$\forall s \in [0,1]$$, $$\begin{cases} H(s,0) = \alpha(min(1, 0)) = \alpha(0) = w \\ H(s, 1) = \gamma(min(1, P(s))) = \gamma(1) = z \end{cases}$$.  
+> $$H$$ is a homotopy between $$\alpha * (\beta * \gamma)$$ and $$(\alpha * \beta) * \gamma$$, i.e.: $$(\alpha * \beta) * \gamma \sim \alpha * (\beta * \gamma)$$.
 
 **c) Let $$\alpha : x \to y$$ be a path, exhibit a path $$\beta : y \to x$$ such that $$\alpha * \beta \sim c_{x}$$
 and $$\beta * \alpha \sim c_{y}$$.**
 
+> Let $$\beta : [0, 1] \to X$$ be defined as $$\forall t \in [0,1]$$, $$\beta(t) := \alpha(1-t)$$.  
+> $$\beta$$ is a path from $$\alpha(1) = y$$ to $$\alpha(0) = x$$.    
+> We first prove that $$\alpha * \beta \sim c_{x}$$.  
+> We have: $$\forall t \in [0,1]$$,  
+> $$(\alpha * \beta)(t) = \begin{cases} \alpha(2t) &\quad 0 \le t \le \frac{1}{2} \\ \beta(2t-1) = \alpha(2 - 2t) &\quad t \ge \frac{1}{2} \end{cases}$$  
+> Let $$H : [0, 1]^{2} \to X$$ be defined as $$\forall (s, t) \in [0,1]^{2}$$,  
+> $$H(s, t) := \begin{cases} \alpha((1-s)2t) &\quad t \le \frac{1}{2} \\ \alpha((1-s)(2 - 2t)) &\quad t \ge \frac{1}{2} \end{cases}$$  
+> Since both $$\alpha \circ \big((s,t) \mapsto (1-s)2t \big)$$ and $$\alpha \circ \big((s,t) \mapsto (1-s)(2 - 2t) \big)$$ are continuous and coincide on the intersection of $$\{(s,t) \in [0,1] \times [0,\frac{1}{2}] \}$$ and $$\{(s,t) \in [0,1] \times [\frac{1}{2},1] \}$$ (both are equal to $$\alpha(1-s)$$), $$H$$ is continuous.  
+> We have then:  
+> $$\forall t \in [0,1]$$,  
+> $$H(0, t) = \begin{cases} \alpha(2t) &\quad t \le \frac{1}{2} \\ \alpha(2-2t) &\quad t \ge \frac{1}{2} \end{cases}$$  
+> $$H(0, t) = (\alpha * \beta)(t)$$  
+> $$H(1, t) = \begin{cases} \alpha(0) = x &\quad t \le \frac{1}{2} \\ \alpha(0) = x &\quad t \ge \frac{1}{2} \end{cases}$$  
+> $$H(1, t) = c_{x}(t)$$  
+> and $$\forall s \in [0,1]$$, $$H(s, 0) = \alpha(0) = x$$ and $$H(s,1) = \alpha(0) = x$$.  
+> Thus, $$H$$ is a homotopy between $$\alpha * \beta$$ and $$c_{x}$$.  
+> We then prove that $$\beta * \alpha \sim c_{y}$$.  
+> We have: $$\forall t \in [0,1]$$,  
+> $$(\beta * \alpha)(t) = \begin{cases} \beta(2t) = \alpha(1 - 2t) &\quad t \le \frac{1}{2} \\ \alpha(2t-1) &\quad t \ge \frac{1}{2} \end{cases}$$  
+> Let $$H : [0, 1]^{2} \to X$$ be defined as $$\forall (s, t) \in [0,1]^{2}$$,  
+> $$H(s,t) := \begin{cases} \alpha((1-s)(1-2t)+s) &\quad t \le \frac{1}{2} \\ \alpha((1-s)(2t-1)+s) &\quad t \ge \frac{1}{2} \end{cases}$$  
+> Since both $$\alpha \circ \big((s,t) \mapsto (1-s)(1-2t)+s \big)$$ and $$\alpha \circ \big(t \mapsto (1-s)(2t-1)+s \big)$$ are continuous and coincide on the intersection of $$\{(s,t) \in [0,1] \times [0,\frac{1}{2}] \}$$ and $$\{(s,t) \in [0,1] \times [\frac{1}{2},1] \}$$ (both are equal to $$\alpha(s)$$), $$H$$ is continuous.  
+> We have then:  
+> $$\forall t \in [0,1]$$,  
+> $$H(0,t) = \begin{cases} \alpha(1-2t) &\quad t \le \frac{1}{2} \\ \alpha(2t-1) &\quad t \ge \frac{1}{2} \end{cases}$$  
+> $$H(0,t) = (\beta * \alpha)(t)$$  
+> $$H(1,t) = \begin{cases} \alpha(1) = y &\quad t \le \frac{1}{2} \\ \alpha(1) = y &\quad t \ge \frac{1}{2} \end{cases}$$  
+> $$H(1, t) = c_{y}(t)$$  
+> and $$\forall s \in [0,1]$$, $$H(s, 0) = \alpha(1) = y$$ and $$H(s,1) = \alpha(1) = y$$.  
+> Thus, $$H$$ is a homotopy between $$\beta * \alpha$$ and $$c_{y}$$, i.e.: $$\beta * \alpha \sim c_{y}$$.
+
 **d) Let $$x \in X$$. Deduce that $$*$$ induces a group structure on homotopy classes of loops $$x \to x$$ in $$X$$,
 that is, on $$\{ \gamma : x \to x \}_{/\sim}$$.**
+
+> We first prove that the induced law is an intern composition law  
+> Let $$A, B \in (\gamma : x \to x)_{/\sim}$$ and $$\alpha_{1}, \alpha{2} \in A$$ and $$\beta_{1}, \beta_{2} \in B$$  
+> Then $$\alpha_{1} * \beta_{1}$$ (respectively $$\alpha_{2} * \beta_{2}$$) is a path from $$x$$ to $$x$$, and the class of $$\alpha_{1} * \beta_{1}$$ (respectively $$\alpha_{2} * \beta_{2}$$) by $$\sim$$ is in $$(\gamma : x \to x)_{/\sim}$$  
+> Since $$\alpha_{1} \sim \alpha_{2}$$ and $$\beta_{1} \sim \beta_{2}$$, there exist $$H_{1}$$ and $$H_{2}$$ homotopies between them  
+> Let $$H := \begin{cases} H_{1}(s, 2t) &\quad\text{if } t \le \frac{1}{2} \\ H_{2}(s, 2t-1) &\quad\text{if } t \ge \frac{1}{2} \end{cases}$$  
+> Since both $$H_{1}$$ and $$H_{2}$$ are continuous and coincide on the the intersection of $$\{(s,t) \in [0,1] \times [0,\frac{1}{2}]\}$$ and $$\{(s,t) \in [0,1] \times [\frac{1}{2},1]\}$$ (both are equal to $$c_{x}$$), $$H$$ is continuous.  
+> We also have $$\forall t \in [0,1]$$,  
+> $$H(0, t) = \begin{cases} H_{1}(0, 2t) = \alpha_{1}(2t) &\quad\text{if } t \le \frac{1}{2} \\ H_{2}(0, 2t-1) = \beta_{1}(2t-1) &\quad\text{if } t \ge \frac{1}{2} \end{cases}$$  
+> $$H(1, t) = \begin{cases} H_{1}(1, 2t) = \alpha_{2}(2t) &\quad\text{if } t \le \frac{1}{2} \\ H_{2}(1, 2t-1) = \beta_{2}(2t-1) &\quad\text{if } t \ge \frac{1}{2} \end{cases}$$  
+> $$H(0, t) = (\alpha_{1} * \beta_{1})(t)$$ and $$H(1, t) = (\alpha_{2} * \beta_{2})(t)$$  
+> and $$\forall s \in [0,1]$$, $$H(s, 0) = H_{1}(s, 0) = x$$ and $$H(s, 1) = H_{2}(s, 1) = x$$.  
+> $$H$$ is a homotopy between $$\alpha_{1} * \beta_{1}$$ and $$\alpha_{2} * \beta_{2}$$, i.e.: $$\alpha_{1} * \beta_{1} \sim \alpha_{2} * \beta_{2}$$, they both are in the same equivalence class.  
+> We note $$A * B$$ this class  
+> Thus the induced law $$*$$ is an intern composition law  
+> We then prove that there is an identity element for the induced law $$*$$  
+> Let $$c$$ be an element of the class of $$c_{x}$$, $$A \in (\gamma : x \to x)_{/\sim}$$ and $$a \in A$$.  
+> Then $$c * a \sim c_{x} * a \sim a$$ and $$a * c \sim a * cx \sim a$$ (from 9)a))  
+> Thus the class of $$c_{x}$$ is the identity element of $$(\gamma : x \to x)_{/\sim}$$ for the induced law $$*$$, we note it $$C_{x}$$  
+> We prove that the induced law $$*$$ is associative  
+> Let $$A, B, C \in (\gamma : x \to x)_{/\sim}$$ and $$\alpha, \beta, \gamma$$ in them respectively  
+> Then $$(\alpha * \beta) * \gamma$$ and $$\alpha * (\beta * \gamma)$$ are in the same equivalence class (from 9)b)), i.e.: $$(A * B) * C$$ and $$A * (B * C)$$ are equal and we note it $$A * B * C$$.  
+> Thus the induced law $$*$$ is associative  
+> And finally we prove that every element of $$(\gamma : x \to x)_{/\sim}$$ has an inverse by the induced law $$*$$  
+> Let $$A \in (\gamma : x \to x)_{/\sim}$$ and $$\alpha \in A$$  
+> Let $$\beta$$ a path $$(x \to x)$$ such that $$\alpha * \beta \sim c_{x}$$ and $$\beta * \alpha \sim c_{x}$$ (from 9)c)) and $$B$$ its class  
+> Then $$A * B = C_{x}$$ and $$B * A = C_{x}$$  
+> $$B$$ is the inverse of $$A$$ by the induced law, and we note it $$A^{-1}$$  
+> The induced law $$*$$ is an intern composition law, it has an identity element, it is associative, and all elements of $$(\gamma : x \to x)_{/\sim}$$ are inversible, i.e.: $$*$$ induces a group structure on $$(\gamma : x \to x)_{/\sim}$$
 
 ### **Definition 1.5: Fundamental Group**
 
