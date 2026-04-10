@@ -359,6 +359,27 @@ it the _fundamental group of $$X$$ at $$x$$_.
 10) **Let $$f : X \to Y$$ be an homeomorphism. Show that $$\pi_{1}(X, x) \simeq \pi_{1}(Y, f(x))$$ are isomorphic
     as groups.**
 
+> We first prove that there is a group morphism $$g : \pi_{1}(X, x) \to \pi_{1}(Y, f(x))$$ such that $$\forall A, B \in \pi_{1}(X, x)$$, $$g(A * B) = g(A) * g(B)$$.  
+> Let $$A \in \pi_{1}(X,x)$$ and $$\alpha, \beta \in A$$, i.e.: $$\alpha \sim \beta$$.  
+> Let $$H$$ be an homotopy between $$\alpha$$ and $$\beta$$.  
+> Then, $$f \circ H : [0, 1]^{2} \to Y$$ is continuous as a composition of continuous maps,  
+> and $$\forall t \in [0,1]$$, $$(f \circ H)(0, t) = (f \circ \alpha)(t)$$,  
+> and $$(f \circ H)(1,t) = (f \circ \beta)(t)$$ and $$\forall s \in [0,1]$$, $$(f \circ H)(s,0) = f(x)$$ and $$(f \circ H)(s,1) = f(x)$$.  
+> Thus, $$f \circ H$$ is a homotopy between $$f \circ \alpha$$ and $$f \circ \beta$$, i.e.: $$f \circ \alpha \sim f \circ \beta$$, they both are in the same equivalence class and we note it $$\pi_{1}(f, x)(A)$$.  
+> We then prove that $$\forall A, B \in \pi_{1}(X,x)$$, $$\pi_{1}(f, x)(A * B) = \pi_{1}(f,x)(A) * \pi_{1}(f,x)(B)$$.  
+> Let $$A, B \in \pi_{1}(X,x)$$ and $$\alpha \in A$$, $$\beta \in B$$,  
+> We have: $$\forall t \in [0,1]$$, $$f \circ (\alpha * \beta)(t) = \begin{cases} f(\alpha(2t)) &\quad t \le \frac{1}{2} \\ f(\beta(2t-1)) &\quad t \ge \frac{1}{2} \end{cases}$$  
+> and $$\forall t \in [0,1]$$, $$(f \circ \alpha) * (f \circ \beta)(t) = \begin{cases} (f \circ \alpha)(2t) &\quad t \le \frac{1}{2} \\ (f \circ \beta)(2t-1) &\quad t \ge \frac{1}{2} \end{cases}$$  
+> Thus, $$f \circ (\alpha * \beta) = (f \circ \alpha) * (f \circ \beta)$$, they are homotopic, i.e.: $$f \circ (\alpha * \beta) \sim (f \circ \alpha) * (f \circ \beta)$$.  
+> Therefore, $$\pi_{1}(f, x)(A * B) = \pi_{1}(f,x)(A) * \pi_{1}(f,x)(B)$$, and $$\pi_{1}(f, x)$$ is a group morphism.  
+> We then prove that $$\pi_{1}(f,x)$$ is inversible.  
+> Let $$A \in \pi_{1}(X,x)$$ and $$\alpha \in A$$.  
+> Let $$\beta \in \pi_{1}(f^{-1}, f(x))\Big[ \pi_{1}(f, x)(A) \Big]$$  
+> By definition, $$\beta$$ is in the equivalence class of paths $$\Big(f^{-1}(f(x)) \to f^{-1}(f(x)) \Big) = (x \to x)$$ homotopic to $$f^{-1} \circ f \circ \alpha = \alpha$$, i.e.: $$\beta \sim \alpha$$, they are in the same equivalence class $$A$$.  
+> Therefore, $$\pi_{1}(f^{-1}, f(x)) \Big[ \pi_{1}(f, x)(A) \Big] = A$$.  
+> $$\pi_{1}(f, x)$$ is inversible and its inverse is $$\pi_{1}(f^{-1}, f(x))$$.  
+> $$f$$ induces a group isomorphism $$\pi_{1}(f,x) \simeq \pi_{1}(Y, f(x))$$.
+
 We now turn to the computation of $$\pi_{1}(\mathbb{S}^{1}, (1, 0))$$. In the following we identify $$\mathbb{S}^{1}$$
 with the complex unit circle $$\mathbb{U} = \{z \in \mathbb{C} |\ |z| = 1\}$$, and denote $$exp$$ the
 map $$ s \mapsto e^{i s} : \mathbb{R} \to \mathbb{S}^{1}$$. We first aim to shew the following lemma:
