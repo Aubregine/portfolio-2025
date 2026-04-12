@@ -259,30 +259,30 @@ that $$(\alpha * \beta) * \gamma \sim \alpha * (\beta * \gamma)$$.**
 > $$\forall t \in [0,1]$$,  
 > $$((\alpha * \beta) * \gamma)(t) = \begin{cases} \alpha(4t) &\quad 0 \le t \le \frac{1}{4} \\ \beta(4t - 1) &\quad \frac{1}{4} \le t \le \frac{1}{2} \\ \gamma(2t - 1) &\quad \frac{1}{2} \le t \le 1 \end{cases}$$  
 > and  
-> $$((\alpha * \beta) * \gamma)(t) = \begin{cases} \alpha(2t) &\quad 0 \le t \le \frac{1}{2} \\ \beta(4t - 2) &\quad \frac{1}{2} \le t \le \frac{3}{4} \\ \gamma(4t - 3) &\quad \frac{3}{4} \le t \le 1 \end{cases}$$  
+> $$(\alpha * (\beta * \gamma))(t) = \begin{cases} \alpha(2t) &\quad 0 \le t \le \frac{1}{2} \\ \beta(4t - 2) &\quad \frac{1}{2} \le t \le \frac{3}{4} \\ \gamma(4t - 3) &\quad \frac{3}{4} \le t \le 1 \end{cases}$$  
 > Then, we exhibit a family of subsets of $$[0,1]^{2}$$ that form a closed cover of it, and we define a continuous map from each of them to $$[0,1]$$.  
 > $$\begin{cases} F_{1} := \{(s,t) \in [0,1]^{2}\ | 0 \le t \le \frac{s+1}{4} \} \\ F_{2} := \{(s,t) \in [0,1]^{2}\ | \frac{s+1}{4} \le t \le \frac{s+2}{4} \} \\ F_{3} := \{(s,t) \in [0,1]^{2}\ | \frac{s+2}{4} \le t \le 1 \} \end{cases}$$  
 > and  
-> $$\begin{cases} f_{1} : F_{1} \to [0,1],\ \forall (s, t) \in F_{1},\ f_{1}(s,t) := min(1, 2t(2-s)) \\ f_{2} : F_{2} \to [0,1],\ \forall (s, t) \in F_{2}\, f_{2}(s,t) := 4t - (1+s) \\ f_{3} : F_{3} \to [0,1],\ \forall (s, t) \in F_{3},\ f_{3}(s,t) := min(1, (2t-a-\frac{s}{2})(2+s) \end{cases}$$  
+> $$\begin{cases} f_{1} : F_{1} \to X,\ \forall (s, t) \in F_{1},\ f_{1}(s,t) := \alpha(min(1, 2t(2-s))) \\ f_{2} : F_{2} \to X,\ \forall (s, t) \in F_{2},\ f_{2}(s,t) := \beta(4t - (1+s)) \\ f_{3} : F_{3} \to X,\ \forall (s, t) \in F_{3},\ f_{3}(s,t) := \gamma(max(0, 2t(1+s)-2s-1)) \end{cases}$$  
 > We make sure that the $$f_{i}$$ coincide on the intersections of the $$F_{i}$$:  
 > $$F_{1} \cap F_{3} = \emptyset$$,  
-> $$\forall (s, t) \in F_{2} \cap F_{3}$$ (i.e.: $$s + 2 = 4t$$), $$f_{3}(s,t) = \gamma(min(1, (\frac{s+2}{2} -1 -\frac{s}{2})(1+s))) = \gamma(min(1, 0))$$.   
-> $$f_{3}(s,t) = \gamma(1) = z$$, and $$f_{2}(s,t) = \beta(1) = z$$, they coincide on the intersection of the $$F_{2}$$ and $$F_{3}$$.   
+> $$\forall (s, t) \in F_{2} \cap F_{3}$$ (i.e.: $$s + 2 = 4t$$), $$f_{3}(s,t) = \gamma(max(0, 8t^{2}-10t+3))$$.  
+> Let $$P \in \mathbb{R}[X]$$ be a polynomial defined as $$P := 8X^{2} - 10X + 3$$.  
+> It can be factorized as $$P = (2X -1)(4X-3)$$, and $$\forall t \in \mathbb{R}$$, the sign of $$P(t)$$ is the sign of $$-8$$ between its roots, and $$\forall (s, t) \in F_{2} \cap F_{3}$$, $$P(t) \le 0$$ and $$f_{3}(s, t) = \gamma(max(0, P(t))) = \gamma(0) = y$$  
+> and $$f_{2}(s,t) = \beta(1) = y$$, they coincide on the intersection of the $$F_{2}$$ and $$F_{3}$$.  
 > $$\forall (s, t) \in F_{1} \cap F_{2}$$ (i.e.: $$s + 1 = 4t$$), $$f_{1}(s,t) = min(1, 6t - 8t^{2})$$.  
-> Let $$P \in \mathbb{R}[X]$$ be a polynomial defined as $$P(x) := 6x - 8x^{2}$$.  
-> $$P - 1$$ can be factorized as $$-8(x+\frac{1}{4})(x+\frac{1}{2})$$ and the sign of $$P(x)-1$$ is the sign of $$-8$$ outside of its roots, i.e.: $$\forall t \in [0, 1]$$, $$P(t) \ge 1$$  
-> $$f_{1}(s,t) = \alpha(1) = x$$, and $$f_{2}(s,t) = \beta(0) = x$$, they coincide on the intersection of the $$F_{1}$$ and $$F_{2}$$.    
+> Let $$P \in \mathbb{R}[X]$$ be a polynomial defined as $$P := 6X - 8X^{2}$$.  
+> $$P - 1$$ can be factorized as $$-(4X+1)(2X+1)$$ and $$\forall t \in \mathbb{R}$$ the sign of $$(P-1)(t)$$ is the sign of $$-8$$ outside of its roots, and $$\forall (s, t) \in F_{1} \cap F_{2}$$, $$P(t) \ge 1$$ and $$f_{1}(s,t) = \alpha(min(1, P(t))) = \alpha(1) = x$$.  
+> and $$f_{2}(s,t) = \beta(0) = x$$, they coincide on the intersection of the $$F_{1}$$ and $$F_{2}$$.    
 > We then construct the map $$H$$:  
 > Since all $$F_{i}$$ are closed (as intersection of closed half-planes), and $$F_{1} \cup F_{2} \cup F_{3} = [0,1]^{2}$$, and the $$f_{i}$$ are continuous and coincide on the intersection of the $$F_{i}$$, there is a unique map $$H : [0,1]^{2} \to X$$ such that:  
 > $$\forall i \in [0,1]$$, $$H_{|f_{i}} = f_{i}$$.  
 > And finally we check that $$H$$ is a homotopy between $$(\alpha * \beta) * \gamma$$ and $$\alpha * (\beta * \gamma)$$:    
 > $$\forall t \in [0,1]$$, $$H(0,t) = \begin{cases} \alpha(4t) &\quad 0 \le t \le \frac{1}{4} \\ \beta(4t - 1) &\quad \frac{1}{4} \le t \le \frac{1}{2} \\ \gamma(2t - 1) &\quad \frac{1}{2} \le t \le 1 \end{cases}$$  
-> i.e.: $$H(0, t) = (\alpha * \beta) * \gamma))(t)$$.  
+> i.e.: $$H(0, t) = ((\alpha * \beta) * \gamma))(t)$$.  
 > $$\forall t \in [0,1]$$, $$H(1, t) = \begin{cases} \alpha(2t) &\quad 0 \le t \le \frac{1}{2} \\ \beta(4t - 2) &\quad \frac{1}{2} \le t \le \frac{3}{4} \\ \gamma(4t - 3) &\quad \frac{3}{4} \le t \le 1 \end{cases}$$  
 > i.e.: $$H(1,t) = (\alpha * (\beta * \gamma))(t)$$.  
-> Let $$P \in \mathbb{R}[X]$$ be a polynomial defined as $$P(x) := (1-\frac{x}{2})(1+x)$$.  
-> $$P - 1$$ can be factorized as $$\frac{1}{2}x(1-x)$$, and $$\forall s \in [0,1]$$, the sign of $$P(s) - 1$$ is the sign of $$\frac{1}{2}$$ between its roots, i.e.: $$P(s) \ge 1$$.  
-> $$\forall s \in [0,1]$$, $$\begin{cases} H(s,0) = \alpha(min(1, 0)) = \alpha(0) = w \\ H(s, 1) = \gamma(min(1, P(s))) = \gamma(1) = z \end{cases}$$.  
+> $$\forall s \in [0,1]$$, $$\begin{cases} H(s,0) = \alpha(min(1, 0)) = \alpha(0) = w \\ H(s, 1) = \gamma(max(1, 1) = \gamma(1) = z \end{cases}$$  
 > $$H$$ is a homotopy between $$\alpha * (\beta * \gamma)$$ and $$(\alpha * \beta) * \gamma$$, i.e.: $$(\alpha * \beta) * \gamma \sim \alpha * (\beta * \gamma)$$.
 
 **c) Let $$\alpha : x \to y$$ be a path, exhibit a path $$\beta : y \to x$$ such that $$\alpha * \beta \sim c_{x}$$
@@ -310,8 +310,7 @@ and $$\beta * \alpha \sim c_{y}$$.**
 > Let $$H : [0, 1]^{2} \to X$$ be defined as $$\forall (s, t) \in [0,1]^{2}$$,  
 > $$H(s,t) := \begin{cases} \alpha((1-s)(1-2t)+s) &\quad t \le \frac{1}{2} \\ \alpha((1-s)(2t-1)+s) &\quad t \ge \frac{1}{2} \end{cases}$$  
 > Since both $$\alpha \circ \big((s,t) \mapsto (1-s)(1-2t)+s \big)$$ and $$\alpha \circ \big(t \mapsto (1-s)(2t-1)+s \big)$$ are continuous and coincide on the intersection of $$\{(s,t) \in [0,1] \times [0,\frac{1}{2}] \}$$ and $$\{(s,t) \in [0,1] \times [\frac{1}{2},1] \}$$ (both are equal to $$\alpha(s)$$), $$H$$ is continuous.  
-> We have then:  
-> $$\forall t \in [0,1]$$,  
+> We have then: $$\forall t \in [0,1]$$,  
 > $$H(0,t) = \begin{cases} \alpha(1-2t) &\quad t \le \frac{1}{2} \\ \alpha(2t-1) &\quad t \ge \frac{1}{2} \end{cases}$$  
 > $$H(0,t) = (\beta * \alpha)(t)$$  
 > $$H(1,t) = \begin{cases} \alpha(1) = y &\quad t \le \frac{1}{2} \\ \alpha(1) = y &\quad t \ge \frac{1}{2} \end{cases}$$  
@@ -356,43 +355,68 @@ that is, on $$\{ \gamma : x \to x \}_{/\sim}$$.**
 For $$X$$ a space and $$x$$ a point of $$X$$, we denote $$\pi_{1}(X, x)$$ the group defined in question 9 _d_. We call
 it the _fundamental group of $$X$$ at $$x$$_.
 
-10) **Let $$f : X \to Y$$ be an homeomorphism. Show that $$\pi_{1}(X, x) \simeq \pi_{1}(Y, f(x))$$ are isomorphic
-    as groups.**
+10)
 
-> We first prove that there is a group morphism $$g : \pi_{1}(X, x) \to \pi_{1}(Y, f(x))$$ such that $$\forall A, B \in \pi_{1}(X, x)$$, $$g(A * B) = g(A) * g(B)$$.  
-> Let $$A \in \pi_{1}(X,x)$$ and $$\alpha, \beta \in A$$, i.e.: $$\alpha \sim \beta$$.  
-> Let $$H$$ be an homotopy between $$\alpha$$ and $$\beta$$.  
+**a) Let $$f : X \to Y$$ be a continuous map and $$x \in X$$. Show that the
+application $$\gamma \mapsto f \circ \gamma$$ which sens loops at $$x$$ in $$X$$ to loops at $$f(x)$$ in $$Y$$ induces a
+group morphism denoted $$\pi_{1}(f, x) : \pi_{1}(X, x) \to \pi_{1}(Y, f(x))$$**.
+
+> We first prove that there is a continuous map $$g : \pi_{1}(X, x) \to \pi_{1}(Y, f(x))$$ that sends classes of homotopic loops at $$x$$ in $$X$$ to classes of homotopic loops at $$f(x)$$ in $$Y$$.  
+> Let $$[\alpha] \in \pi_{1}(X,x)$$ and $$\alpha_{1}, \alpha_{1} \in [\alpha]$$, i.e.: $$\alpha_{1} \sim \alpha_{2}$$.  
+> Let $$H$$ be an homotopy between $$\alpha_{1}$$ and $$\alpha_{1}$$.  
 > Then, $$f \circ H : [0, 1]^{2} \to Y$$ is continuous as a composition of continuous maps,  
-> and $$\forall t \in [0,1]$$, $$(f \circ H)(0, t) = (f \circ \alpha)(t)$$,  
-> and $$(f \circ H)(1,t) = (f \circ \beta)(t)$$ and $$\forall s \in [0,1]$$, $$(f \circ H)(s,0) = f(x)$$ and $$(f \circ H)(s,1) = f(x)$$.  
-> Thus, $$f \circ H$$ is a homotopy between $$f \circ \alpha$$ and $$f \circ \beta$$, i.e.: $$f \circ \alpha \sim f \circ \beta$$, they both are in the same equivalence class and we note it $$\pi_{1}(f, x)(A)$$.  
+> and $$\forall t \in [0,1]$$, $$(f \circ H)(0, t) = (f \circ \alpha_{1})(t)$$,  
+> and $$(f \circ H)(1,t) = (f \circ \alpha_{2})(t)$$ and $$\forall s \in [0,1]$$, $$(f \circ H)(s,0) = f(x)$$ and $$(f \circ H)(s,1) = f(x)$$.  
+> Thus, $$f \circ H$$ is a homotopy between $$f \circ \alpha_{1}$$ and $$f \circ \alpha_{2}$$, i.e.: $$f \circ \alpha_{1} \sim f \circ \alpha_{2}$$, they both are in the same equivalence class and we note it $$\pi_{1}(f, x)([\alpha])$$.  
 > We then prove that $$\forall A, B \in \pi_{1}(X,x)$$, $$\pi_{1}(f, x)(A * B) = \pi_{1}(f,x)(A) * \pi_{1}(f,x)(B)$$.  
-> Let $$A, B \in \pi_{1}(X,x)$$ and $$\alpha \in A$$, $$\beta \in B$$,  
+> Let $$[\alpha], [\beta] \in \pi_{1}(X,x)$$. We can choose $$\alpha$$ and $$\beta$$ as representatives of $$[\alpha]$$ and $$[\beta]$$ using what we just proved.    
 > We have: $$\forall t \in [0,1]$$, $$f \circ (\alpha * \beta)(t) = \begin{cases} f(\alpha(2t)) &\quad t \le \frac{1}{2} \\ f(\beta(2t-1)) &\quad t \ge \frac{1}{2} \end{cases}$$  
 > and $$\forall t \in [0,1]$$, $$(f \circ \alpha) * (f \circ \beta)(t) = \begin{cases} (f \circ \alpha)(2t) &\quad t \le \frac{1}{2} \\ (f \circ \beta)(2t-1) &\quad t \ge \frac{1}{2} \end{cases}$$  
 > Thus, $$f \circ (\alpha * \beta) = (f \circ \alpha) * (f \circ \beta)$$, they are homotopic, i.e.: $$f \circ (\alpha * \beta) \sim (f \circ \alpha) * (f \circ \beta)$$.  
-> Therefore, $$\pi_{1}(f, x)(A * B) = \pi_{1}(f,x)(A) * \pi_{1}(f,x)(B)$$, and $$\pi_{1}(f, x)$$ is a group morphism.  
-> We then prove that $$\pi_{1}(f,x)$$ is inversible.  
-> Let $$A \in \pi_{1}(X,x)$$ and $$\alpha \in A$$.  
-> Let $$\beta \in \pi_{1}(f^{-1}, f(x))\Big[ \pi_{1}(f, x)(A) \Big]$$  
-> By definition, $$\beta$$ is in the equivalence class of paths $$\Big(f^{-1}(f(x)) \to f^{-1}(f(x)) \Big) = (x \to x)$$ homotopic to $$f^{-1} \circ f \circ \alpha = \alpha$$, i.e.: $$\beta \sim \alpha$$, they are in the same equivalence class $$A$$.  
-> Therefore, $$\pi_{1}(f^{-1}, f(x)) \Big[ \pi_{1}(f, x)(A) \Big] = A$$.  
-> $$\pi_{1}(f, x)$$ is inversible and its inverse is $$\pi_{1}(f^{-1}, f(x))$$.  
-> $$f$$ induces a group isomorphism $$\pi_{1}(f,x) \simeq \pi_{1}(Y, f(x))$$.
+> Therefore, $$\pi_{1}(f, x)([\alpha] * [\beta]) = \pi_{1}(f,x)([\alpha]) * \pi_{1}(f,x)([\beta])$$, and $$\pi_{1}(f, x)$$ is a group morphism.
+
+
+
+**b) Show that for $$x$$ a point of space $$X$$, $$\pi_{1}(id_{X}, x) = id_{\pi_{1}(X, x)}$$**.
+
+> Let $$[\gamma] \in \pi_{1}(X, x)$$, and compute $$\pi_{1}(id_{X}, x)([\gamma])$$.  
+> $$\pi_{1}(id_{X}, x)([\gamma]) = [id_{X} \circ \gamma] = [\gamma] = id_{\pi_{1}(X, x)}([\gamma])$$.      
+> Since both $$\pi_{1}(id_{X}, x)$$ and $$id_{\pi_{1}(X,x)}$$ coincide on $$\pi_{1}(X, x)$$, they are equal.
+
+**c) Show that for composable continuous maps $$X \overset{f}{\to } Y \overset{g}{\to } Z$$, and $$x \in X$$ we have $$
+\pi_{1}(g \circ f, x) = \pi_{1}(g, f(x)) \circ \pi_{1}(f, x)$$**
+
+> Let $$[\gamma] \in \pi_{1}(X, x)$$, and compute $$\pi_{1}(g \circ f, x)([\gamma])$$.  
+> $$\pi_{1}(g \circ f, x)([\gamma]) = [(g \circ f) \circ \gamma] = [g \circ (f \circ \gamma)] = \pi_{1}(g, f(x))([f \circ \gamma]) = \pi_{1}(g, f(x))\Big(\pi_{1}(f, x)([\gamma])\Big) = (\pi_{1}(g, f(x)) \circ (\pi_{1}(f, x))([\gamma]))$$.  
+> Since both $$\pi_{1}(g \circ f, x)$$ and $$\pi_{1}(g, f(x)) \circ \pi_{1}(f, x)$$ coincide on $$\pi_{1}(X, x)$$, they are equal.
 
 We now turn to the computation of $$\pi_{1}(\mathbb{S}^{1}, (1, 0))$$. In the following we identify $$\mathbb{S}^{1}$$
 with the complex unit circle $$\mathbb{U} = \{z \in \mathbb{C} |\ |z| = 1\}$$, and denote $$exp$$ the
 map $$ s \mapsto e^{i s} : \mathbb{R} \to \mathbb{S}^{1}$$. We first aim to shew the following lemma:
+
+11) **Let $$f : X \to Y$$ be an homeomorphism. Show that $$\pi_{1}(X, x) \simeq \pi_{1}(Y, f(x))$$ are isomorphic
+    as groups.**
+
+> We showed in 10)a) that $$\pi_{1}(f, x) : \pi_{1}(X, x) \to \pi_{1}(Y, f(x))$$ is a group morphism.  
+> We prove that $$\pi_{1}(f,x)$$ is invertible.  
+> Since $$f$$ is an homeomorphism, $$f^{-1}$$ is continuous, we can construct $$\pi_{1}(f^{-1}, f(x))$$ the group of equivalence classes of loops at $$f(x)$$ in $$Y$$.  
+> Using 10)c) then 10)b), we have $$\pi_{1}(f^{-1}, f(x)) \circ \pi_{1}(f, x) = \pi_{1}(f^{-1} \circ f, x) = \pi_{1}(id_{X}, x) = id_{\pi_{1}(X, x)}$$ and $$\pi_{1}(f, x) \circ \pi_{1}(f^{-1}, f(x)) = \pi_{1}(f, (f \circ f^{-1})(f(x))) \circ \pi_{1}(f^{-1}, f(x)) = \pi_{1}(f \circ f^{-1}, f(x)) = \pi_{1}(id_{Y}, f(x)) = id_{\pi_{1}(Y, f(x))}$$  
+> $$\pi_{1}(f, x)$$ is invertible and its inverse is $$\pi_{1}(f^{-1}, f(x))$$.  
+> $$f$$ induces a group isomorphism $$\pi_{1}(f,x) \overset{\pi_{1}(f, x)}{\simeq} \pi_{1}(Y, f(x))$$.
 
 ### **Lemma 1.6: Lifting theorem**
 
 Let $$a \le b \in \mathbb{R}$$ and $$f : [a, b] \in \mathbb{S}^{1}$$ be a continuous map, there is a continuous
 map $$\hat{f} : [a, b] \to \mathbb{R}$$ such that $$exp \circ \hat{f} = f$$.
 
-11)
+12)
 
 **a) Let $$a \le b$$ and suppose $$f : [a, b] \to \mathbb{S}^{1}$$ misses a point (say $$1$$). Show using question 3
 that $$f$$ admits such a lift $$\hat{f} : [a, b] \to \mathbb{R}$$**.
+
+> Let $$\hat{f} : [a, b] \to \mathbb{R}$$ be defined as $$\hat{f} := e^{-1} \circ f$$.  
+> $$\hat{f}$$ is continuous as a composition of continuous maps,  
+> and $$\forall x \in [a, b]$$, $$(exp \circ \hat{f})(x) = e^{2\pi i \hat{f(x)}} = \cos(2\pi e^{-1}(f(x)) + i \sin(2\pi e^{-1}(f(x)) = e(e^{-1}(f(x))) = f(x)$$
 
 **b) Let $$a \le b$$ and consider any continuous map $$f : [a, b] \to \mathbb{S}^{1}$$. Show that we may split the
 interval $$[a, b]$$ as $$a = a_{0} \le a_{1} \le \dots \le a_{N} = b$$ such that for
@@ -400,6 +424,26 @@ each $$i \lt N$$, $$f_{i} := f|_{[a_{i},a{i+1}]} : [a_{i},a_{i+1}] \to \mathbb{S
 each of them admits a lift $$\hat{f_{i}} : [a_{i},a_{i+1}] \to \mathbb{R}$$. Show that we may assure for
 each $$i \lt \ N - 1$$, $$\hat{f_{i}}(a_{i+1}) = \hat{f_{i+1}}(a_{i+1})$$. Conclude that $$f$$ admits a lift $$\hat{f}$$
 which achieves the proof of Lemma 1.6**
+
+> Let $$a_{0} := a$$   
+> Assume we constructed $$(a_{i})_{0 \le i \le n}$$ for some $$n$$, with $$a = a_{0} \le a_{1} \le \dots \le a_{n} \le b$$.  
+> Let $$a_{n+1} := \sup \{ x \in [a_{n}, b],\ f([a_{n}, x]) \subset \mathcal{B}(f(a_{n}), 1) \}$$    
+> By induction, we get a sequence $$(a_{i})_{i \in \mathbb{N}}$$ that is increasing ($$\forall i \in \mathbb{N}$$, $$
+a_{i} \le a_{i+1}$$) and majored ($$a_{i} \le b$$).  
+> We prove by an evil contradiction that this sequence is eventually constant, i.e.: $$\exists n_{0} \in \mathbb{N}$$, $$\forall n \ge n_{0}$$, $$a_{n} = b$$.  
+> Let suppose the opposite, and let $$n \in \mathbb{N}$$,  
+> Since $$a_{n+1}$$ is a $$\sup$$, let $$\epsilon_{m} := \frac{1}{1 + m} \gt 0$$ for some $$m \in \mathbb{N}$$.    
+> We have then:    
+> $$f([a_{n}, a_{n+1} + \epsilon_{m}]) \nsubseteq \mathcal{B}(f(a_{n}), 1)$$, and since $$f([a_{n}, a_{n+1}]) \subset \mathcal{B}(f(a_{n}), 1)$$, $$\exists x_{m} \in ]a_{n+1}, a_{n+1} + \epsilon_{m}]$$ such that $$f(x_{m}) \notin \mathcal{B}(f(a_{n}),1)$$, i.e.: $$|f(x_{m}) - f(a_{n})| \gt 1$$.  
+> When $$m$$ goes to infinity, $$x_{m}$$ goes to $$a_{n+1}$$, and since $$f$$ is continuous, $$f(x_{m})$$ goes to $$f(a_{n+1})$$. We have $$|f(a_{n+1}) - f(a_{n})| \ge 1$$.  
+> Since $$(a_{n})_{n \in \mathbb{N}}$$ is increasing and majored by $$b$$, it converges to some $$l \le b$$, and since $$f$$ is continuous, $$\lim_{n \to +\infty} f(a_{n+1}) = \lim_{n \to +\infty} f(a_{n}) = l$$, and $$\lim_{n \to +\infty}|f(a_{n+1}) - f(a_{n})| = 0$$, which is a contradiction with $$\forall n \in mathbb{N}$$, $$|f(a_{n+1}) - f(a_{n})| \ge 1$$.  
+> Therefore, $$\exists N \in \mathbb{N}$$, such that $$\forall n \ge N$$, $$a_{n} = b$$.  
+> Then, for each interval $$[a_{i}, a_{i+1}]$$, we can construct a map from it to $$\mathbb{S}$$ that misses a point using 11)a).  
+> For $$i \lt N - 1$$, we have $$(exp \circ \hat{f}_{i})(a_{i+1}) = (exp \circ \hat{f_{i+1}})(a_{i+1})$$, thus $$\hat{f}
+_{i}(
+a_{i+1}) = \hat{f_{i+1}}(a_{i+1}) + k$$ for some $$k \in \mathbb{N}$$. For each $$i \lt N - 1$$, we can set $$\hat{f_{i+1}}(a_{i+1}) = \hat{f_{i}}(a_{i+1})$$ by shifting $$\hat{f_{i+1}}$$ by $$k$$, and we still have $$exp \circ \hat{f_{i+1}} = f_{|[a_{i+1}, a_{i+2}]}$$.  
+> Therefore, $$\hat{f}$$ is continuous and $$f$$ admits a lift $$\hat{f}$$.
+
 
 We then admit the following variant of _Lemma_ 1.6 which may be proven similarly by cutting $$[0,1]^{2}$$ in cute little
 squares
@@ -409,35 +453,108 @@ squares
 Let $$f : [0, 1]^{2} \to \mathbb{S}^{1}$$ be a continuous map, there is a continuous
 map $$\hat{f} : [0,1]^{2} \to \mathbb{R}$$ such that $$exp \circ \hat{f} = f$$
 
-12) **We now compute $$\pi_{1}(\mathbb{S}^{1}, 1)$$**.
+13) **We now compute $$\pi_{1}(\mathbb{S}^{1}, 1)$$**.
 
-**a) Let $$\gamma : 1 \in 1$$ be a loop in $$\mathbb{S}^{1}$$ (seen as $$\mathbb{U} \subseteq \mathbb{C}$$). Using
+**a) Let $$\gamma : 1 \mapsto 1$$ be a loop in $$\mathbb{S}^{1}$$ (seen as $$\mathbb{U} \subseteq \mathbb{C}$$). Using
 the lifting lemma, we consider a lift $$\hat{\gamma} : [0,1] \to \mathbb{R}$$ of $$\gamma$$. We then define
 the _index_ of $$\gamma$$ to be $$ind(\gamma) := |\hat{\gamma}(1)-\hat{\gamma}(0)|$$. Show that $$ind(\gamma)$$ does
 not depend on the choice of the lift $$\hat{\gamma}$$**.
 
+> Let $$\hat{\gamma_{1}}, \hat{\gamma_{2}}$$ be two lifts of $$\gamma$$.  
+> We have $$\forall t \in [0,1]$$, $$exp \circ \hat{\gamma_{1}}(t) = exp \circ \hat{\gamma_{2}}(t) = \gamma(t)$$  
+> Since $$\gamma$$ is always non-zero, $$exp \Big(\hat{\gamma_{1}}(t)-\hat{\gamma_{2}}(t) \Big)= 1$$. Since this fraction is constant, we get $$\hat{\gamma}(t) - \hat{\delta}(t) \in \mathbb{N}$$. Since $$\hat{\gamma} - \hat{\delta}$$ is continuous, it's constant, and we have $$\forall t \in [0,1]$$, $$\hat{\gamma_{1}}(t) - \hat{\gamma_{2}}(t) = k$$ for some $$k \in \mathbb{N}$$.  
+> And $$\hat{\gamma_{1}}(1) - \hat{\gamma_{1}}(0) = \hat{\gamma_{2}}(1) - \hat{\gamma_{2}}(0)$$, the choice of the lift $$\hat{\gamma}$$ does not affect the index of $$\gamma$$.
+
 **b) Show that if $$\gamma \sim \delta$$ are two homotopic loops $$1 \to 1$$ in $$\mathbb{S}^{1}$$,
 then $$ind(\gamma) = ind(\delta)$$**.
 
+> Let $$H$$ be a homotopy between $$\gamma$$ and $$\delta$$ and $$\hat{H}$$ its lift using the lifting theorem 2.  
+> We have $$\forall s \in [0,1]$$, $$H(s, 0) = exp \circ \hat{H} (s, 0) = 1 = H(s, 1) = exp \circ \hat{H} (s, 1)$$.  
+> Thus, $$\forall s \in [0,1]$$, $$\frac{H(s, 0)}{H(s, 1)} = exp \Big(\hat{H}(s, 0)-\hat{H}(s, 1) \Big) = 1$$, $$\hat{H}(s, 0) - \hat{H}(s, 1) = k$$ for some $$k \in \mathbb{N}$$. (1)   
+> We also have $$\forall t \in [0,1]$$, $$\begin{cases} H(0, t) = exp \circ \hat{H} (0, t) = \gamma(t) = exp \circ \hat{\gamma}(t) \\ H(1, t) = exp \circ \hat{H} (1, t)= \delta(t) = exp \circ \hat{\delta}(t) \end{cases}$$  
+> $$\forall t \in [0,1]$$, $$\gamma(t)$$ and $$\delta(t)$$ are non-zero, and $$\begin{cases} \frac{H(0, t)}{\gamma(t)} = exp \Big( \hat{H}(0, t) - \hat{\gamma}(t) \Big) = 1 \\ \frac{H(1, t)}{\delta(t)} = exp \Big( \hat{H}(1, t)-\hat{\delta}(t) \Big) = 1 \end{cases}$$  
+> We have $$\forall t \in [0,1]$$, $$\hat{H}(0,t) - \hat{\gamma}(t) = k_{1}$$ and $$\hat{H}(1,t) - \hat{\delta}(t) = k_{2}$$ for some $$k_{1}, k_{2} \in \mathbb{N}$$. (2)    
+> Then, using (2) we get $$ind(\gamma) = \hat{\gamma}(1) - \hat{\gamma}(0) = \hat{H}(0, 1) - \hat{H}(0, 0)$$  
+> and using (1), we get $$ind(\gamma) = \hat{H}(1, 1) - \hat{H}(1, 0)$$,  
+> using (2) again, $$ind(\gamma) = \hat{\delta}(1) - \hat{\delta}(0) = ind(\delta)$$.
+
 **c) Show that $$ind(c_{1}) = 0$$ and $$ind(\gamma * \delta) = ind(\gamma) + ind(\delta)$$**.
+
+> We first prove that $$ind(c_{1}) = 0$$.  
+> We have $$\forall t \in [0,1]$$, $$c_{1}(t) = 1 = exp \circ \hat{c_{1}}(t)$$, thus $$\hat{c_{1}}(t) = k$$ for some $$k \in \mathbb{N}$$.  
+> and $$ind(c_{1}) = 0$$.  
+> We then prove that $$ind(\gamma * \delta) = ind(\gamma) + ind(\delta)$$.  
+> We have $$\forall t \in [0,1]$$,  
+> $$(\gamma * \delta)(t) = exp \circ \hat{(\gamma * \delta)} (t) = \begin{cases} \gamma(2t) = exp \circ \hat{\gamma}(2t) &\quad\text{if } t \le \frac{1}{2} \\ \delta(2t-1) = exp \circ \hat{\delta}(2t-1) &\quad\text{if } t \ge \frac{1}{2} \end{cases}$$  
+> For $$t \le \frac{1}{2}$$, $$exp \Big( \hat{(\gamma * \delta)} (t) - \hat{\gamma}(2t) \Big) = 1$$, thus $$\hat{(\gamma * \delta)}(t) - \hat{\gamma}(2t) = k_{1}$$ for some $$k_{1} \in \mathbb{N}$$.  
+> For $$t \ge \frac{1}{2}$$, $$exp \Big( \hat{(\gamma * \delta)} (t) = \hat{\delta}(2t-1) \Big) = 1$$, thus $$\hat{(\gamma * \delta)}(t) - \hat{\delta}(2t-1) = k_{2}$$ for some $$k_{2} \in \mathbb{N}$$.  
+> Since $$\hat{(\gamma * \delta)}$$ is continuous, $$k_{1} = k_{2}$$, and we have:  
+> $$ind(\gamma * \delta) = \hat{(\gamma * \delta)}(1) - \hat{(\gamma * \delta)}(0) + \hat{(\gamma * \delta)}(\frac{1}{2}) - \hat{(\gamma * \delta)}(\frac{1}{2}) = \hat{\delta}(1) - \hat{\gamma}(0) + \hat{\gamma}(1) - \hat{\delta}(0) = ind(\gamma) + ind(\delta)$$.
 
 **d) Deduce from the previous subquestions that $$ind$$ induces a group morphism still denoted $$ind : \pi_{1}(
 \mathbb{S}^{1}, 1) \to \mathbb{Z}$$**.
 
+> Let $$[\gamma], [\delta] \in \pi_{1}(\mathbb{S}^{1}, 1)$$ and $$\gamma_{1}, \gamma_{2} \in [\gamma]$$.  
+> Since $$\gamma_{1} \sim \gamma_{2}$$, $$ind(\gamma_{1}) = ind(\gamma_{2})$$ (from 13)b)). We can then define the induced map $$ind : \pi_{1}(\mathbb{S}^{1}, 1) \to \mathbb{Z}$$ and set $$ind([\gamma]) := ind(\gamma)$$.  
+> We now prove that $$ind([\gamma] * [\delta]) = ind([\gamma]) + ind([\delta])$$,  
+> Using the induced concatenation $$*$$ on loop classes and 13)c), $$ind([\gamma] * [\delta]) = ind([\gamma * \delta]) = ind(\gamma * \delta) = ind(\gamma) + ind(\delta) = ind([\gamma]) + ind([\delta])$$.  
+> $$ind$$ induces a group morphism between $$\pi_{1}(\mathbb{S}^{1}, 1)$$ and $$\mathbb{Z}$$.
+
 **e) Show that $$ind$$ is surjective**.
+
+> Let $$q \in \mathbb{Z}$$  
+> If $$q = 0$$, then $$q = ind([c_{1}])$$.  
+> If not, we define $$[\gamma] \in \pi_{1}(\mathbb{S}^{1}, 1)$$ with $$\gamma : [0, 1] \to \mathbb{S}^{1}$$, $$\forall t \in [0,1]$$, $$\gamma(t) = exp(t)$$, a loop in $$\mathbb{U}$$ at $$1$$, with $$\hat{\gamma}(t) = t$$.  
+> We have $$ind([\gamma]) = ind(\gamma) = 1$$.  
+> If $$q \ge 1$$, then $$ind([\underbrace{\gamma * \gamma * \dots * \gamma}_{q\ times}]) = q \cdot ind([\gamma]) = q$$.  
+> If $$q \le -1$$, then $$ind([\underbrace{\gamma^{-1} * \gamma^{-1} * \dots * \gamma^{-1}}_{-q\ times}]) = -q \cdot ind([\gamma^{-1}]) = q$$.  
+> Therefore, $$ind$$ is surjective.
 
 **f) Let $$\gamma, \delta$$ be such that $$ind(\gamma) = ind(\delta)$$. Show that we may choose $$\hat{\gamma},
 \hat{\delta}$$ such that $$\hat{\gamma}(0) = \hat{\delta}(0) = 0$$ and $$\hat{\gamma}(1) = \hat{\delta}(
-1)$$. Find a homotopy betwee $$\hat{\gamma}$$ and $$\hat{\delta}$$. Deduce that $$\gamma \sim
+1)$$. Find a homotopy between $$\hat{\gamma}$$ and $$\hat{\delta}$$. Deduce that $$\gamma \sim
 \delta$$. Deduce that $$ind : \pi_{1}(\mathbb{S}^{1}, 1) \to \mathbb(Z)$$ is injective**.
+
+> Let $$\hat{\gamma'} := \hat{\gamma}-\hat{\gamma}(0)$$ and $$\hat{\delta'} := \hat{\delta}-\hat{\delta}(0)$$.  
+> For $$t = 0$$, $$\hat{\gamma'}(0) = 0$$ and $$\hat{\delta'}(0) = 0$$.  
+> We have $$\forall t \in [0,1]$$, using $$exp \circ \hat{\gamma}(0) = \gamma(0) = 1$$, $$exp \circ \hat{\gamma'}(t) = exp \circ (\hat{\gamma}(t) - \hat{\gamma}(0)) = \frac{\gamma(t)}{exp \circ \hat{\gamma}(0)} = \gamma(t)$$.  
+> And $$\forall t \in [0,1]$$, using $$exp \circ \hat{\delta}(0) = \delta(0) = 1$$, $$exp \circ \hat{\delta'}(t) = exp \circ (\hat{\delta}(t) - \hat{\delta}(0)) = \frac{\delta(t)}{exp \circ \hat{\delta}(0)} = \delta(t)$$.  
+> Since $$ind(\gamma) = ind(\delta)$$, $$\hat{\gamma}(1) - \hat{\gamma}(0) = \hat{\delta}(1) - \hat{\delta}(0) = \hat{\gamma'}(1) = \hat{\delta'}(1)$$.  
+> We may then use $$\hat{\gamma'}$$ in place of $$\hat{\gamma}$$ and $$\hat{\delta'}$$ in place of $$\hat{\delta}$$.  
+> Let $$\hat{H}: [0, 1]^{2} \to \mathbb{R}$$ defined as $$\forall (s, t) \in [0,1]^{2}$$, $$\hat{H}(t, s) := (1-s)\hat{\gamma}(t) + s\hat{\delta}(t)$$.  
+> $$\hat{H}$$ is continuous, as a product and sum of continuous maps, and we have $$\forall t \in [0,1]$$, $$\begin{cases} \hat{H}(0, t) = \hat{\gamma}(t) \\ \hat{H}(1, t) = \hat{\delta}(t) \end{cases}$$  
+> and $$\forall s \in [0,1]$$, $$\begin{cases} \hat{H}(s, 0) = (1 - s)\hat{\gamma}(0) + s\hat{\delta}(0) = 0 \\ \hat{H}(s,1) = (1 - s)\hat{\delta}(1) + s\hat{\gamma}(1) = 0 &\text{using } \hat{\gamma}(1) = \hat{\delta}(1) \end{cases}$$  
+> $$\hat{H}$$ is a homotopy between $$\hat{\gamma}$$ and $$\hat{\delta}$$.  
+> Let $$H: [0, 1]^{2} \to \mathbb{R}$$ defined as $$\forall (s, t) \in [0,1]^{2}$$, $$H(s,t) := exp \circ \hat{H}(s, t)$$.  
+> $$H$$ is continuous, as a composition of continuous maps, and we have $$\forall t \in [0,1]$$, $$\begin{cases} H(0, t) = exp \circ \hat{H}(0,t) = exp \circ \hat{\gamma}(t) = \gamma(t) \\ H(1,t) = exp \circ \hat{H}(1,t) = exp \circ \hat{\delta}(t) = \delta(t) \end{cases}$$    
+> and $$\forall s \in [0,1]$$, $$\begin{cases} H(s,0) = exp \circ \hat{H}(s,0) = exp (0) = 1 \\ H(s,1) = exp \circ \hat{H}(s,1) = exp (0) = 1 \end{cases}$$
+> $$\hat{H}$$ is a homotopy between $$\gamma$$ and $$\delta$$.  
+> Therefore, $$\forall [\gamma], [\delta] in \pi_{1}(\mathbb{S}^{1},1)$$, $$ind([\gamma]) = ind([\delta]) \Rightarrow ind(\gamma) = ind(\delta) \Rightarrow \gamma \sim \delta \Rightarrow [\gamma] = [\delta]$$.  
+> $$ind$$ is injective.
+
 
 **g) Conclude**
 
-13) Let $$n \in \mathbb{N}$$, compute $$\pi_{1}(\mathbb{R}^{n})$$ and conclude again
+> We proved that $$ind$$ is a group isomorphism between $$\pi_{1}(\mathbb{S}^{1}, 1)$$ and $$\mathbb{Z}$$.
+
+14) Let $$n \in \mathbb{N}$$, compute $$\pi_{1}(\mathbb{R}^{n})$$ and conclude again
     that $$\mathbb{S}^{1} \ncong \mathbb{R}^{n}$$
 
-14) Explain why we expect $$\pi_{1}(\mathbb{S}^{2}) = \{ * \}$$ where $$\pi_{1}(\mathbb{S}^{2})$$ is the unit sphere
+> Let $$x \in \mathbb{R}^{n}$$. We prove that $$\pi_{1}(\mathbb{R}^{n}, x) = \{[c_{x}]\}$$.  
+> Let $$[\gamma] \in \pi_{1}(\mathbb{R}^{n}, x)$$, and $$\gamma$$ its represantant.  
+> Let $$H : [0,1]^{2} \to \mathbb{R}$$ defined as $$\forall (s,t) \in [0,1]^{2}$$, $$H(s,t) := (1-s)\gamma(t) + s \cdot x$$.  
+> $$H$$ is continuous, as a sum of products of continuous maps, and we have:  
+> $$\forall t \in [0,1]$$, $$\begin{cases} H(0,t) = \gamma(t) \\ H(1,t) = x = c_{x}(t) \end{cases}$$  
+> and $$\forall s \in [0,1]$$, $$\begin{cases} H(s,0) = (1-s)\gamma(0) + s \cdot x = x \\ H(s,1) = (1-s)\gamma(1) + s \cdot x = x \end{cases}$$  
+> $$H$$ is a homotopy between $$\gamma$$ and $$c_{x}$$, thus $$\gamma \sim c_{x}$$ i.e.: $$[\gamma] = [c_{x}]$$.  
+> Therefore, $$\pi_{1}(\mathbb{R}^{n}, x) = \{[c_{x}]\}$$.  
+> Since $$\pi_{1}(\mathbb{S}^{1}, 1)$$ is isomorphic to $$\mathbb{Z}$$ and $$\mathbb{Z}$$ has at least 2 elements (last time I checked), using the contraposition of 11), $$\mathbb{R}^{n} \ncong \mathbb{S}^{1}$$.
+
+15) Explain why we expect $$\pi_{1}(\mathbb{S}^{2}) = \{ * \}$$ where $$\pi_{1}(\mathbb{S}^{2})$$ is the unit sphere
     in $$\mathbb{R}^{3}$$. Admitting it, deduce that $$\mathbb{S}^{1} \ncong \mathbb{S}^{2}$$
+
+> We expect $$\pi_{1}(\mathbb{S}^{2}) = \{ * \}$$ because loops on the surface of a sphere can be continuously deformed to any point on the surface.  
+> Using the contraposition of 11), and since $$\pi_{1}(\mathbb{S}^{1}, 1)$$ is isomorph to $$\mathbb{Z}$$, and $$\mathbb{Z}$$ has at least two elements (999999 and 7 for example, I just doubled check to make sure), $$\mathbb{S}^{2} \ncong \mathbb{S}^{1}$$.
 
 ### **Definition 1.8: Homotopy of maps**
 
@@ -445,28 +562,44 @@ Let $$f, g : X \to Y$$ be two continuous maps. A _homotopy_ between $$f$$ and $$
 H : [0, 1] \times X \to Y$$ such that for $$x \in X$$, $$H(0, x) = f(x)$$ and $$H(1, x) = g(x)$$. We write $$f \sim g$$
 when they are _homotopic_, that is when there is an homotopy between them
 
-15)
-
-**a) Let $$f : X \to Y$$ be a continuous map and $$x \in X$$. Show that the
-application $$\gamma \mapsto f \circ \gamma$$ which sens loops at $$x$$ in $$X$$ to loops at $$f(x)$$ in $$Y$$ induces a
-group morphism denoted $$\pi_{1}(id_{x}, x) = id_{\pi_{1}(X, x)}$$**.
-
-**b) Show that for $$x$$ a point of space $$X$$, $$\pi_{1}(id_{x}, x) = id_{pi_{1}(X, x)}$$**.
-
-**c) Show that for composable continuous maps $$X \overset{f}{\to } Y \overset{g}{\to } Z$$, and $$x \in X$$ we have $$
-\pi_{1}(g \circ f, x) = \pi_{1}(g, f(x)) \circ \pi_{1}(f, x)$$**
-
 ### **Definition 1.9: Homotopy equivalence**
 
 Let $$f: X \to Y$$ be a continuous map. It is said to be a _homotopy equivalence_ iif there is a homotopy inverse
 map $$g: Y \to X$$ of $$f$$ that is such that $$g \circ f \sim id_{X}$$ and $$f \circ g \sim id_{Y}$$. We
 write $$X \simeq Y$$ when they are homotopy equivalence. That is when there is a homotopy equivalence between them
 
+16) We show that some of our constructions are homotopy invariant. In the following, $$X$$ and $$Y$$ are topological
+    spaces.
+
+**a) Let $$\gamma : x \to y$$ be a path in $$X$$, and let $$\overline{\gamma}$$ be the inverse of $$\gamma$$ up to
+homotopy defined by $$\overline{\gamma} := \gamma(1 - s)$$. Show that the
+map $$\alpha \mapsto \overline{\gamma} * \alpha * \gamma$$ induces a group
+isomorphism $$u_{\gamma} : \pi_{1}(X, x) \to \pi_{1}(X, y)$$ which only depends on the homotopy class of $$\gamma$$.**
+
+> aze
+> aze
+> aze
+
+**b) Let $$f, g:X \to Y$$ be two continuous maps and $$x$$ a point of $$X$$. Suppose that we have an
+homotopy $$H: [0,1] \times X \to Y$$ between $$f$$ and $$g$$. Let $$\gamma = t \mapsto H(t, x)$$ the induced
+path $$f(x) \to g(x)$$. For $$s \in [0, 1]$$, write $$h_{s} = z \mapsto H(s, t)$$ (we have $$h_{0} = f$$
+and $$h_{1} = g$$), consider $$\gamma_{s} : \gamma(s) \to y$$ the path defined
+by $$\gamma_{s}(t) := \gamma(s + (1-s)t)$$ and its homotopy
+inverse $$\overline{\gamma_{s}} : t \mapsto \gamma_{s}(1-t)$$.  
+Then show that $$(s, t) \mapsto (\overline{\gamma_{s}} * (h_{s} \circ \alpha) * \gamma_{s})(t)$$ yield a (fixed
+endpoint) homotopy $$f \circ \alpha \sim g \circ \alpha$$. Then deduce that we have the identity $$u_{\gamma} \circ
+\pi_{1}(f, x) = \pi_{1}(g, x)$$.**
+
+> zaze
+> aze
+
+17) Suppose we have a homotopy $$f : X \to Y$$
+
 16) **Deduce from question 15 that if $$f : X \to Y$$ is a homotopy equivalence and $$x \in X$$,
-    then $$\pi_{1}(f, x) : \pi_{1}(X, x) \to \pi_{1}(Y, f(x))$$ is a group isomorphism**
+    then $$\pi_{1}(f, x) : \pi_{1}(X, x) \to \pi_{1}(Y, f(x))$$ is a group isomorphism.**
 
 18) **Show that for any $$n \in \mathbb{N}$$, $$\mathbb{R}^{n}$$ is homotopy equivalent to a point and not
-    to $$\mathbb{S}^{1}$$. Show also that $$\mathbb{S}^{1}$$ is not homotopy equivalent to $$\mathbb{S}^{2}$$**
+    to $$\mathbb{S}^{1}$$. Show also that $$\mathbb{S}^{1}$$ is not homotopy equivalent to $$\mathbb{S}^{2}.$$**
 
 ## Part 2: Brouwer's Fixed Point Theorem
 
