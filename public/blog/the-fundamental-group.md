@@ -29,41 +29,31 @@ there is a path from $$x$$ to $$y$$.
 **a) Show that $$\mathbb{R}^{n}$$ is path connected**.
 
 > Let $$x, y \in \mathbb{R}^{n}$$.  
-> Let $$\gamma : \left[ 0, 1 \right] \to \mathbb{R}^{n}$$ such that $$\forall t \in \left[ 0, 1 \right],\ \gamma (t) = (1 - t) x + t y$$.  
+> Let $$\gamma : [ 0, 1 ] \to \mathbb{R}^{n}$$ such that $$\forall t \in [ 0, 1 ],\ \gamma (t) = (1 - t) x + t y$$.  
 > $$\gamma$$ is continuous, $$\gamma (0) = x$$ and $$\gamma (1) = y$$.  
 > $$\gamma$$ is a path between $$x$$ and $$y$$.  
 > Therefore, $$\mathbb{R}^{n}$$ is path connected.
 
-**b) For $$n \ge 2$$, show that $$\mathbb{R}^{n} \setminus \left\{ 0 \right\} $$ is path connected**.
-> Let $$x, y$$ be two points of $$\mathbb{R}^{n} \setminus \left\{ 0 \right\}$$.  
-> For $$p \in \mathbb{R}^{n}$$, we define $$|| \cdot || : \mathbb{R}^{n} \to \mathbb{R}_{+}$$ as $$||p|| := \sqrt{\sum_{i=1}^{n} p_{i}^{2}}$$. In particular, $$||p|| \gt 0$$ iff at least one of $$p_{i}$$ is not zero.  
-> Let $$\theta_{x}, \theta_{y} \in [0, 2 \pi]$$ be the angle between $$x$$ (respectively $$y$$) and $$(1, 0, \dots, 0)$$.  
-> Let $$r : [0,1] \to \mathbb{R}$$ defined as $$\forall t \in [0,1]$$, $$r(t):= (1-t) ||x|| + t ||y||$$.  
-> Since $$||x|| \gt 0$$, and $$||y|| \gt 0$$, $$r(t) \gt 0$$.  
-> Let $$\phi : [0,1] \to \mathbb{R}$$ defined as $$\forall t \in [0,1]$$, $$\phi(t) := (1-t) \theta_{x} + t \theta_{y}$$.  
-> For $$i \ge 3$$, let $$\gamma_{i} : [0, 1] \to \mathbb{R}$$ defined as $$\forall t \in [0,1]$$, $$\gamma_{i}(t) := (1-t)x_{i} + t y_{i}$$.  
-> Let $$\gamma : [0,1] \to \mathbb{R}^{n}$$ defined as $$\forall t \in [0,1]$$, $$\gamma(t) := \Big(r(t) \cos (\phi (t)),\ r(t) \sin (\phi (t)),\ \gamma_{3}(t),\ \dots ,\ \gamma_{n}(t)\Big)$$.  
-> $$||\gamma(t)|| = \sqrt{\sum_{i=1}^{n} \gamma(t)_{i}^{2}}$$  
-> $$||\gamma(t)|| = \sqrt{(r(t) \cos (\phi (t)))^{2}+ (r(t) \sin (\phi (t)))^{2}+ f_{3}(t)^{2},\ \dots ,\ f_{n}(t)^{2}}$$  
-> $$||\gamma(t)|| = \sqrt{r(t)^{2} + \sum_{i=3}^{n}{f_{i}(t)^{2}}}$$  
-> $$||\gamma(t)|| \gt 0$$, i.e: $$\gamma(t)$$ is never zero.  
-> Let $$\gamma'$$ be the corestriction of $$\gamma$$ to $$\mathbb{R}^{n}\setminus \{0\}$$.  
-> $$\gamma'$$ is continuous, and we have $$\gamma'(0) = x$$ and $$\gamma'(1) = y$$.  
-> $$\gamma'$$ is a path between $$x$$ and $$y$$.  
-> Therefore, $$\mathbb{R}^{n}\setminus \{0\}$$ is path connected.
+**b) For $$n \ge 2$$, show that $$\mathbb{R}^{n} \setminus \{ 0 \} $$ is path connected**.
+> Let $$x, y \in \mathbb{R}^{n} \setminus \{0\}$$.  
+> Let $$P$$ be a plane containing both $$x$$ and $$y$$. We identify $$\mathbb{R}^{n} \setminus \{0\} = P \times \mathbb{R}^{n-2} \setminus \{0\}$$ with $$\mathbb{C} \times \mathbb{R}^{n-2} \setminus \{0\}$$.   
+> Let $$\theta_{x}, \theta_{y} \in [0, 2 \pi]$$ be their argument in $$P$$, and $$r_{x}, r_{y} \in \mathbb{R}_{+}^{\star}$$ their module in $$P$$. Note that both $$r_{x}$$ and $$r_{y}$$ are non zero.  
+> Let $$\gamma : [0,1] \to \mathbb{C} \times \mathbb{R}^{n-2}$$ defined as $$\forall t \in [0,1]$$, $$\gamma(t):= \big(((1-t)r_{x} + tr_{y})e^{i ((1-t) \theta_{x} + t \theta_{y})}, 0, \dots, 0\big)$$.  
+> Since $$\gamma$$ is continuous (as a composition and product of continuous maps), never zero and $$\gamma(0) = x$$ and $$\gamma(1) = y$$, $$\gamma$$ is a path between $$x$$ and $$y$$.  
+> Therefore, $$\mathbb{R} \setminus \{0\}$$ is path connected.
 
 **c) Let $$a_{1}, \ldots, a_{n} \in \mathbb{R}^{n}$$, show
-that $$\mathbb{R}^{n} \setminus \left\{ a_{1}, \ldots, a_{n} \right\}$$ is path connected**.
-> Pareil, géométriquement c'est pas difficile tant que la famille des $$\left\{a_{1}, \ldots, a_{n}\right\}$$ est finie 😣
+that $$\mathbb{R}^{n} \setminus \{ a_{1}, \ldots, a_{n} \}$$ is path connected**.
+> Pareil, géométriquement c'est pas difficile tant que la famille des $$\{a_{1}, \ldots, a_{n}\}$$ est finie 😣
 
 2)
 
-**a) Show that $$\mathbb{S}^1 := \left\{ (x, y) \in \mathbb{R}^2\ |\ x^{2} + y^{2} = 1 \right\}$$ is path connected**.
+**a) Show that $$\mathbb{S}^1 := \{ (x, y) \in \mathbb{R}^2\ |\ x^{2} + y^{2} = 1 \}$$ is path connected**.
 > Let $$a = (x_{1}, y_{1}) \in \mathbb{S}^{1}$$ and $$b = (x_{2}, y_{2}) \in \mathbb{S}^1$$.  
-> Let $$\theta_{i} = \begin{cases} \arccos \left( x_{i} \right) &\quad\text{if } y_{i} \ge 0 \\ - \arccos \left( x_{i} \right) &\quad\text{if } y_{i} \lt 0 \end{cases}$$  
-> Let $$\gamma : \left[ 0, 1 \right] \to \mathbb{R}^2$$ such that $$\forall t \in \left[ 0, 1 \right],\ \gamma (t) = \Big( \cos \big( (1 - t) \theta_{1} + t \theta_{2} \big),\ \sin \big( (1 - t) \theta_{1} + t \theta_{2} \big) \Big)$$  
-> Since $$\forall t \in \left[0,1\right],\ \cos \big( (1-t) \theta_{1} + t \theta_{2} \big)^{2} + \sin \big( (1-t) \theta_{1} + t \theta_{2} \big)^{2} = 1$$, $$\gamma \left( \left[0,1\right] \right) \subset \mathbb{S}^1$$  
-> We now consider $$\gamma' : \left[ 0, 1 \right] \to \mathbb{S}^1$$ the corestriction of $$\gamma$$ to $$\mathbb{S}^1$$.  
+> Let $$\theta_{i} = \begin{cases} \arccos \( x_{i} ) &\quad\text{if } y_{i} \ge 0 \\ - \arccos \( x_{i} ) &\quad\text{if } y_{i} \lt 0 \end{cases}$$  
+> Let $$\gamma : [ 0, 1 ] \to \mathbb{R}^2$$ such that $$\forall t \in [ 0, 1 ],\ \gamma (t) = \Big( \cos \big( (1 - t) \theta_{1} + t \theta_{2} \big),\ \sin \big( (1 - t) \theta_{1} + t \theta_{2} \big) \Big)$$  
+> Since $$\forall t \in [0,1],\ \cos \big( (1-t) \theta_{1} + t \theta_{2} \big)^{2} + \sin \big( (1-t) \theta_{1} + t \theta_{2} \big)^{2} = 1$$, $$\gamma \( [0,1] ) \subset \mathbb{S}^1$$  
+> We now consider $$\gamma' : [ 0, 1 ] \to \mathbb{S}^1$$ the corestriction of $$\gamma$$ to $$\mathbb{S}^1$$.  
 > $$\gamma'$$ is continuous and  
 > $$ \gamma' (0) = \begin{cases} \Big( \cos \big( \arccos(x_{1}) \big),\ \sin \Big( \arccos( x_{1} ) \Big) &\quad\text{if } y_{1} \ge 0 \\ \Big( \cos \big( -\arccos(x_{1}) \big),\ \sin \big( -\arccos(x_{1}) \big) \Big) &\quad\text{if } y_{1} \lt 0 \end{cases}$$  
 > $$ \gamma' (0) = \begin{cases} ( x_{1} ,\ \sqrt{1-x_{1}^2} ) &\quad\text{if } y_{1} \ge 0 \\ ( x_{1},\ - \sqrt{1 - x_{1}^2} ) &\quad\text{if } y_{1} \lt 0 \end{cases}$$  
@@ -75,20 +65,18 @@ that $$\mathbb{R}^{n} \setminus \left\{ a_{1}, \ldots, a_{n} \right\}$$ is path 
 > $$\gamma'$$ is a path between $$a$$ and $$b$$  
 > Therefore, $$\mathbb{S}^1$$ is path connected.
 
-**b) Show that $$\left] 0, 1 \right[$$ is path connected**.
-> Let $$x, y \in \left]0,1\right[$$.  
-> Let $$\gamma : \left[ 0, 1 \right] \to \left]0,1\right[$$ such that $$\forall t \in \left[ 0, 1 \right],\ \gamma (t) = (1 - t) x + t y$$.  
+**b) Show that $$]0,1[$$ is path connected**.
+> Let $$x, y \in ]0,1[$$.  
+> Let $$\gamma : [ 0, 1 ] \to ]0,1[$$ such that $$\forall t \in [ 0, 1 ],\ \gamma (t) = (1 - t) x + t y$$.  
 > $$\gamma$$ is continuous, $$\gamma (0) = x$$ and $$\gamma (1) = y$$.  
 > $$\gamma$$ is a path between $$x$$ and $$y$$.  
-> Therefore, $$\left] 0, 1 \right[$$ is path connected.
+> Therefore, $$]0,1[$$ is path connected.
 
-**c) Show that $$\left] 0, 1 \right[ \setminus \left\{ \frac{1}{2} \right\}$$ is not path connected**
+**c) Show that $$]0,1[\ \setminus\ \{ \frac{1}{2} \}$$ is not path connected**
 > Let $$x = \frac{1}{4}$$ and $$y = \frac{3}{4}$$.  
-> Let $$\gamma : [0,1] \to ]0,1[$$ be a continuous map with $$\gamma (0) = x$$ and $$\gamma (1) = y$$.  
-> Since $$\gamma$$ is continuous, $$\gamma(0) = \frac{1}{4}$$ and $$\gamma(1) = \frac{3}{4}$$, we can apply the Intermediate Value Theorem, giving us $$t_{0} \in [0, 1]$$ such that $$\gamma (t_{0}) = \frac{1}{2}$$.  
-> $$\gamma$$ is not a map from $$]0,1[\ \setminus \ \{ \frac{1}{2} \}$$. $$\gamma$$ is not a path.  
-> There is no path between $$x$$ and $$y$$.  
-> Therefore, $$]0,1[\ \setminus \ \{ \frac{1}{2} \}$$ is not path connected.
+> Let $$\gamma : [0,1] \to ]0,1[\ \setminus\ \{ \frac{1}{2} \}$$ such that $$\gamma(0) = x$$ and $$\gamma(1) = y$$.  
+> Since we have $$x, y \in \gamma([0,1]) \subset\ ]0,1[\ \setminus\ \{ \frac{1}{2} \}$$ and $$\frac{1}{2} \in [x, y]$$, $$\gamma([0,1])$$ can't be a segment, and $$\gamma$$ can't be continuous.  
+> Therefore, $$] 0, 1 [\ \setminus\ \{ \frac{1}{2} \}$$ is not path connected.
 
 ### **Definition 1.2: Homeomorphism**
 
@@ -103,8 +91,7 @@ did 🫡)
 
 > $$e$$ is continuous because both $$t \mapsto \cos(2 \pi t)$$ and $$t \mapsto \sin(2 \pi t)$$ are continuous on $$[0,1]$$.  
 > Let $$f : \mathbb{S}^{1} \setminus \{(1,0)\} \to ]0,1[$$ defined as $$f((x, y)) = \begin{cases} \frac{1}{2 \pi} \arccos (x) &\quad\text{if } y \ge 0 \\ 1-\frac{1}{2 \pi} \arccos (x) &\quad\text{if } y \le 0 \end{cases}$$.  
-> $$f$$ is well defined because $$\frac{1}{2 \pi} \arccos(-1) = \frac{1}{2}$$ and $$1 - \frac{1}{2 \pi} \arccos(1) = \frac{1}{2}$$.  
-> $$f$$ is continuous because both $$t \mapsto \frac{1}{2 \pi} \arccos(t)$$ and $$t \mapsto 1 - \frac{1}{2 \pi} \arccos(t)$$ are continuous.  
+> $$f$$ is continuous because both $$t \mapsto \frac{1}{2 \pi} \arccos(t)$$ and $$t \mapsto 1 - \frac{1}{2 \pi} \arccos(t)$$ are continuous, and $$\frac{1}{2 \pi} \arccos(-1) = \frac{1}{2}$$ and $$1 - \frac{1}{2 \pi} \arccos(1) = \frac{1}{2}$$.    
 > We have $$\forall (x,y) \in \mathbb{S}^{1}$$,  
 > $$(e \circ f)((x, y)) = \begin{cases} \Big( \cos \big( 2 \pi \frac{1}{2 \pi } \arccos(x) \big), sin \big( 2 \pi \frac{1}{2 \pi} \arccos (x) \big) \Big) &\quad\text{if } y \ge 0 \\ \Big( \cos \big( -2 \pi \frac{1}{2 \pi } \arccos(x) \big), sin \big( -2 \pi \frac{1}{2 \pi} \arccos (x) \big) \Big) &\quad\text{if } y \le 0\end{cases}$$  
 > $$(e \circ f)((x, y)) = \begin{cases} \Big( \cos \big( \arccos(x) \big), sin \big( \arccos (x) \big) \Big) &\quad\text{if } y \ge 0 \\ \Big( \cos \big( \arccos(x) \big), sin \big( \arccos (x) \big) \Big) &\quad\text{if } y \le 0\end{cases}$$  
@@ -125,14 +112,14 @@ did 🫡)
 4) **Let $$X \cong Y$$ be two homeomorphic spaces, show that $$X$$ is path connected iif $$Y$$ is**.
 
 > Part 1: $$X$$ is path connected $$\Rightarrow Y$$ is path connected:  
-> Let $$y_{1}, y_{2} \in Y$$ be twe points of $$Y$$.  
-> Since $$Y \cong X$$, there is $$f: Y \to X$$ an homeomorphism between $$Y$$ and $$X$$.  
+> Let $$y_{1}, y_{2} \in Y$$ be two points of $$Y$$.  
+> Since $$Y \cong X$$, there is $$f: Y \to X$$ a homeomorphism between $$Y$$ and $$X$$.  
 > Since both $$f(y_{1})$$ and $$f(y_{2})$$ are points of $$X$$ and $$X$$ is connected, there is a path $$\gamma : [0,1] \to X$$ such that $$\gamma(0) = f(y_{1})$$ and $$\gamma(1) = f(y_{2})$$.  
-> We define $$\delta : [0,1] \to Y$$ as $$\forall t \in [0, 1],\ \delta(t) := f^{-1}(\gamma(t))$$.  
+> We define $$\delta : [0,1] \to Y$$ as $$\forall t \in [0, 1],\ \delta(t) := (f^{-1}\circ\gamma)(t)$$.  
 > $$\delta$$ is continuous because it is a composition of continuous maps, $$\delta(0) = f^{-1}(\gamma(0)) = f^{-1}(f(y_{1})) = y_{1}$$ and $$\delta(1) = f^{-1}(f(y_{2})) = y_{2}$$.  
 > $$\delta$$ is a path from $$y_{1}$$ to $$y_{2}$$.  
 > Therefore, $$Y$$ is path connected.  
-> Part 2: $$Y$$ is path connected $$\Rightarrow Y$$ is path connected:  
+> Part 2: $$Y$$ is path connected $$\Rightarrow X$$ is path connected:  
 > Since $$\cong$$ is symmetrical, we can replace $$X$$ by $$Y$$ and $$Y$$ by $$X$$ and it follows that $$X$$ is path connected.
 
 5) **Show that if $$f : X \to Y$$ is a homeomorphism, then for any $$x \in X$$ it induces an homeomorphism $$X
@@ -140,7 +127,7 @@ did 🫡)
 
 > We consider $$f_{|X \setminus \{x\}}$$ the restriction of $$f$$ to $$X \setminus \{x\}$$.  
 > Since $$f$$ is injective, $$f^{-1}(\{f(x)\})$$ has at most one element in $$X$$ : $$x$$ and $$f(X \setminus \{x\}) = Y \setminus \{f(x)\}$$.  
-> We can corestrict $$f_{|X \setminus \{x\}}$$ to its image $$f_{X \setminus \{x\}}(X \setminus \{x\}) = Y \setminus \{f(x)\}$$ and we denote the corestriction by $$f_{|X \setminus \{x\}}'$$.  
+> We can corestrict $$f_{|X \setminus \{x\}}$$ to its image $$f_{|X \setminus \{x\}}(X \setminus \{x\}) = Y \setminus \{f(x)\}$$ and we denote the corestriction by $$f_{|X \setminus \{x\}}'$$.  
 > We first prove that $$f_{|X \setminus \{x\}}' : X \setminus \{x\} \to Y \setminus \{f(x)\}$$ is injective.  
 > Let $$x_{1}, x_{2} \in X \setminus \{x\}$$.  
 > If $$f_{|X \setminus \{x\}}'(x_{1}) = f_{|X \setminus \{x\}}'(x_{2})$$, then by definition of $$f_{|X \setminus \{x\}}'$$, $$f(x_{1}) = f(x_{2})$$, and $$x_{1} = x_{2}$$ by injectivity of $$f$$, i.e: $$f_{|X \setminus \{x\}}'$$ is injective.  
@@ -322,7 +309,7 @@ and $$\beta * \alpha \sim c_{y}$$.**
 that is, on $$\{ \gamma : x \to x \}_{/\sim}$$.**
 
 > We first prove that the induced law is an intern composition law  
-> Let $$A, B \in (\gamma : x \to x)_{/\sim}$$ and $$\alpha_{1}, \alpha{2} \in A$$ and $$\beta_{1}, \beta_{2} \in B$$  
+> Let $$[\alpha], [\beta] \in (\gamma : x \to x)_{/\sim}$$ and $$\alpha_{1}, \alpha{2} \in [\alpha]$$ and $$\beta_{1}, \beta_{2} \in [\beta]$$.  
 > Then $$\alpha_{1} * \beta_{1}$$ (respectively $$\alpha_{2} * \beta_{2}$$) is a path from $$x$$ to $$x$$, and the class of $$\alpha_{1} * \beta_{1}$$ (respectively $$\alpha_{2} * \beta_{2}$$) by $$\sim$$ is in $$(\gamma : x \to x)_{/\sim}$$  
 > Since $$\alpha_{1} \sim \alpha_{2}$$ and $$\beta_{1} \sim \beta_{2}$$, there exist $$H_{1}$$ and $$H_{2}$$ homotopies between them  
 > Let $$H := \begin{cases} H_{1}(s, 2t) &\quad\text{if } t \le \frac{1}{2} \\ H_{2}(s, 2t-1) &\quad\text{if } t \ge \frac{1}{2} \end{cases}$$  
@@ -333,22 +320,22 @@ that is, on $$\{ \gamma : x \to x \}_{/\sim}$$.**
 > $$H(0, t) = (\alpha_{1} * \beta_{1})(t)$$ and $$H(1, t) = (\alpha_{2} * \beta_{2})(t)$$  
 > and $$\forall s \in [0,1]$$, $$H(s, 0) = H_{1}(s, 0) = x$$ and $$H(s, 1) = H_{2}(s, 1) = x$$.  
 > $$H$$ is a homotopy between $$\alpha_{1} * \beta_{1}$$ and $$\alpha_{2} * \beta_{2}$$, i.e.: $$\alpha_{1} * \beta_{1} \sim \alpha_{2} * \beta_{2}$$, they both are in the same equivalence class.  
-> We note $$A * B$$ this class  
-> Thus the induced law $$*$$ is an intern composition law  
+> We note $$[\alpha] * [\beta]$$ this class, and we note that we can now use $$\alpha$$ as a represantant for $$[\alpha]$$.    
+> Thus the induced law $$*$$ is an intern composition law.  
 > We then prove that there is an identity element for the induced law $$*$$  
-> Let $$c$$ be an element of the class of $$c_{x}$$, $$A \in (\gamma : x \to x)_{/\sim}$$ and $$a \in A$$.  
-> Then $$c * a \sim c_{x} * a \sim a$$ and $$a * c \sim a * cx \sim a$$ (from 9)a))  
-> Thus the class of $$c_{x}$$ is the identity element of $$(\gamma : x \to x)_{/\sim}$$ for the induced law $$*$$, we note it $$C_{x}$$  
-> We prove that the induced law $$*$$ is associative  
-> Let $$A, B, C \in (\gamma : x \to x)_{/\sim}$$ and $$\alpha, \beta, \gamma$$ in them respectively  
-> Then $$(\alpha * \beta) * \gamma$$ and $$\alpha * (\beta * \gamma)$$ are in the same equivalence class (from 9)b)), i.e.: $$(A * B) * C$$ and $$A * (B * C)$$ are equal and we note it $$A * B * C$$.  
-> Thus the induced law $$*$$ is associative  
+> Let $$[c_{x}]$$ be the class of $$c_{x}$$, $$[\alpha] \in (\gamma : x \to x)_{/\sim}$$.  
+> Then, from 9)a) we have $$[c_{x}] * [\alpha] = [c_{x} * \alpha] = [\alpha]$$ and $$[\alpha] * [c_{x}] = [\alpha * c_{x}] = [\alpha]$$.  
+> Thus the class of $$c_{x}$$ is the identity element of $$(\gamma : x \to x)_{/\sim}$$ for the induced law $$*$$.  
+> We prove that the induced law $$*$$ is associative.  
+> Let $$[\alpha], [\beta], [\gamma] \in (\gamma : x \to x)_{/\sim}$$.  
+> Then, using 9)b), we have $$([\alpha] * [\beta]) * [\gamma] = [(\alpha * \beta) * \gamma] = [\alpha * (\beta * \gamma)] = [\alpha] * ([\beta] * [\gamma])$$.  
+> Thus the induced law $$*$$ is associative.  
 > And finally we prove that every element of $$(\gamma : x \to x)_{/\sim}$$ has an inverse by the induced law $$*$$  
-> Let $$A \in (\gamma : x \to x)_{/\sim}$$ and $$\alpha \in A$$  
-> Let $$\beta$$ a path $$(x \to x)$$ such that $$\alpha * \beta \sim c_{x}$$ and $$\beta * \alpha \sim c_{x}$$ (from 9)c)) and $$B$$ its class  
-> Then $$A * B = C_{x}$$ and $$B * A = C_{x}$$  
-> $$B$$ is the inverse of $$A$$ by the induced law, and we note it $$A^{-1}$$  
-> The induced law $$*$$ is an intern composition law, it has an identity element, it is associative, and all elements of $$(\gamma : x \to x)_{/\sim}$$ are inversible, i.e.: $$*$$ induces a group structure on $$(\gamma : x \to x)_{/\sim}$$
+> Let $$[\alpha] \in (\gamma : x \to x)_{/\sim}$$.    
+> Let $$\beta$$ a path $$(x \to x)$$ such that $$\alpha * \beta \sim c_{x}$$ and $$\beta * \alpha \sim c_{x}$$ (from 9)c)) and $$[\beta]$$ its class  
+> Then $$[\alpha] * [\beta] = [\alpha * \beta] = [c_{x}]$$ and $$[\beta] * [\alpha] = [\beta * \alpha] = [c_{x}]$$.  
+> $$[\beta]$$ is the inverse of $$[\alpha]$$ by the induced law, and we note it $$\overline{[\alpha]}$$  
+> The induced law $$*$$ is an intern composition law, it has an identity element, it is associative, and all elements of $$(\gamma : x \to x)_{/\sim}$$ are invertible, i.e.: $$*$$ induces a group structure on $$(\gamma : x \to x)_{/\sim}$$
 
 ### **Definition 1.5: Fundamental Group**
 
@@ -400,9 +387,11 @@ map $$ s \mapsto e^{i s} : \mathbb{R} \to \mathbb{S}^{1}$$. We first aim to shew
 > We showed in 10)a) that $$\pi_{1}(f, x) : \pi_{1}(X, x) \to \pi_{1}(Y, f(x))$$ is a group morphism.  
 > We prove that $$\pi_{1}(f,x)$$ is invertible.  
 > Since $$f$$ is an homeomorphism, $$f^{-1}$$ is continuous, we can construct $$\pi_{1}(f^{-1}, f(x))$$ the group of equivalence classes of loops at $$f(x)$$ in $$Y$$.  
-> Using 10)c) then 10)b), we have $$\pi_{1}(f^{-1}, f(x)) \circ \pi_{1}(f, x) = \pi_{1}(f^{-1} \circ f, x) = \pi_{1}(id_{X}, x) = id_{\pi_{1}(X, x)}$$ and $$\pi_{1}(f, x) \circ \pi_{1}(f^{-1}, f(x)) = \pi_{1}(f, (f \circ f^{-1})(f(x))) \circ \pi_{1}(f^{-1}, f(x)) = \pi_{1}(f \circ f^{-1}, f(x)) = \pi_{1}(id_{Y}, f(x)) = id_{\pi_{1}(Y, f(x))}$$  
+> Using 10)c) then 10)b), we have  
+> $$\pi_{1}(f^{-1}, f(x)) \circ \pi_{1}(f, x) = \pi_{1}(f^{-1} \circ f, x) = \pi_{1}(id_{X}, x) = id_{\pi_{1}(X, x)}$$  
+> and $$\pi_{1}(f, f^{-1}(f(x))) \circ \pi_{1}(f^{-1}, f(x)) = \pi_{1}(f, x) \circ \pi_{1}(f^{-1}, f(x)) = \pi_{1}(f \circ f^{-1}, f(x)) = \pi_{1}(id_{Y}, f(x)) = id_{\pi_{1}(Y, f(x))}$$  
 > $$\pi_{1}(f, x)$$ is invertible and its inverse is $$\pi_{1}(f^{-1}, f(x))$$.  
-> $$f$$ induces a group isomorphism $$\pi_{1}(f,x) \overset{\pi_{1}(f, x)}{\simeq} \pi_{1}(Y, f(x))$$.
+> Therefore, $$f$$ induces a group isomorphism $$\pi_{1}(f,x) \overset{\pi_{1}(f, x)}{\simeq} \pi_{1}(Y, f(x))$$, i.e.: $$\pi_{1}(f,x)$$ and $$\pi_{1}(Y,f(x))$$ are isomorphic as groups.
 
 ### **Lemma 1.6: Lifting theorem**
 
@@ -432,16 +421,14 @@ which achieves the proof of Lemma 1.6**
 a_{i} \le a_{i+1}$$) and majored ($$a_{i} \le b$$).  
 > We prove by an evil contradiction that this sequence is eventually constant, i.e.: $$\exists n_{0} \in \mathbb{N}$$, $$\forall n \ge n_{0}$$, $$a_{n} = b$$.  
 > Let suppose the opposite, and let $$n \in \mathbb{N}$$,  
-> Since $$a_{n+1}$$ is a $$\sup$$, let $$\epsilon_{m} := \frac{1}{1 + m} \gt 0$$ for some $$m \in \mathbb{N}$$.    
+> Since $$a_{n+1}$$ is a $$\sup$$ and $$a_{n+1} \lt b$$, let $$\epsilon_{m} := \frac{1}{1 + m} \gt 0$$ for some $$m \in \mathbb{N}$$ such that $$\epsilon_{m} \lt b-a_{n+1}$$.    
 > We have then:    
 > $$f([a_{n}, a_{n+1} + \epsilon_{m}]) \nsubseteq \mathcal{B}(f(a_{n}), 1)$$, and since $$f([a_{n}, a_{n+1}]) \subset \mathcal{B}(f(a_{n}), 1)$$, $$\exists x_{m} \in ]a_{n+1}, a_{n+1} + \epsilon_{m}]$$ such that $$f(x_{m}) \notin \mathcal{B}(f(a_{n}),1)$$, i.e.: $$|f(x_{m}) - f(a_{n})| \gt 1$$.  
-> When $$m$$ goes to infinity, $$x_{m}$$ goes to $$a_{n+1}$$, and since $$f$$ is continuous, $$f(x_{m})$$ goes to $$f(a_{n+1})$$. We have $$|f(a_{n+1}) - f(a_{n})| \ge 1$$.  
-> Since $$(a_{n})_{n \in \mathbb{N}}$$ is increasing and majored by $$b$$, it converges to some $$l \le b$$, and since $$f$$ is continuous, $$\lim_{n \to +\infty} f(a_{n+1}) = \lim_{n \to +\infty} f(a_{n}) = l$$, and $$\lim_{n \to +\infty}|f(a_{n+1}) - f(a_{n})| = 0$$, which is a contradiction with $$\forall n \in mathbb{N}$$, $$|f(a_{n+1}) - f(a_{n})| \ge 1$$.  
+> When $$m$$ goes to infinity, $$x_{m}$$ goes to $$a_{n+1}$$, and since $$f$$ is continuous, $$f(x_{m})$$ goes to $$f(a_{n+1})$$. We have $$|f(a_{n+1})-f(a_{n})| \ge 1$$.  
+> Since $$(a_{n})_{n \in \mathbb{N}}$$ is increasing and majored by $$b$$, it converges to some $$l \le b$$, and since $$f$$ is continuous, $$\lim_{n \to +\infty} f(a_{n+1}) = \lim_{n \to +\infty} f(a_{n}) = l$$, and $$\lim_{n \to +\infty}|f(a_{n+1}) - f(a_{n})| = 0$$, which is a contradiction with $$\forall n \in \mathbb{N}$$, $$|f(a_{n+1}) - f(a_{n})| \ge 1$$.  
 > Therefore, $$\exists N \in \mathbb{N}$$, such that $$\forall n \ge N$$, $$a_{n} = b$$.  
 > Then, for each interval $$[a_{i}, a_{i+1}]$$, we can construct a map from it to $$\mathbb{S}$$ that misses a point using 11)a).  
-> For $$i \lt N - 1$$, we have $$(exp \circ \hat{f}_{i})(a_{i+1}) = (exp \circ \hat{f_{i+1}})(a_{i+1})$$, thus $$\hat{f}
-_{i}(
-a_{i+1}) = \hat{f_{i+1}}(a_{i+1}) + k$$ for some $$k \in \mathbb{N}$$. For each $$i \lt N - 1$$, we can set $$\hat{f_{i+1}}(a_{i+1}) = \hat{f_{i}}(a_{i+1})$$ by shifting $$\hat{f_{i+1}}$$ by $$k$$, and we still have $$exp \circ \hat{f_{i+1}} = f_{|[a_{i+1}, a_{i+2}]}$$.  
+> For $$i \lt N - 1$$, we have $$(exp \circ \hat{f}_{i})(a_{i+1}) = (exp \circ \hat{f_{i+1}})(a_{i+1})$$, thus $$\hat{f}_{i}(a_{i+1}) = \hat{f_{i+1}}(a_{i+1}) + k$$ for some $$k \in \mathbb{N}$$. For each $$i \lt N - 1$$, we can set $$\hat{f_{i+1}}(a_{i+1}) = \hat{f_{i}}(a_{i+1})$$ by shifting $$\hat{f_{i+1}}$$ by $$k$$, and we still have $$exp \circ \hat{f_{i+1}} = f_{|[a_{i+1}, a_{i+2}]}$$.  
 > Therefore, $$\hat{f}$$ is continuous and $$f$$ admits a lift $$\hat{f}$$.
 
 
@@ -470,24 +457,24 @@ then $$ind(\gamma) = ind(\delta)$$**.
 
 > Let $$H$$ be a homotopy between $$\gamma$$ and $$\delta$$ and $$\hat{H}$$ its lift using the lifting theorem 2.  
 > We have $$\forall s \in [0,1]$$, $$H(s, 0) = exp \circ \hat{H} (s, 0) = 1 = H(s, 1) = exp \circ \hat{H} (s, 1)$$.  
-> Thus, $$\forall s \in [0,1]$$, $$\frac{H(s, 0)}{H(s, 1)} = exp \Big(\hat{H}(s, 0)-\hat{H}(s, 1) \Big) = 1$$, $$\hat{H}(s, 0) - \hat{H}(s, 1) = k$$ for some $$k \in \mathbb{N}$$. (1)   
+> Thus, $$\forall s \in [0,1]$$, $$\frac{H(s, 0)}{H(s, 1)} = exp \Big(\hat{H}(s, 0)-\hat{H}(s, 1) \Big) = 1$$, $$\hat{H}(s, 0) - \hat{H}(s, 1) = k$$ for some $$k \in \mathbb{Z}$$. (1)   
 > We also have $$\forall t \in [0,1]$$, $$\begin{cases} H(0, t) = exp \circ \hat{H} (0, t) = \gamma(t) = exp \circ \hat{\gamma}(t) \\ H(1, t) = exp \circ \hat{H} (1, t)= \delta(t) = exp \circ \hat{\delta}(t) \end{cases}$$  
 > $$\forall t \in [0,1]$$, $$\gamma(t)$$ and $$\delta(t)$$ are non-zero, and $$\begin{cases} \frac{H(0, t)}{\gamma(t)} = exp \Big( \hat{H}(0, t) - \hat{\gamma}(t) \Big) = 1 \\ \frac{H(1, t)}{\delta(t)} = exp \Big( \hat{H}(1, t)-\hat{\delta}(t) \Big) = 1 \end{cases}$$  
-> We have $$\forall t \in [0,1]$$, $$\hat{H}(0,t) - \hat{\gamma}(t) = k_{1}$$ and $$\hat{H}(1,t) - \hat{\delta}(t) = k_{2}$$ for some $$k_{1}, k_{2} \in \mathbb{N}$$. (2)    
-> Then, using (2) we get $$ind(\gamma) = \hat{\gamma}(1) - \hat{\gamma}(0) = \hat{H}(0, 1) - \hat{H}(0, 0)$$  
-> and using (1), we get $$ind(\gamma) = \hat{H}(1, 1) - \hat{H}(1, 0)$$,  
+> We have $$\forall t \in [0,1]$$, $$\hat{H}(0,t) - \hat{\gamma}(t) = k_{1}$$ and $$\hat{H}(1,t) - \hat{\delta}(t) = k_{2}$$ for some $$k_{1}, k_{2} \in \mathbb{Z}$$. (2)    
+> Then, using (2) we get $$ind(\gamma) = \hat{\gamma}(1) - \hat{\gamma}(0) = \hat{H}(0, 1)-\hat{H}(0, 0)$$  
+> and using (1), we get $$ind(\gamma) = \hat{H}(1, 1)-\hat{H}(1, 0)$$,  
 > using (2) again, $$ind(\gamma) = \hat{\delta}(1) - \hat{\delta}(0) = ind(\delta)$$.
 
 **c) Show that $$ind(c_{1}) = 0$$ and $$ind(\gamma * \delta) = ind(\gamma) + ind(\delta)$$**.
 
 > We first prove that $$ind(c_{1}) = 0$$.  
-> We have $$\forall t \in [0,1]$$, $$c_{1}(t) = 1 = exp \circ \hat{c_{1}}(t)$$, thus $$\hat{c_{1}}(t) = k$$ for some $$k \in \mathbb{N}$$.  
+> We have $$\forall t \in [0,1]$$, $$c_{1}(t) = 1 = exp \circ \hat{c_{1}}(t)$$, thus $$\hat{c_{1}}(t) = k$$ for some $$k \in \mathbb{Z}$$.  
 > and $$ind(c_{1}) = 0$$.  
 > We then prove that $$ind(\gamma * \delta) = ind(\gamma) + ind(\delta)$$.  
 > We have $$\forall t \in [0,1]$$,  
 > $$(\gamma * \delta)(t) = exp \circ \hat{(\gamma * \delta)} (t) = \begin{cases} \gamma(2t) = exp \circ \hat{\gamma}(2t) &\quad\text{if } t \le \frac{1}{2} \\ \delta(2t-1) = exp \circ \hat{\delta}(2t-1) &\quad\text{if } t \ge \frac{1}{2} \end{cases}$$  
-> For $$t \le \frac{1}{2}$$, $$exp \Big( \hat{(\gamma * \delta)} (t) - \hat{\gamma}(2t) \Big) = 1$$, thus $$\hat{(\gamma * \delta)}(t) - \hat{\gamma}(2t) = k_{1}$$ for some $$k_{1} \in \mathbb{N}$$.  
-> For $$t \ge \frac{1}{2}$$, $$exp \Big( \hat{(\gamma * \delta)} (t) = \hat{\delta}(2t-1) \Big) = 1$$, thus $$\hat{(\gamma * \delta)}(t) - \hat{\delta}(2t-1) = k_{2}$$ for some $$k_{2} \in \mathbb{N}$$.  
+> For $$t \le \frac{1}{2}$$, $$exp \Big( \hat{(\gamma * \delta)} (t) - \hat{\gamma}(2t) \Big) = 1$$, thus $$\hat{(\gamma * \delta)}(t) - \hat{\gamma}(2t) = k_{1}$$ for some $$k_{1} \in \mathbb{Z}$$.  
+> For $$t \ge \frac{1}{2}$$, $$exp \Big( \hat{(\gamma * \delta)} (t) = \hat{\delta}(2t-1) \Big) = 1$$, thus $$\hat{(\gamma * \delta)}(t) - \hat{\delta}(2t-1) = k_{2}$$ for some $$k_{2} \in \mathbb{Z}$$.  
 > Since $$\hat{(\gamma * \delta)}$$ is continuous, $$k_{1} = k_{2}$$, and we have:  
 > $$ind(\gamma * \delta) = \hat{(\gamma * \delta)}(1) - \hat{(\gamma * \delta)}(0) + \hat{(\gamma * \delta)}(\frac{1}{2}) - \hat{(\gamma * \delta)}(\frac{1}{2}) = \hat{\delta}(1) - \hat{\gamma}(0) + \hat{\gamma}(1) - \hat{\delta}(0) = ind(\gamma) + ind(\delta)$$.
 
@@ -523,13 +510,13 @@ then $$ind(\gamma) = ind(\delta)$$**.
 > We may then use $$\hat{\gamma'}$$ in place of $$\hat{\gamma}$$ and $$\hat{\delta'}$$ in place of $$\hat{\delta}$$.  
 > Let $$\hat{H}: [0, 1]^{2} \to \mathbb{R}$$ defined as $$\forall (s, t) \in [0,1]^{2}$$, $$\hat{H}(t, s) := (1-s)\hat{\gamma}(t) + s\hat{\delta}(t)$$.  
 > $$\hat{H}$$ is continuous, as a product and sum of continuous maps, and we have $$\forall t \in [0,1]$$, $$\begin{cases} \hat{H}(0, t) = \hat{\gamma}(t) \\ \hat{H}(1, t) = \hat{\delta}(t) \end{cases}$$  
-> and $$\forall s \in [0,1]$$, $$\begin{cases} \hat{H}(s, 0) = (1 - s)\hat{\gamma}(0) + s\hat{\delta}(0) = 0 \\ \hat{H}(s,1) = (1 - s)\hat{\delta}(1) + s\hat{\gamma}(1) = 0 &\text{using } \hat{\gamma}(1) = \hat{\delta}(1) \end{cases}$$  
+> and $$\forall s \in [0,1]$$, $$\begin{cases} \hat{H}(s, 0) = (1 - s)\hat{\gamma}(0) + s\hat{\delta}(0) = 0 \\ \hat{H}(s,1) = (1 - s)\hat{\gamma}(1) + s\hat{\delta}(1) = \hat{\gamma}(1) &\text{using } \hat{\gamma}(1) = \hat{\delta}(1) \end{cases}$$  
 > $$\hat{H}$$ is a homotopy between $$\hat{\gamma}$$ and $$\hat{\delta}$$.  
 > Let $$H: [0, 1]^{2} \to \mathbb{R}$$ defined as $$\forall (s, t) \in [0,1]^{2}$$, $$H(s,t) := exp \circ \hat{H}(s, t)$$.  
 > $$H$$ is continuous, as a composition of continuous maps, and we have $$\forall t \in [0,1]$$, $$\begin{cases} H(0, t) = exp \circ \hat{H}(0,t) = exp \circ \hat{\gamma}(t) = \gamma(t) \\ H(1,t) = exp \circ \hat{H}(1,t) = exp \circ \hat{\delta}(t) = \delta(t) \end{cases}$$    
-> and $$\forall s \in [0,1]$$, $$\begin{cases} H(s,0) = exp \circ \hat{H}(s,0) = exp (0) = 1 \\ H(s,1) = exp \circ \hat{H}(s,1) = exp (0) = 1 \end{cases}$$
+> and $$\forall s \in [0,1]$$, $$\begin{cases} H(s,0) = exp \circ \hat{H}(s,0) = exp (0) = 1 \\ H(s,1) = exp \circ \hat{H}(s,1) = exp (0) = 1 \end{cases}$$  
 > $$\hat{H}$$ is a homotopy between $$\gamma$$ and $$\delta$$.  
-> Therefore, $$\forall [\gamma], [\delta] in \pi_{1}(\mathbb{S}^{1},1)$$, $$ind([\gamma]) = ind([\delta]) \Rightarrow ind(\gamma) = ind(\delta) \Rightarrow \gamma \sim \delta \Rightarrow [\gamma] = [\delta]$$.  
+> Therefore, $$\forall [\gamma], [\delta] \in \pi_{1}(\mathbb{S}^{1},1)$$, $$ind([\gamma]) = ind([\delta]) \Rightarrow ind(\gamma) = ind(\delta) \Rightarrow \gamma \sim \delta \Rightarrow [\gamma] = [\delta]$$.  
 > $$ind$$ is injective.
 
 
@@ -576,9 +563,43 @@ homotopy defined by $$\overline{\gamma} := \gamma(1 - s)$$. Show that the
 map $$\alpha \mapsto \overline{\gamma} * \alpha * \gamma$$ induces a group
 isomorphism $$u_{\gamma} : \pi_{1}(X, x) \to \pi_{1}(X, y)$$ which only depends on the homotopy class of $$\gamma$$.**
 
-> aze
-> aze
-> aze
+> We first prove that $$u_{\gamma}$$ is well defined  
+> Let $$[\alpha] \in \pi(X, y)$$, $$\alpha_{1}, \alpha_{2} \in [\alpha]$$,  
+> We have $$\alpha_{1} \sim \alpha_{2}$$  
+> Let $$H : [0,1]^{2} \to X$$ be a homotopy between $$\alpha_{1}$$ and $$\alpha_{2}$$.  
+> We have, $$\forall t \in [0,1]$$, $$H(0,t) = \alpha_{1}(t)$$ and $$H(0,t) = \alpha_{2}(t)$$,  
+> and $$\forall s \in [0, 1]$$, $$H(s, 0) = y$$, $$H(s, 1) = y$$.  
+> Let $$H': [0, 1]^{2} \to X$$ defined as $$\forall (s,t) \in [0,1]^{2}$$, $$H'(s,t) := (\overline{\gamma} * H(s, \cdot ) * \gamma)(t)$$ with $$H(s, \cdot) = t \mapsto H(s, t)$$.  
+> $$H'$$ is continuous as a concatenation of paths, and we have:  
+> $$\forall t \in [0,1]$$, $$H'(0, t) = (\overline{\gamma} * \alpha_{1} * \gamma)(t)$$, $$H'(1, t) = (\overline{\gamma} * \alpha_{2} * \gamma)(t)$$,  
+> and $$\forall s \in [0,1]$$, $$H'(s, 0) = x$$ and $$H'(s, 1) = x$$.  
+> $$H'$$ is a homotopy between $$\overline{\gamma} * \alpha_{1} * \gamma$$ and $$\overline{\gamma} * \alpha_{2} * \gamma$$, $$\overline{\gamma} * \alpha_{1} * \gamma \sim \overline{\gamma} * \alpha_{2} * \gamma$$.  
+> Thus, $$u_{\gamma}$$ is well defined and we can write $$u_{\gamma}([\alpha])$$.    
+> We now prove that $$u_{\gamma}$$ doesn't depend on the choice of $$\gamma$$, up to homotopy.  
+> Let $$\gamma_{1}, \gamma_{2} \in [\gamma]$$, $$\gamma_{1} \sim \gamma_{2}$$, and $$\alpha$$ a loop at $$y$$ in $$X$$.  
+> Let $$H: [0, 1] \to X$$ be a homotopy between $$\gamma_{1}$$ and $$\gamma_{2}$$,  
+> We have $$\forall t \in [0,1]$$, $$H(0, t) = \gamma_{1}(t)$$, $$H(1, t) = \gamma_{2}(t)$$,  
+> and $$\forall s \in [0, 1]$$, $$H(s, 0) = x$$, $$H(s, 1) = y$$.  
+> Let $$H'(s, t) : [0,1]^{2} \to X$$ defined as $$\forall (s, t) \in [0,1]^{2}$$, $$H'(s, t) := (H1(s, \cdot) * \alpha * H2(s, \cdot))(t)$$, with $$H1(s, \cdot) := t \mapsto H(s, 1-t)$$ and $$H2(s, \cdot) := t \mapsto H(s, t)$$.  
+> We have then $$\forall t \in [0,1]$$, $$H'(0, t) = (\overline{\gamma_{1}} * \alpha * \gamma_{1})(t)$$, $$H'(1, t) = (\overline{\gamma_{2}} * \alpha * \gamma_{2})(t)$$,  
+> and $$\forall s \in [0,1]$$, $$H'(s, 0) = x$$ and $$H'(s, 1) = x$$.  
+> $$H'$$ is a homotopy between $$\overline{\gamma_{1}} * \alpha * \gamma_{1}$$ and $$\overline{\gamma_{2}} * \alpha * \gamma_{2}$$, $$\overline{\gamma_{1}} * \alpha * \gamma_{1} \sim \overline{\gamma_{2}} * \alpha * \gamma_{2}$$.  
+> Thus, $$u_{\gamma_{1}}([\alpha]) = u_{\gamma_{2}}([\alpha])$$ and $$u_{\gamma_{1}}$$ doesn't depend on the choice of $$\gamma$$.  
+> We prove that $$u_{\gamma}$$ is a group morphism.  
+> Let $$[\alpha], [\beta] \in \pi(X, y)$$, two loops at $$y$$ in $$X$$.  
+> Using $$[\overline{\gamma}] * [\gamma] = [c_{x}]$$ and $$[\gamma] * [\overline{\gamma}] = [c_{y}]$$, we have:  
+> $$u_{\gamma}([\alpha] * [\beta]) = [\overline{\gamma}] * ([\alpha] * [\beta]) * [\gamma] = [\overline{\gamma}] * [\alpha] * [c_{y}] * [\beta] * [\gamma] = ([\overline{\gamma}] * [\alpha] * [\gamma]) * ([\overline{\gamma}] * [\beta] * [\gamma]) = u_{\gamma}([\alpha]) * u_{\gamma}([\beta])$$.  
+> Thus, $$u_{\gamma}$$ is a group morphism.  
+> We finally prove that $$u_{\gamma}$$ is a bijection.  
+> Let $$u_{\overline{\gamma}} : \pi(X, x) \to \pi(X, y)$$ defined the same way as $$u_{\gamma}$$ but with $$\overline{\gamma}$$ instead of $$\gamma$$. Note that $$\overline{\overline{\gamma}} = \gamma$$.  
+> Let $$[\alpha] \in \pi(X, x)$$  
+> We have:  
+> $$(u_{\gamma} \circ u_{\overline{\gamma}})([\alpha]) = u_{\gamma}([\gamma] * [\alpha] * [\overline{\gamma}]) = [\overline{\gamma}] * [\gamma] * [\alpha] * [\overline{\gamma}] * [\gamma] = [c_{x}] * [\alpha] * [c_{x}] = [\alpha]$$  
+> Thus $$u_{\gamma} \circ u_{\overline{\gamma}} = id_{\pi(X, x)}$$.  
+> Let $$[\beta] \in \pi(X, y)$$  
+> $$(u_{\overline{\gamma}} \circ u_{\gamma})([\beta]) = u_{\overline{\gamma}}([\overline{\gamma}] * [\beta] * [\gamma]) = [\overline{\gamma}] * [\gamma] * [\beta] * [\gamma] * [\overline{\gamma}] = [c_{y}] * [\beta] * [c_{y}] = [\beta]$$  
+> Thus $$u_{\overline{\gamma}} \circ u_{\gamma} = id_{\pi(X,y)}$$.  
+> Therefore, $$u_{\gamma}$$ is bijective, and since it's a morphism, it's an isomorphism
 
 **b) Let $$f, g:X \to Y$$ be two continuous maps and $$x$$ a point of $$X$$. Suppose that we have an
 homotopy $$H: [0,1] \times X \to Y$$ between $$f$$ and $$g$$. Let $$\gamma = t \mapsto H(t, x)$$ the induced
