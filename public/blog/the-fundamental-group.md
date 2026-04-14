@@ -67,7 +67,7 @@ that $$\mathbb{R}^{n} \setminus \{ a_{1}, \ldots, a_{n} \}$$ is path connected**
 
 **b) Show that $$]0,1[$$ is path connected**.
 > Let $$x, y \in ]0,1[$$.  
-> Let $$\gamma : [ 0, 1 ] \to ]0,1[$$ such that $$\forall t \in [ 0, 1 ],\ \gamma (t) = (1 - t) x + t y$$.  
+> Let $$\gamma : [0,1] \to ]0,1[$$ such that $$\forall t \in [ 0, 1 ]$$, $$\gamma (t) = (1-t)x + ty$$.  
 > $$\gamma$$ is continuous, $$\gamma (0) = x$$ and $$\gamma (1) = y$$.  
 > $$\gamma$$ is a path between $$x$$ and $$y$$.  
 > Therefore, $$]0,1[$$ is path connected.
@@ -75,8 +75,8 @@ that $$\mathbb{R}^{n} \setminus \{ a_{1}, \ldots, a_{n} \}$$ is path connected**
 **c) Show that $$]0,1[\ \setminus\ \{ \frac{1}{2} \}$$ is not path connected**
 > Let $$x = \frac{1}{4}$$ and $$y = \frac{3}{4}$$.  
 > Let $$\gamma : [0,1] \to ]0,1[\ \setminus\ \{ \frac{1}{2} \}$$ such that $$\gamma(0) = x$$ and $$\gamma(1) = y$$.  
-> Since we have $$x, y \in \gamma([0,1]) \subset\ ]0,1[\ \setminus\ \{ \frac{1}{2} \}$$ and $$\frac{1}{2} \in [x, y]$$, $$\gamma([0,1])$$ can't be a segment, and $$\gamma$$ can't be continuous.  
-> Therefore, $$] 0, 1 [\ \setminus\ \{ \frac{1}{2} \}$$ is not path connected.
+> Since we have $$x, y \in \gamma([0,1]) \subset\ ]0,1[\ \setminus\ \{ \frac{1}{2} \}$$ and $$\frac{1}{2} \in [x, y]$$, $$\gamma([0,1])$$ can't be a segment, and using the intermediate value theorem contraposition, $$\gamma$$ can't be continuous.  
+> Therefore, $$]0,1[\ \setminus\ \{ \frac{1}{2} \}$$ is not path connected.
 
 ### **Definition 1.2: Homeomorphism**
 
@@ -391,7 +391,7 @@ map $$ s \mapsto e^{i s} : \mathbb{R} \to \mathbb{S}^{1}$$. We first aim to shew
 > $$\pi_{1}(f^{-1}, f(x)) \circ \pi_{1}(f, x) = \pi_{1}(f^{-1} \circ f, x) = \pi_{1}(id_{X}, x) = id_{\pi_{1}(X, x)}$$  
 > and $$\pi_{1}(f, f^{-1}(f(x))) \circ \pi_{1}(f^{-1}, f(x)) = \pi_{1}(f, x) \circ \pi_{1}(f^{-1}, f(x)) = \pi_{1}(f \circ f^{-1}, f(x)) = \pi_{1}(id_{Y}, f(x)) = id_{\pi_{1}(Y, f(x))}$$  
 > $$\pi_{1}(f, x)$$ is invertible and its inverse is $$\pi_{1}(f^{-1}, f(x))$$.  
-> Therefore, $$f$$ induces a group isomorphism $$\pi_{1}(f,x) \overset{\pi_{1}(f, x)}{\simeq} \pi_{1}(Y, f(x))$$, i.e.: $$\pi_{1}(f,x)$$ and $$\pi_{1}(Y,f(x))$$ are isomorphic as groups.
+> Therefore, $$f$$ induces a group isomorphism $$\pi_{1}(X,x) \overset{\pi_{1}(f, x)}{\simeq} \pi_{1}(Y, f(x))$$, i.e.: $$\pi_{1}(X,x)$$ and $$\pi_{1}(Y,f(x))$$ are isomorphic as groups.
 
 ### **Lemma 1.6: Lifting theorem**
 
@@ -564,63 +564,83 @@ map $$\alpha \mapsto \overline{\gamma} * \alpha * \gamma$$ induces a group
 isomorphism $$u_{\gamma} : \pi_{1}(X, x) \to \pi_{1}(X, y)$$ which only depends on the homotopy class of $$\gamma$$.**
 
 > We first prove that $$u_{\gamma}$$ is well defined  
-> Let $$[\alpha] \in \pi(X, y)$$, $$\alpha_{1}, \alpha_{2} \in [\alpha]$$,  
+> Let $$[\alpha] \in \pi(X, x)$$, $$\alpha_{1}, \alpha_{2} \in [\alpha]$$,  
 > We have $$\alpha_{1} \sim \alpha_{2}$$  
 > Let $$H : [0,1]^{2} \to X$$ be a homotopy between $$\alpha_{1}$$ and $$\alpha_{2}$$.  
 > We have, $$\forall t \in [0,1]$$, $$H(0,t) = \alpha_{1}(t)$$ and $$H(0,t) = \alpha_{2}(t)$$,  
-> and $$\forall s \in [0, 1]$$, $$H(s, 0) = y$$, $$H(s, 1) = y$$.  
+> and $$\forall s \in [0, 1]$$, $$H(s, 0) = x$$, $$H(s, 1) = x$$.  
 > Let $$H': [0, 1]^{2} \to X$$ defined as $$\forall (s,t) \in [0,1]^{2}$$, $$H'(s,t) := (\overline{\gamma} * H(s, \cdot ) * \gamma)(t)$$ with $$H(s, \cdot) = t \mapsto H(s, t)$$.  
-> $$H'$$ is continuous as a concatenation of paths, and we have:  
+> $$H'$$ is continuous as a concatenation of paths and composition of continuous map, and we have:  
 > $$\forall t \in [0,1]$$, $$H'(0, t) = (\overline{\gamma} * \alpha_{1} * \gamma)(t)$$, $$H'(1, t) = (\overline{\gamma} * \alpha_{2} * \gamma)(t)$$,  
-> and $$\forall s \in [0,1]$$, $$H'(s, 0) = x$$ and $$H'(s, 1) = x$$.  
+> and $$\forall s \in [0,1]$$, $$H'(s, 0) = y$$ and $$H'(s, 1) = y$$.  
 > $$H'$$ is a homotopy between $$\overline{\gamma} * \alpha_{1} * \gamma$$ and $$\overline{\gamma} * \alpha_{2} * \gamma$$, $$\overline{\gamma} * \alpha_{1} * \gamma \sim \overline{\gamma} * \alpha_{2} * \gamma$$.  
 > Thus, $$u_{\gamma}$$ is well defined and we can write $$u_{\gamma}([\alpha])$$.    
 > We now prove that $$u_{\gamma}$$ doesn't depend on the choice of $$\gamma$$, up to homotopy.  
-> Let $$\gamma_{1}, \gamma_{2} \in [\gamma]$$, $$\gamma_{1} \sim \gamma_{2}$$, and $$\alpha$$ a loop at $$y$$ in $$X$$.  
+> Let $$\gamma_{1}, \gamma_{2} \in [\gamma]$$, $$\gamma_{1} \sim \gamma_{2}$$, and $$\alpha$$ a loop at $$x$$ in $$X$$.  
 > Let $$H: [0, 1] \to X$$ be a homotopy between $$\gamma_{1}$$ and $$\gamma_{2}$$,  
 > We have $$\forall t \in [0,1]$$, $$H(0, t) = \gamma_{1}(t)$$, $$H(1, t) = \gamma_{2}(t)$$,  
 > and $$\forall s \in [0, 1]$$, $$H(s, 0) = x$$, $$H(s, 1) = y$$.  
-> Let $$H'(s, t) : [0,1]^{2} \to X$$ defined as $$\forall (s, t) \in [0,1]^{2}$$, $$H'(s, t) := (H1(s, \cdot) * \alpha * H2(s, \cdot))(t)$$, with $$H1(s, \cdot) := t \mapsto H(s, 1-t)$$ and $$H2(s, \cdot) := t \mapsto H(s, t)$$.  
-> We have then $$\forall t \in [0,1]$$, $$H'(0, t) = (\overline{\gamma_{1}} * \alpha * \gamma_{1})(t)$$, $$H'(1, t) = (\overline{\gamma_{2}} * \alpha * \gamma_{2})(t)$$,  
-> and $$\forall s \in [0,1]$$, $$H'(s, 0) = x$$ and $$H'(s, 1) = x$$.  
+> Let $$H'(s, t) : [0,1]^{2} \to X$$ defined as $$\forall (s, t) \in [0,1]^{2}$$, $$H'(s, t) := (H1(s, \cdot) * \alpha * H2(s, \cdot))(t)$$,  
+> with $$H1(s, \cdot) := t \mapsto H(s, 1-t)$$ and $$H2(s, \cdot) := t \mapsto H(s, t)$$.  
+> $$H'$$ is continuous as a concatenation of paths and composition of continuous map,  
+> and we have: $$\forall t \in [0,1]$$, $$H'(0, t) = (\overline{\gamma_{1}} * \alpha * \gamma_{1})(t)$$, $$H'(1, t) = (\overline{\gamma_{2}} * \alpha * \gamma_{2})(t)$$,  
+> and $$\forall s \in [0,1]$$, $$H'(s, 0) = y$$ and $$H'(s, 1) = y$$.  
 > $$H'$$ is a homotopy between $$\overline{\gamma_{1}} * \alpha * \gamma_{1}$$ and $$\overline{\gamma_{2}} * \alpha * \gamma_{2}$$, $$\overline{\gamma_{1}} * \alpha * \gamma_{1} \sim \overline{\gamma_{2}} * \alpha * \gamma_{2}$$.  
-> Thus, $$u_{\gamma_{1}}([\alpha]) = u_{\gamma_{2}}([\alpha])$$ and $$u_{\gamma_{1}}$$ doesn't depend on the choice of $$\gamma$$.  
+> Thus, $$u_{\gamma_{1}}([\alpha]) = u_{\gamma_{2}}([\alpha])$$ and $$u_{\gamma}$$ doesn't depend on the choice of $$\gamma$$.  
 > We prove that $$u_{\gamma}$$ is a group morphism.  
-> Let $$[\alpha], [\beta] \in \pi(X, y)$$, two loops at $$y$$ in $$X$$.  
-> Using $$[\overline{\gamma}] * [\gamma] = [c_{x}]$$ and $$[\gamma] * [\overline{\gamma}] = [c_{y}]$$, we have:  
-> $$u_{\gamma}([\alpha] * [\beta]) = [\overline{\gamma}] * ([\alpha] * [\beta]) * [\gamma] = [\overline{\gamma}] * [\alpha] * [c_{y}] * [\beta] * [\gamma] = ([\overline{\gamma}] * [\alpha] * [\gamma]) * ([\overline{\gamma}] * [\beta] * [\gamma]) = u_{\gamma}([\alpha]) * u_{\gamma}([\beta])$$.  
+> Let $$[\alpha], [\beta] \in \pi(X, x)$$, two loops at $$x$$ in $$X$$.  
+> Using $$[\gamma] * [\overline{\gamma}] = [c_{x}]$$, we have:  
+> $$u_{\gamma}([\alpha] * [\beta]) = [\overline{\gamma}] * ([\alpha] * [\beta]) * [\gamma] = [\overline{\gamma}] * [\alpha] * [c_{x}] * [\beta] * [\gamma] = ([\overline{\gamma}] * [\alpha] * [\gamma]) * ([\overline{\gamma}] * [\beta] * [\gamma]) = u_{\gamma}([\alpha]) * u_{\gamma}([\beta])$$.  
 > Thus, $$u_{\gamma}$$ is a group morphism.  
-> We finally prove that $$u_{\gamma}$$ is a bijection.  
-> Let $$u_{\overline{\gamma}} : \pi(X, x) \to \pi(X, y)$$ defined the same way as $$u_{\gamma}$$ but with $$\overline{\gamma}$$ instead of $$\gamma$$. Note that $$\overline{\overline{\gamma}} = \gamma$$.  
-> Let $$[\alpha] \in \pi(X, x)$$  
-> We have:  
-> $$(u_{\gamma} \circ u_{\overline{\gamma}})([\alpha]) = u_{\gamma}([\gamma] * [\alpha] * [\overline{\gamma}]) = [\overline{\gamma}] * [\gamma] * [\alpha] * [\overline{\gamma}] * [\gamma] = [c_{x}] * [\alpha] * [c_{x}] = [\alpha]$$  
-> Thus $$u_{\gamma} \circ u_{\overline{\gamma}} = id_{\pi(X, x)}$$.  
-> Let $$[\beta] \in \pi(X, y)$$  
-> $$(u_{\overline{\gamma}} \circ u_{\gamma})([\beta]) = u_{\overline{\gamma}}([\overline{\gamma}] * [\beta] * [\gamma]) = [\overline{\gamma}] * [\gamma] * [\beta] * [\gamma] * [\overline{\gamma}] = [c_{y}] * [\beta] * [c_{y}] = [\beta]$$  
-> Thus $$u_{\overline{\gamma}} \circ u_{\gamma} = id_{\pi(X,y)}$$.  
+> We finally prove that $$u_{\gamma}$$ is bijective.  
+> Let $$u_{\overline{\gamma}} : \pi(X, y) \to \pi(X, x)$$ defined the same way as $$u_{\gamma}$$ but with $$\overline{\gamma}$$ instead of $$\gamma$$. Note that $$\overline{\overline{\gamma}} = \gamma$$.  
+> Let $$[\beta] \in \pi(X, x)$$, and we have:  
+> $$(u_{\overline{\gamma}} \circ u_{\gamma})([\beta]) = u_{\overline{\gamma}}([\overline{\gamma}] * [\beta] * [\gamma]) = [\overline{\gamma}] * [\gamma] * [\beta] * [\gamma] * [\overline{\gamma}] = [c_{x}] * [\beta] * [c_{x}] = [\beta]$$  
+> Thus $$u_{\overline{\gamma}} \circ u_{\gamma} = id_{\pi(X,x)}$$.  
+> Let $$[\alpha] \in \pi(X, y)$$, and we have:  
+> $$(u_{\gamma} \circ u_{\overline{\gamma}})([\alpha]) = u_{\gamma}([\gamma] * [\alpha] * [\overline{\gamma}]) = [\overline{\gamma}] * [\gamma] * [\alpha] * [\overline{\gamma}] * [\gamma] = [c_{y}] * [\alpha] * [c_{y}] = [\alpha]$$  
+> Thus $$u_{\gamma} \circ u_{\overline{\gamma}} = id_{\pi(X, y)}$$.  
 > Therefore, $$u_{\gamma}$$ is bijective, and since it's a morphism, it's an isomorphism
 
 **b) Let $$f, g:X \to Y$$ be two continuous maps and $$x$$ a point of $$X$$. Suppose that we have an
 homotopy $$H: [0,1] \times X \to Y$$ between $$f$$ and $$g$$. Let $$\gamma = t \mapsto H(t, x)$$ the induced
-path $$f(x) \to g(x)$$. For $$s \in [0, 1]$$, write $$h_{s} = z \mapsto H(s, t)$$ (we have $$h_{0} = f$$
+path $$f(x) \to g(x)$$. For $$s \in [0, 1]$$, we write $$h_{s} = z \mapsto H(s, z)$$ (we have $$h_{0} = f$$
 and $$h_{1} = g$$), consider $$\gamma_{s} : \gamma(s) \to y$$ the path defined
 by $$\gamma_{s}(t) := \gamma(s + (1-s)t)$$ and its homotopy
 inverse $$\overline{\gamma_{s}} : t \mapsto \gamma_{s}(1-t)$$.  
 Then show that $$(s, t) \mapsto (\overline{\gamma_{s}} * (h_{s} \circ \alpha) * \gamma_{s})(t)$$ yield a (fixed
-endpoint) homotopy $$f \circ \alpha \sim g \circ \alpha$$. Then deduce that we have the identity $$u_{\gamma} \circ
-\pi_{1}(f, x) = \pi_{1}(g, x)$$.**
+endpoint) homotopy $$\overline{\gamma} * (f \circ \alpha) * \gamma \sim g \circ \alpha$$. Then deduce that we have the
+identity $$u_{\gamma} \circ \pi_{1}(f, x) = \pi_{1}(g, x)$$.**
 
-> zaze
+> Let $$H' : [0,1]^{2} \to Y$$ defined as $$\forall (s,t) \in [0,1]^{2}$$, $$H'(s,t) := (\overline{\gamma_{s}} * (h_{s} \circ \alpha) * \gamma_{s})(t)$$.  
+> $$H'$$ is continuous as a concatenation of paths and composition of continuous map, and we have:  
+> $$\forall t \in [0,1]$$, $$\gamma_{0}(t) = \gamma(t)$$, $$\gamma_{1}(t) = \gamma(1) = g(x) = c_{g(x)}(t)$$,  
+> $$H'(0,t) = (\overline{\gamma_{0}} * (h_{0} \circ \alpha) * \gamma_{0})(t) = (\overline{\gamma} * (f \circ \alpha) * \gamma)(t)$$, $$H'(1,t) = (\overline{\gamma_{1}} * (h_{1} \circ \alpha) * \gamma_{1})(t) = (c_{g(x)} * (g \circ \alpha) * c_{g(x)})(t) = (g \circ \alpha)(t)$$,  
+> and $$\forall s \in [0,1]$$, $$H'(s, 0) = (\overline{\gamma_{s}} * (h_{s} \circ \alpha) * \gamma_{s})(0) = \overline{\gamma_{s}}(0) = \gamma(1) = g(x)$$ and $$H'(s, 1) = (\overline{\gamma_{s}} * (h_{s} \circ \alpha) * \gamma_{s})(1) = \gamma(1) = g(x)$$.  
+> $$H'$$ is a homotopy between $$\overline{\gamma} * (f \circ \alpha) * \gamma$$ and $$g \circ \alpha$$, $$\overline{\gamma} * (f \circ \alpha) * \gamma \sim g \circ \alpha$$.  
+> We then prove that $$u_{\gamma} \circ \pi_{1}(f, x) = \pi_{1}(g, x)$$.  
+> Let $$[\alpha] \in \pi_{1}(f,x)$$,  
+> $$u_{\gamma} \circ \pi_{1}(f, x)([\alpha]) = \overline{\gamma} * (f \circ \alpha) * \gamma = [g \circ \alpha] = \pi_{1}(g, x)([\alpha]$$.  
+> If $$f \sim g$$, we can transport loops of $$f(x)$$ to loops of $$g(x)$$ along the induced path $$\gamma$$.
+
+17) Suppose we have a homotopy equivalence $$f : X \to Y$$ with a weak inverse $$g$$. We aim to show that $$\pi_{1}(f,
+    x)$$ is a group isomorphism.
+
+**a) Using 16)b), deduce that $$\pi_{1}(g, f(x))$$ both admits a left and a right inverse.**
+
+> aze
 > aze
 
-17) Suppose we have a homotopy $$f : X \to Y$$
+**b) Deduce that $$\pi_{1}(g, f(x))$$ is an isomorphism, then deduce that $$\pi_{1}(f , x)$$ is also an isomorphism.**
 
-16) **Deduce from question 15 that if $$f : X \to Y$$ is a homotopy equivalence and $$x \in X$$,
-    then $$\pi_{1}(f, x) : \pi_{1}(X, x) \to \pi_{1}(Y, f(x))$$ is a group isomorphism.**
+> azeaze
+> zae
 
 18) **Show that for any $$n \in \mathbb{N}$$, $$\mathbb{R}^{n}$$ is homotopy equivalent to a point and not
     to $$\mathbb{S}^{1}$$. Show also that $$\mathbb{S}^{1}$$ is not homotopy equivalent to $$\mathbb{S}^{2}.$$**
+
+> aze aze
+> aze
 
 ## Part 2: Brouwer's Fixed Point Theorem
 
