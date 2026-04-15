@@ -636,9 +636,9 @@ identity $$u_{\gamma} \circ \pi_{1}(f, x) = \pi_{1}(g, x)$$.**
 > Thus $$u_{\delta} \circ \pi_{1}(f, (g \circ f)(x))$$ is the left inverse of $$\pi_{1}(g, f(x))$$.  
 > And $$\pi_{1}(g, f(x)) \circ \pi_{1}(f, x) = \pi_{1}(g \circ f, x)$$  
 > If we compose to the left with $$u_{\overline{\gamma}} \circ u_{\gamma} = id_{\pi_{1}(X, (g \circ f)(x))}$$ we get:  
-> $$\pi_{1}(g, f(x)) \circ \pi_{1}(f, x) = u_{\overline{\gamma}} \circ u_{\gamma} \circ \pi_{1}(g \circ f, x) = u_{\overline{\gamma}}$$  
+> $$\pi_{1}(g, f(x)) \circ \pi_{1}(f, x) = u_{\overline{\gamma}} \circ u_{\gamma} \circ \pi_{1}(g \circ f, x) = u_{\overline{\gamma}} \circ id_{\pi_{1}(X, x)} = u_{\overline{\gamma}}$$  
 > We then compose to the right with $$u_{\gamma}$$ and we get:  
-> $$\pi_{1}(g, f(x)) \circ \pi_{1}(f, x) \circ u_{\gamma} = u_{\overline{\gamma}} \circ u_{\gamma} \circ \pi_{1}(g \circ f, x) = u_{\overline{\gamma}} \circ u_{\gamma} = id_{\pi_{1}(X, (g \circ f)(x))}$$  
+> $$\pi_{1}(g, f(x)) \circ \pi_{1}(f, x) \circ u_{\gamma} = u_{\overline{\gamma}} \circ u_{\gamma} = id_{\pi_{1}(X, (g \circ f)(x))}$$  
 > Thus, $$\pi_{1}(f, x) \circ u_{\gamma}$$ is the right inverse of $$\pi_{1}(g, f(x))$$.
 
 
@@ -649,6 +649,8 @@ identity $$u_{\gamma} \circ \pi_{1}(f, x) = \pi_{1}(g, x)$$.**
 > By inverting $$\pi_{1}(g, f(x))$$ to the left using $$u_{\delta} \circ \pi_{1}(f, (g \circ f)(x))$$, the composing to the right with $$u_{\overline{\gamma}}$$, we get:  
 > $$\pi_{1}(f, x) = u_{\delta} \circ \pi_{1}(f, (g \circ f)(x)) \circ u_{\overline{\gamma}}$$.  
 > We also get its inverse $$u_{\gamma} \circ \pi_{1}(g, f(x))$$  
+> We have $$\pi_{1}(f,x) \circ u_{\gamma} \circ \pi_{1}(g, f(x)) = u_{\delta} \circ \pi_{1}(f, (g \circ f)(x)) \circ u_{\overline{\gamma}} \circ u_{\gamma} \circ \pi_{1}(g, f(x)) = u_{\delta} \circ \pi_{1}(f, (g \circ f)(x)) \circ \pi_{1}(g, f(x)) = u_{\delta} \circ \pi_{1}(f \circ g, f(x)) = id_{\pi_{1}(Y, f(x))}$$  
+> And $$u_{\gamma} \circ \pi_{1}(g, f(x)) \circ \pi_{1}(f,x) = u_{\gamma} \circ \pi_{1}(g \circ f, x) = id_{\pi_{1}(X, x)}$$  
 > Therefore, $$\pi_{1}(f,x)$$ is an isomorphism.
 
 18) **Show that for any $$n \in \mathbb{N}$$, $$\R^{n}$$ is homotopy equivalent to a point and not
