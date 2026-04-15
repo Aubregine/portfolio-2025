@@ -26,32 +26,32 @@ there is a path from $$x$$ to $$y$$.
 
 1) **Let $$n \in \mathbb{N}$$**.
 
-**a) Show that $$\mathbb{R}^{n}$$ is path connected**.
+**a) Show that $$\R^{n}$$ is path connected**.
 
-> Let $$x, y \in \mathbb{R}^{n}$$.  
-> Let $$\gamma : [ 0, 1 ] \to \mathbb{R}^{n}$$ such that $$\forall t \in [ 0, 1 ],\ \gamma (t) = (1 - t) x + t y$$.  
+> Let $$x, y \in \R^{n}$$.  
+> Let $$\gamma : [ 0, 1 ] \to \R^{n}$$ such that $$\forall t \in [ 0, 1 ],\ \gamma (t) = (1 - t) x + t y$$.  
 > $$\gamma$$ is continuous, $$\gamma (0) = x$$ and $$\gamma (1) = y$$.  
 > $$\gamma$$ is a path between $$x$$ and $$y$$.  
-> Therefore, $$\mathbb{R}^{n}$$ is path connected.
+> Therefore, $$\R^{n}$$ is path connected.
 
-**b) For $$n \ge 2$$, show that $$\mathbb{R}^{n} \setminus \{ 0 \} $$ is path connected**.
-> Let $$x, y \in \mathbb{R}^{n} \setminus \{0\}$$.  
-> Let $$P$$ be a plane containing both $$x$$ and $$y$$. We identify $$\mathbb{R}^{n} \setminus \{0\} = P \times \mathbb{R}^{n-2} \setminus \{0\}$$ with $$\mathbb{C} \times \mathbb{R}^{n-2} \setminus \{0\}$$.   
-> Let $$\theta_{x}, \theta_{y} \in [0, 2 \pi]$$ be their argument in $$P$$, and $$r_{x}, r_{y} \in \mathbb{R}_{+}^{\star}$$ their module in $$P$$. Note that both $$r_{x}$$ and $$r_{y}$$ are non zero.  
-> Let $$\gamma : [0,1] \to \mathbb{C} \times \mathbb{R}^{n-2}$$ defined as $$\forall t \in [0,1]$$, $$\gamma(t):= \big(((1-t)r_{x} + tr_{y})e^{i ((1-t) \theta_{x} + t \theta_{y})}, 0, \dots, 0\big)$$.  
+**b) For $$n \ge 2$$, show that $$\R^{n} \setminus \{ 0 \} $$ is path connected**.
+> Let $$x, y \in \R^{n} \setminus \{0\}$$.  
+> Let $$P$$ be a plane containing both $$x$$ and $$y$$. We identify $$\R^{n} \setminus \{0\} = P \times \R^{n-2} \setminus \{0\}$$ with $$\mathbb{C} \times \R^{n-2} \setminus \{0\}$$.   
+> Let $$\theta_{x}, \theta_{y} \in [0, 2 \pi[$$ be their argument in $$P$$, and $$r_{x}, r_{y} \in \R_{+}^{\star}$$ their module in $$P$$. Note that both $$r_{x}$$ and $$r_{y}$$ are non zero.  
+> Let $$\gamma : [0,1] \to \mathbb{C} \times \R^{n-2}$$ defined as $$\forall t \in [0,1]$$, $$\gamma(t):= \big(((1-t)r_{x} + tr_{y})e^{i ((1-t) \theta_{x} + t \theta_{y})}, 0, \dots, 0\big)$$.  
 > Since $$\gamma$$ is continuous (as a composition and product of continuous maps), never zero and $$\gamma(0) = x$$ and $$\gamma(1) = y$$, $$\gamma$$ is a path between $$x$$ and $$y$$.  
-> Therefore, $$\mathbb{R} \setminus \{0\}$$ is path connected.
+> Therefore, $$\R \setminus \{0\}$$ is path connected.
 
-**c) Let $$a_{1}, \ldots, a_{n} \in \mathbb{R}^{n}$$, show
-that $$\mathbb{R}^{n} \setminus \{ a_{1}, \ldots, a_{n} \}$$ is path connected**.
+**c) Let $$a_{1}, \ldots, a_{n} \in \R^{n}$$, show
+that $$\R^{n} \setminus \{ a_{1}, \ldots, a_{n} \}$$ is path connected**.
 > Pareil, géométriquement c'est pas difficile tant que la famille des $$\{a_{1}, \ldots, a_{n}\}$$ est finie 😣
 
 2)
 
-**a) Show that $$\mathbb{S}^1 := \{ (x, y) \in \mathbb{R}^2\ |\ x^{2} + y^{2} = 1 \}$$ is path connected**.
+**a) Show that $$\mathbb{S}^1 := \{ (x, y) \in \R^2\ |\ x^{2} + y^{2} = 1 \}$$ is path connected**.
 > Let $$a = (x_{1}, y_{1}) \in \mathbb{S}^{1}$$ and $$b = (x_{2}, y_{2}) \in \mathbb{S}^1$$.  
 > Let $$\theta_{i} = \begin{cases} \arccos \( x_{i} ) &\quad\text{if } y_{i} \ge 0 \\ - \arccos \( x_{i} ) &\quad\text{if } y_{i} \lt 0 \end{cases}$$  
-> Let $$\gamma : [ 0, 1 ] \to \mathbb{R}^2$$ such that $$\forall t \in [ 0, 1 ],\ \gamma (t) = \Big( \cos \big( (1 - t) \theta_{1} + t \theta_{2} \big),\ \sin \big( (1 - t) \theta_{1} + t \theta_{2} \big) \Big)$$  
+> Let $$\gamma : [ 0, 1 ] \to \R^2$$ such that $$\forall t \in [ 0, 1 ],\ \gamma (t) = \Big( \cos \big( (1 - t) \theta_{1} + t \theta_{2} \big),\ \sin \big( (1 - t) \theta_{1} + t \theta_{2} \big) \Big)$$  
 > Since $$\forall t \in [0,1],\ \cos \big( (1-t) \theta_{1} + t \theta_{2} \big)^{2} + \sin \big( (1-t) \theta_{1} + t \theta_{2} \big)^{2} = 1$$, $$\gamma \( [0,1] ) \subset \mathbb{S}^1$$  
 > We now consider $$\gamma' : [ 0, 1 ] \to \mathbb{S}^1$$ the corestriction of $$\gamma$$ to $$\mathbb{S}^1$$.  
 > $$\gamma'$$ is continuous and  
@@ -142,16 +142,17 @@ did 🫡)
 > Using 5) with $$x = \frac{1}{2} \in ]0,1[$$ and $$e(\frac{1}{2}) = (-1,0)$$, we get that $$e$$ induces a homeomorphism $$e' : ]0,1[\ \setminus \ \{\frac{1}{2}\} \to \mathbb{S}^{1} \setminus \{(1, 0), (-1,0)\}$$.  
 > Since $$]0,1[\ \setminus \ \{\frac{1}{2}\}$$ is not path connected (from 2)c)), using 5) we have that $$\mathbb{S}^{1} \setminus \{(1, 0), (−1, 0)\}$$ is not path connected.
 
-7) **Deduce similarly that $$\mathbb{S}^{1}$$ is not homeomorphic to any $$\mathbb{R}^{n}$$**.
+7) **Deduce similarly that $$\mathbb{S}^{1}$$ is not homeomorphic to any $$\R^{n}$$**.
 
-> For $$n \ge 2$$, let $$f : \mathbb{S}^{1} \to \mathbb{R}^{n}$$ be a map and $$x = (1,0), y = (-1,0)$$ two elements of $$\mathbb{S}^{1}$$.  
-> We define $$f' : \mathbb{S}^{1} \setminus \{x, y\} \to \mathbb{R}^{n} \setminus \{f(x),f(y)\}$$ the restriction of $$f$$ to $$\mathbb{S}^{1} \setminus \{x,y\}$$.  
-> Since $$\mathbb{S}^{1} \setminus \{x,y\}$$ is not connected (from 6) and $$\mathbb{R}^{n} \setminus \{e(x), e(y)\}$$ is (from 1)c)), $$f'$$ cannot be a homeomorphism (from the contraposition of 4)).  
-> And finally, from the contraposition of 5, $$f$$ is not a homeomorphism, i.e: $$\mathbb{S}^{1}$$ is not homeomorphic to $$\mathbb{R}^{n}$$.  
-> For $$n = 1$$, let $$f : \mathbb{S}^{1} \to \mathbb{R}$$ be an injective map and $$x = (1,0)$$ an element of $$\mathbb{S}^{1}$$. Since $$f$$ is injective, $$f^{-1}(\{f(x)\})$$ has at most one element in $$\mathbb{S}^{1}$$ : $$x$$. We define $$f' : \mathbb{S}^{1} \setminus \{x\} \to \mathbb{R} \setminus \{0\}$$ as $$\forall s \in \mathbb{S}^{1}$$, $$f'(s) := f(s) - f(x)$$.  
-> Since $$\mathbb{S}^{1} \setminus \{x\}$$ is path connected (from 6) but $$\mathbb{R} \setminus \{0\}$$ isn't (from 1)b)), $$f'$$ cannot be an homeomorphism (from the contraposition of 4)).  
-> And finally, from the contraposition of 5, $$f$$ is not a homeomorphism, i.e: $$\mathbb{S}^{1}$$ is not homeomorphic to $$\mathbb{R}$$.  
-> Therefore, $$\mathbb{S}^{1}$$ is not homeomorphic to any $$\mathbb{R}^{n}$$.
+> For $$n \ge 2$$, let $$f : \mathbb{S}^{1} \to \R^{n}$$ be a map and $$x = (1,0), y = (-1,0)$$ two elements of $$\mathbb{S}^{1}$$.  
+> We define $$f' : \mathbb{S}^{1} \setminus \{x, y\} \to \R^{n} \setminus \{f(x),f(y)\}$$ the restriction of $$f$$ to $$\mathbb{S}^{1} \setminus \{x,y\}$$.  
+> Since $$\mathbb{S}^{1} \setminus \{x,y\}$$ is not connected (from 6) and $$\R^{n} \setminus \{e(x), e(y)\}$$ is (from 1)c)), $$f'$$ cannot be a homeomorphism (from the contraposition of 4)).  
+> And finally, from the contraposition of 5, $$f$$ is not a homeomorphism, i.e: $$\mathbb{S}^{1}$$ is not homeomorphic to $$\R^{n}$$.  
+> For $$n = 1$$, let $$f : \mathbb{S}^{1} \to \R$$ be an injective map and $$x = (1,0)$$ an element of $$\mathbb{S}^{1}$$. Since $$f$$ is injective, $$f^{-1}(\{f(x)\})$$ has at most one element in $$\mathbb{S}^{1}$$ : $$x$$. We define $$f' : \mathbb{S}^{1} \setminus \{x\} \to \R \setminus \{0\}$$ as $$\forall s \in \mathbb{S}^{1}$$, $$f'(s) := f(s) - f(x)$$.  
+> Since $$\mathbb{S}^{1} \setminus \{x\}$$ is path connected (from 6) but $$\R \setminus \{0\}$$ isn't (from 1)b)), $$f'$$ cannot be an homeomorphism (from the contraposition of 4)).  
+> And finally, from the contraposition of 5, $$f$$ is not a homeomorphism, i.e: $$\mathbb{S}^{1}$$ is not homeomorphic to $$\R$$.  
+> For n = 0, $$\R^{0}$$ has only one element, therefore it cannot be homeomorphic to $$\mathbb{S}^{1}$$ that has at least two.  
+> Therefore, $$\mathbb{S}^{1}$$ is not homeomorphic to any $$\R^{n}$$.
 
 These first questions illustrated that the connectedness of a space is an interesting property which is
 invariant by homeomorphism. Hence it may help to know whether two spaces are homeomorphic or not.
@@ -213,7 +214,7 @@ if $$s \ge \frac{1}{2}$$.
 **a) Let $$\alpha : x \to y$$ be a path. Show that $$c_{x} * \alpha \sim \alpha$$ and $$\alpha * c_{x} \sim \alpha$$.**
 
 > We first prove that $$c_{x} * \alpha \sim \alpha$$.  
-> Let $$\phi : [0, 1]^{2} \to \mathbb{R}$$ be defined as $$\forall (t, s) \in [0,1]^{2}$$, $$\phi (s, t) := (1-s)(2t-1) + st$$.
+> Let $$\phi : [0, 1]^{2} \to \R$$ be defined as $$\forall (t, s) \in [0,1]^{2}$$, $$\phi (s, t) := (1-s)(2t-1) + st$$.
 > $$\phi$$ is continuous on $$[0, 1]^{2}$$ as a polynomial of degree 2, and $$\forall (s, t) \in [0,1]^{2}$$, $$\phi (s, t) \le 1$$.  
 > Let $$\phi' : [0,1]^{2} \to [0, 1]$$ be defined as $$\forall (s, t) \in [0,1]^{2}$$, $$\phi'(s,t) := max(0, \phi(s, t))$$. $$\phi'$$ is continuous on $$[0,1]^{2}$$ as a composition of $$\phi$$ and $$t \mapsto \max(0, t)$$, both continuous.  
 > Let $$H : [0,1]^{2} \to X$$ be defined as $$\forall (s, t) \in [0,1]^{2}$$, $$H(s, t) := (\alpha \circ \phi')(t) = \alpha(max(0, (1-s)(2t-1) + st))$$.  
@@ -226,7 +227,7 @@ if $$s \ge \frac{1}{2}$$.
 > $$H(s, 0) = \alpha(0) = x$$ and $$H(s,1) = \alpha(1) = y$$.  
 > $$H$$ is a homotopy between $$c_{x} * \alpha$$ and $$\alpha$$, i.e: $$\alpha \circ c_{x} \sim \alpha$$.  
 > We now prove that $$\alpha * c_{y} \sim \alpha$$.  
-> Let $$\phi : [0,1]^{2} \to \mathbb{R}$$ be defined as $$\forall (t,s) \in [0,1]^{2}$$, $$\phi (s,t) := (1-s)2t + st$$.  
+> Let $$\phi : [0,1]^{2} \to \R$$ be defined as $$\forall (t,s) \in [0,1]^{2}$$, $$\phi (s,t) := (1-s)2t + st$$.  
 > $$\phi$$ is continuous on $$[0,1]^{2}$$ as a polynomial of degree 2, and $$\forall (s,t) \in [0,1]^{2}$$, $$\phi (s,t) \ge 0$$.  
 > Let $$\phi' : [0,1]^{2} \to [0,1]$$ be defined as $$\forall (s,t) \in [0,1]^{2}$$, $$\phi'(s,t) := min(1,\phi(s,t))$$. $$\phi'$$ is continuous on $$[0,1]^{2}$$ as a composition of $$\phi$$ and $$t \mapsto \min(1, t)$$, both continuous.  
 > Let $$H : [0,1]^{2} \to X$$ be defined as $$\forall (s, t) \in [0,1]^{2}$$, $$H := (\alpha \circ \phi')(t) = \alpha(min(1, (1-s)2t + st))$$.    
@@ -254,12 +255,12 @@ that $$(\alpha * \beta) * \gamma \sim \alpha * (\beta * \gamma)$$.**
 > We make sure that the $$f_{i}$$ coincide on the intersections of the $$F_{i}$$:  
 > $$F_{1} \cap F_{3} = \emptyset$$,  
 > $$\forall (s, t) \in F_{2} \cap F_{3}$$ (i.e.: $$s + 2 = 4t$$), $$f_{3}(s,t) = \gamma(max(0, 8t^{2}-10t+3))$$.  
-> Let $$P \in \mathbb{R}[X]$$ be a polynomial defined as $$P := 8X^{2} - 10X + 3$$.  
-> It can be factorized as $$P = (2X -1)(4X-3)$$, and $$\forall t \in \mathbb{R}$$, the sign of $$P(t)$$ is the sign of $$-8$$ between its roots, and $$\forall (s, t) \in F_{2} \cap F_{3}$$, $$P(t) \le 0$$ and $$f_{3}(s, t) = \gamma(max(0, P(t))) = \gamma(0) = y$$  
+> Let $$P \in \R[X]$$ be a polynomial defined as $$P := 8X^{2} - 10X + 3$$.  
+> It can be factorized as $$P = (2X -1)(4X-3)$$, and $$\forall t \in \R$$, the sign of $$P(t)$$ is the sign of $$-8$$ between its roots, and $$\forall (s, t) \in F_{2} \cap F_{3}$$, $$P(t) \le 0$$ and $$f_{3}(s, t) = \gamma(max(0, P(t))) = \gamma(0) = y$$  
 > and $$f_{2}(s,t) = \beta(1) = y$$, they coincide on the intersection of the $$F_{2}$$ and $$F_{3}$$.  
 > $$\forall (s, t) \in F_{1} \cap F_{2}$$ (i.e.: $$s + 1 = 4t$$), $$f_{1}(s,t) = min(1, 6t - 8t^{2})$$.  
-> Let $$P \in \mathbb{R}[X]$$ be a polynomial defined as $$P := 6X - 8X^{2}$$.  
-> $$P - 1$$ can be factorized as $$-(4X+1)(2X+1)$$ and $$\forall t \in \mathbb{R}$$ the sign of $$(P-1)(t)$$ is the sign of $$-8$$ outside of its roots, and $$\forall (s, t) \in F_{1} \cap F_{2}$$, $$P(t) \ge 1$$ and $$f_{1}(s,t) = \alpha(min(1, P(t))) = \alpha(1) = x$$.  
+> Let $$P \in \R[X]$$ be a polynomial defined as $$P := 6X - 8X^{2}$$.  
+> $$P - 1$$ can be factorized as $$-(4X+1)(2X+1)$$ and $$\forall t \in \R$$ the sign of $$(P-1)(t)$$ is the sign of $$-8$$ outside of its roots, and $$\forall (s, t) \in F_{1} \cap F_{2}$$, $$P(t) \ge 1$$ and $$f_{1}(s,t) = \alpha(min(1, P(t))) = \alpha(1) = x$$.  
 > and $$f_{2}(s,t) = \beta(0) = x$$, they coincide on the intersection of the $$F_{1}$$ and $$F_{2}$$.    
 > We then construct the map $$H$$:  
 > Since all $$F_{i}$$ are closed (as intersection of closed half-planes), and $$F_{1} \cup F_{2} \cup F_{3} = [0,1]^{2}$$, and the $$f_{i}$$ are continuous and coincide on the intersection of the $$F_{i}$$, there is a unique map $$H : [0,1]^{2} \to X$$ such that:  
@@ -379,7 +380,7 @@ group morphism denoted $$\pi_{1}(f, x) : \pi_{1}(X, x) \to \pi_{1}(Y, f(x))$$**.
 
 We now turn to the computation of $$\pi_{1}(\mathbb{S}^{1}, (1, 0))$$. In the following we identify $$\mathbb{S}^{1}$$
 with the complex unit circle $$\mathbb{U} = \{z \in \mathbb{C} |\ |z| = 1\}$$, and denote $$exp$$ the
-map $$ s \mapsto e^{i s} : \mathbb{R} \to \mathbb{S}^{1}$$. We first aim to shew the following lemma:
+map $$ s \mapsto e^{i s} : \R \to \mathbb{S}^{1}$$. We first aim to shew the following lemma:
 
 11) **Let $$f : X \to Y$$ be an homeomorphism. Show that $$\pi_{1}(X, x) \simeq \pi_{1}(Y, f(x))$$ are isomorphic
     as groups.**
@@ -395,22 +396,22 @@ map $$ s \mapsto e^{i s} : \mathbb{R} \to \mathbb{S}^{1}$$. We first aim to shew
 
 ### **Lemma 1.6: Lifting theorem**
 
-Let $$a \le b \in \mathbb{R}$$ and $$f : [a, b] \in \mathbb{S}^{1}$$ be a continuous map, there is a continuous
-map $$\hat{f} : [a, b] \to \mathbb{R}$$ such that $$exp \circ \hat{f} = f$$.
+Let $$a \le b \in \R$$ and $$f : [a, b] \in \mathbb{S}^{1}$$ be a continuous map, there is a continuous
+map $$\hat{f} : [a, b] \to \R$$ such that $$exp \circ \hat{f} = f$$.
 
 12)
 
 **a) Let $$a \le b$$ and suppose $$f : [a, b] \to \mathbb{S}^{1}$$ misses a point (say $$1$$). Show using question 3
-that $$f$$ admits such a lift $$\hat{f} : [a, b] \to \mathbb{R}$$**.
+that $$f$$ admits such a lift $$\hat{f} : [a, b] \to \R$$**.
 
-> Let $$\hat{f} : [a, b] \to \mathbb{R}$$ be defined as $$\hat{f} := e^{-1} \circ f$$.  
+> Let $$\hat{f} : [a, b] \to \R$$ be defined as $$\hat{f} := e^{-1} \circ f$$.  
 > $$\hat{f}$$ is continuous as a composition of continuous maps,  
 > and $$\forall x \in [a, b]$$, $$(exp \circ \hat{f})(x) = e^{2\pi i \hat{f(x)}} = \cos(2\pi e^{-1}(f(x)) + i \sin(2\pi e^{-1}(f(x)) = e(e^{-1}(f(x))) = f(x)$$
 
 **b) Let $$a \le b$$ and consider any continuous map $$f : [a, b] \to \mathbb{S}^{1}$$. Show that we may split the
 interval $$[a, b]$$ as $$a = a_{0} \le a_{1} \le \dots \le a_{N} = b$$ such that for
 each $$i \lt N$$, $$f_{i} := f|_{[a_{i},a{i+1}]} : [a_{i},a_{i+1}] \to \mathbb{S}^{1}$$ avoids one point. By 11 _a_,
-each of them admits a lift $$\hat{f_{i}} : [a_{i},a_{i+1}] \to \mathbb{R}$$. Show that we may assure for
+each of them admits a lift $$\hat{f_{i}} : [a_{i},a_{i+1}] \to \R$$. Show that we may assure for
 each $$i \lt \ N - 1$$, $$\hat{f_{i}}(a_{i+1}) = \hat{f_{i+1}}(a_{i+1})$$. Conclude that $$f$$ admits a lift $$\hat{f}$$
 which achieves the proof of Lemma 1.6**
 
@@ -438,12 +439,12 @@ squares
 ### **Lemma 1.7: Lifting theorem 2**
 
 Let $$f : [0, 1]^{2} \to \mathbb{S}^{1}$$ be a continuous map, there is a continuous
-map $$\hat{f} : [0,1]^{2} \to \mathbb{R}$$ such that $$exp \circ \hat{f} = f$$
+map $$\hat{f} : [0,1]^{2} \to \R$$ such that $$exp \circ \hat{f} = f$$
 
 13) **We now compute $$\pi_{1}(\mathbb{S}^{1}, 1)$$**.
 
 **a) Let $$\gamma : 1 \mapsto 1$$ be a loop in $$\mathbb{S}^{1}$$ (seen as $$\mathbb{U} \subseteq \mathbb{C}$$). Using
-the lifting lemma, we consider a lift $$\hat{\gamma} : [0,1] \to \mathbb{R}$$ of $$\gamma$$. We then define
+the lifting lemma, we consider a lift $$\hat{\gamma} : [0,1] \to \R$$ of $$\gamma$$. We then define
 the _index_ of $$\gamma$$ to be $$ind(\gamma) := |\hat{\gamma}(1)-\hat{\gamma}(0)|$$. Show that $$ind(\gamma)$$ does
 not depend on the choice of the lift $$\hat{\gamma}$$**.
 
@@ -508,11 +509,11 @@ then $$ind(\gamma) = ind(\delta)$$**.
 > And $$\forall t \in [0,1]$$, using $$exp \circ \hat{\delta}(0) = \delta(0) = 1$$, $$exp \circ \hat{\delta'}(t) = exp \circ (\hat{\delta}(t) - \hat{\delta}(0)) = \frac{\delta(t)}{exp \circ \hat{\delta}(0)} = \delta(t)$$.  
 > Since $$ind(\gamma) = ind(\delta)$$, $$\hat{\gamma}(1) - \hat{\gamma}(0) = \hat{\delta}(1) - \hat{\delta}(0) = \hat{\gamma'}(1) = \hat{\delta'}(1)$$.  
 > We may then use $$\hat{\gamma'}$$ in place of $$\hat{\gamma}$$ and $$\hat{\delta'}$$ in place of $$\hat{\delta}$$.  
-> Let $$\hat{H}: [0, 1]^{2} \to \mathbb{R}$$ defined as $$\forall (s, t) \in [0,1]^{2}$$, $$\hat{H}(t, s) := (1-s)\hat{\gamma}(t) + s\hat{\delta}(t)$$.  
+> Let $$\hat{H}: [0, 1]^{2} \to \R$$ defined as $$\forall (s, t) \in [0,1]^{2}$$, $$\hat{H}(t, s) := (1-s)\hat{\gamma}(t) + s\hat{\delta}(t)$$.  
 > $$\hat{H}$$ is continuous, as a product and sum of continuous maps, and we have $$\forall t \in [0,1]$$, $$\begin{cases} \hat{H}(0, t) = \hat{\gamma}(t) \\ \hat{H}(1, t) = \hat{\delta}(t) \end{cases}$$  
 > and $$\forall s \in [0,1]$$, $$\begin{cases} \hat{H}(s, 0) = (1 - s)\hat{\gamma}(0) + s\hat{\delta}(0) = 0 \\ \hat{H}(s,1) = (1 - s)\hat{\gamma}(1) + s\hat{\delta}(1) = \hat{\gamma}(1) &\text{using } \hat{\gamma}(1) = \hat{\delta}(1) \end{cases}$$  
 > $$\hat{H}$$ is a homotopy between $$\hat{\gamma}$$ and $$\hat{\delta}$$.  
-> Let $$H: [0, 1]^{2} \to \mathbb{R}$$ defined as $$\forall (s, t) \in [0,1]^{2}$$, $$H(s,t) := exp \circ \hat{H}(s, t)$$.  
+> Let $$H: [0, 1]^{2} \to \R$$ defined as $$\forall (s, t) \in [0,1]^{2}$$, $$H(s,t) := exp \circ \hat{H}(s, t)$$.  
 > $$H$$ is continuous, as a composition of continuous maps, and we have $$\forall t \in [0,1]$$, $$\begin{cases} H(0, t) = exp \circ \hat{H}(0,t) = exp \circ \hat{\gamma}(t) = \gamma(t) \\ H(1,t) = exp \circ \hat{H}(1,t) = exp \circ \hat{\delta}(t) = \delta(t) \end{cases}$$    
 > and $$\forall s \in [0,1]$$, $$\begin{cases} H(s,0) = exp \circ \hat{H}(s,0) = exp (0) = 1 \\ H(s,1) = exp \circ \hat{H}(s,1) = exp (0) = 1 \end{cases}$$  
 > $$\hat{H}$$ is a homotopy between $$\gamma$$ and $$\delta$$.  
@@ -524,21 +525,21 @@ then $$ind(\gamma) = ind(\delta)$$**.
 
 > We proved that $$ind$$ is a group isomorphism between $$\pi_{1}(\mathbb{S}^{1}, 1)$$ and $$\mathbb{Z}$$.
 
-14) Let $$n \in \mathbb{N}$$, compute $$\pi_{1}(\mathbb{R}^{n})$$ and conclude again
-    that $$\mathbb{S}^{1} \ncong \mathbb{R}^{n}$$
+14) Let $$n \in \mathbb{N}$$, compute $$\pi_{1}(\R^{n})$$ and conclude again
+    that $$\mathbb{S}^{1} \ncong \R^{n}$$
 
-> Let $$x \in \mathbb{R}^{n}$$. We prove that $$\pi_{1}(\mathbb{R}^{n}, x) = \{[c_{x}]\}$$.  
-> Let $$[\gamma] \in \pi_{1}(\mathbb{R}^{n}, x)$$, and $$\gamma$$ its represantant.  
-> Let $$H : [0,1]^{2} \to \mathbb{R}$$ defined as $$\forall (s,t) \in [0,1]^{2}$$, $$H(s,t) := (1-s)\gamma(t) + s \cdot x$$.  
+> Let $$x \in \R^{n}$$. We prove that $$\pi_{1}(\R^{n}, x) = \{[c_{x}]\}$$.  
+> Let $$[\gamma] \in \pi_{1}(\R^{n}, x)$$, and $$\gamma$$ its represantant.  
+> Let $$H : [0,1]^{2} \to \R$$ defined as $$\forall (s,t) \in [0,1]^{2}$$, $$H(s,t) := (1-s)\gamma(t) + s \cdot x$$.  
 > $$H$$ is continuous, as a sum of products of continuous maps, and we have:  
 > $$\forall t \in [0,1]$$, $$\begin{cases} H(0,t) = \gamma(t) \\ H(1,t) = x = c_{x}(t) \end{cases}$$  
 > and $$\forall s \in [0,1]$$, $$\begin{cases} H(s,0) = (1-s)\gamma(0) + s \cdot x = x \\ H(s,1) = (1-s)\gamma(1) + s \cdot x = x \end{cases}$$  
 > $$H$$ is a homotopy between $$\gamma$$ and $$c_{x}$$, thus $$\gamma \sim c_{x}$$ i.e.: $$[\gamma] = [c_{x}]$$.  
-> Therefore, $$\pi_{1}(\mathbb{R}^{n}, x) = \{[c_{x}]\}$$.  
-> Since $$\pi_{1}(\mathbb{S}^{1}, 1)$$ is isomorphic to $$\mathbb{Z}$$ and $$\mathbb{Z}$$ has at least 2 elements (last time I checked), using the contraposition of 11), $$\mathbb{R}^{n} \ncong \mathbb{S}^{1}$$.
+> Therefore, $$\pi_{1}(\R^{n}, x) = \{[c_{x}]\}$$.  
+> Since $$\pi_{1}(\mathbb{S}^{1}, 1)$$ is isomorphic to $$\mathbb{Z}$$ and $$\mathbb{Z}$$ has at least 2 elements (last time I checked), using the contraposition of 11), $$\R^{n} \ncong \mathbb{S}^{1}$$.
 
 15) Explain why we expect $$\pi_{1}(\mathbb{S}^{2}) = \{ * \}$$ where $$\pi_{1}(\mathbb{S}^{2})$$ is the unit sphere
-    in $$\mathbb{R}^{3}$$. Admitting it, deduce that $$\mathbb{S}^{1} \ncong \mathbb{S}^{2}$$
+    in $$\R^{3}$$. Admitting it, deduce that $$\mathbb{S}^{1} \ncong \mathbb{S}^{2}$$
 
 > We expect $$\pi_{1}(\mathbb{S}^{2}) = \{ * \}$$ because loops on the surface of a sphere can be continuously deformed to any point on the surface.  
 > Using the contraposition of 11), and since $$\pi_{1}(\mathbb{S}^{1}, 1)$$ is isomorph to $$\mathbb{Z}$$, and $$\mathbb{Z}$$ has at least two elements (999999 and 7 for example, I just doubled check to make sure), $$\mathbb{S}^{2} \ncong \mathbb{S}^{1}$$.
@@ -620,7 +621,7 @@ identity $$u_{\gamma} \circ \pi_{1}(f, x) = \pi_{1}(g, x)$$.**
 > $$H'$$ is a homotopy between $$\overline{\gamma} * (f \circ \alpha) * \gamma$$ and $$g \circ \alpha$$, $$\overline{\gamma} * (f \circ \alpha) * \gamma \sim g \circ \alpha$$.  
 > We then prove that $$u_{\gamma} \circ \pi_{1}(f, x) = \pi_{1}(g, x)$$.  
 > Let $$[\alpha] \in \pi_{1}(f,x)$$,  
-> $$u_{\gamma} \circ \pi_{1}(f, x)([\alpha]) = \overline{\gamma} * (f \circ \alpha) * \gamma = [g \circ \alpha] = \pi_{1}(g, x)([\alpha]$$.  
+> $$u_{\gamma} \circ \pi_{1}(f, x)([\alpha]) = [\overline{\gamma}] * [f \circ \alpha] * [\gamma] = [\overline{\gamma} * (f \circ \alpha) * \gamma] = [g \circ \alpha] = \pi_{1}(g, x)([\alpha])$$.  
 > If $$f \sim g$$, we can transport loops of $$f(x)$$ to loops of $$g(x)$$ along the induced path $$\gamma$$.
 
 17) Suppose we have a homotopy equivalence $$f : X \to Y$$ with a weak inverse $$g$$. We aim to show that $$\pi_{1}(f,
@@ -628,24 +629,45 @@ identity $$u_{\gamma} \circ \pi_{1}(f, x) = \pi_{1}(g, x)$$.**
 
 **a) Using 16)b), deduce that $$\pi_{1}(g, f(x))$$ both admits a left and a right inverse.**
 
-> aze
-> aze
+> Let $$H_{1} : [0,1] \times X \to X$$ be a homotopy between $$g \circ f$$ and $$id_{X}$$, and $$H_{2} : [0,1] \times Y \to Y$$ be a homotopy between $$f \circ g$$ and $$id_{Y}$$.  
+> Let $$\gamma := t \mapsto H_{1}(t, x)$$ the induced path $$(g \circ f)(x) \to x$$ and $$\delta := t \mapsto H_{2}(t,f(x))$$ the induced path $$(f \circ g)(f(x)) \to f(x)$$.  
+> We then have:  
+> $$u_{\delta} \circ \pi_{1}(f, (g \circ f)(x)) \circ \pi_{1}(g, f(x)) = u_{\delta} \circ \pi_{1}(f \circ g, f(x)) = \pi_{1}(id_{Y}, f(x)) = id_{\pi_{1}(Y, f(x))}$$  
+> Thus $$u_{\delta} \circ \pi_{1}(f, (g \circ f)(x))$$ is the left inverse of $$\pi_{1}(g, f(x))$$.  
+> And $$\pi_{1}(g, f(x)) \circ \pi_{1}(f, x) = \pi_{1}(g \circ f, x)$$  
+> If we compose to the left with $$u_{\overline{\gamma}} \circ u_{\gamma} = id_{\pi_{1}(X, (g \circ f)(x))}$$ we get:  
+> $$\pi_{1}(g, f(x)) \circ \pi_{1}(f, x) = u_{\overline{\gamma}} \circ u_{\gamma} \circ \pi_{1}(g \circ f, x) = u_{\overline{\gamma}}$$  
+> We then compose to the right with $$u_{\gamma}$$ and we get:  
+> $$\pi_{1}(g, f(x)) \circ \pi_{1}(f, x) \circ u_{\gamma} = u_{\overline{\gamma}} \circ u_{\gamma} \circ \pi_{1}(g \circ f, x) = u_{\overline{\gamma}} \circ u_{\gamma} = id_{\pi_{1}(X, (g \circ f)(x))}$$  
+> Thus, $$\pi_{1}(f, x) \circ u_{\gamma}$$ is the right inverse of $$\pi_{1}(g, f(x))$$.
+
 
 **b) Deduce that $$\pi_{1}(g, f(x))$$ is an isomorphism, then deduce that $$\pi_{1}(f , x)$$ is also an isomorphism.**
 
-> azeaze
-> zae
+> Since $$\pi_{1}(g, f(x))$$ is a morphism (from 10)a)) and is invertible (from 17)a)), $$\pi_{1}(g, f(x))$$ is an isomorphism.  
+> From 17)a), we also get $$\pi_{1}(g, f(x)) \circ \pi_{1}(f,x) \circ u_{\gamma} = id_{\pi_{1}(X, (g \circ f)(x))}$$.  
+> By inverting $$\pi_{1}(g, f(x))$$ to the left using $$u_{\delta} \circ \pi_{1}(f, (g \circ f)(x))$$, the composing to the right with $$u_{\overline{\gamma}}$$, we get:  
+> $$\pi_{1}(f, x) = u_{\delta} \circ \pi_{1}(f, (g \circ f)(x)) \circ u_{\overline{\gamma}}$$.  
+> We also get its inverse $$u_{\gamma} \circ \pi_{1}(g, f(x))$$  
+> Therefore, $$\pi_{1}(f,x)$$ is an isomorphism.
 
-18) **Show that for any $$n \in \mathbb{N}$$, $$\mathbb{R}^{n}$$ is homotopy equivalent to a point and not
+18) **Show that for any $$n \in \mathbb{N}$$, $$\R^{n}$$ is homotopy equivalent to a point and not
     to $$\mathbb{S}^{1}$$. Show also that $$\mathbb{S}^{1}$$ is not homotopy equivalent to $$\mathbb{S}^{2}.$$**
 
-> aze aze
-> aze
+> We first prove that $$\R^{n}$$ is homotopy equivalent to a point.  
+> Let $$f: \R^{n} \to \{*\}$$ .. well, the only map that can exist, $$\forall x \in \R^{n}$$, $$f(x) := *$$.  
+> Let $$g: \{*\} \to \R^{n}$$ be defined as $$\forall * \in \{*\}$$, $$g(*) := 0$$.  
+> And let $$H: [0, 1] \times \R^{n} \to \R^{n}$$ be a homotopy between $$g \circ f$$ and $$id_{\R^{n}}$$, defined as $$\forall (s,x) \in [0,1] \times \R^{n}$$, $$H(s, x) = s \cdot x$$.  
+> We have $$f \circ g = id_{\{*\}}$$ and $$g \circ f \overset{H}{\sim} id_{\R^{n}}$$, therefore $$\R^{n} \simeq \{*\}$$, i.e.: $$\R^{n}$$ is homotopy equivalent to a point.  
+> We now prove that $$\R^{n}$$ is not homotopy equivalent to $$\mathbb{S}^{1}$$.  
+> Using the contraposition of 17), the only map $$f : \pi_{1}(\mathbb{S}^{1},1) \to \pi_{1}(\R^{n}, *)$$ is not injective, thus $$\R^{n}$$ is not homotopy equivalent to $$\mathbb{S}^{1}$$.  
+> We now prove that $$\mathbb{S}^{1}$$ is not homotopy equivalent to $$\mathbb{S}^{2}$$.  
+> Using the same argument, since $$\pi_{1}(\mathbb{S}^{2}, *)$$ has only one element, any map from $$\pi_{1}(\mathbb{S}^{1},1)$$ to it wouldn't be injective, therefore they are not homotopy equivalent.
 
 ## Part 2: Brouwer's Fixed Point Theorem
 
 In this section, we show the following theorem, using the tools defined in Part 1. We denote by $$\mathbb{B}^{n}$$ the
-closed unit ball of $$\mathbb{R}^{n}$$, that is $$\mathbb{B}^{n} := \{ (x_{1}, \dots, x_{n}) \in \mathbb{R}^{n} | x_
+closed unit ball of $$\R^{n}$$, that is $$\mathbb{B}^{n} := \{ (x_{1}, \dots, x_{n}) \in \R^{n}\ |\ x_
 {1}^{2} + \dots + x_{n}^{2} \le 1 \}$$. Then $$\mathbb{S}^{n}$$ is the boundary of $$\mathbb{B}^{n+1}$$
 
 ### **Theorem 2.1: Fixed Point (Brouwer)**
