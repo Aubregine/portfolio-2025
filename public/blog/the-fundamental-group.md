@@ -380,7 +380,7 @@ group morphism denoted $$\pi_{1}(f, x) : \pi_{1}(X, x) \to \pi_{1}(Y, f(x))$$**.
 
 We now turn to the computation of $$\pi_{1}(\mathbb{S}^{1}, (1, 0))$$. In the following we identify $$\mathbb{S}^{1}$$
 with the complex unit circle $$\mathbb{U} = \{z \in \mathbb{C} |\ |z| = 1\}$$, and denote $$exp$$ the
-map $$ s \mapsto e^{i s} : \R \to \mathbb{S}^{1}$$. We first aim to shew the following lemma:
+map $$ s \mapsto e^{i s} : \R \to \mathbb{S}^{1}$$. We first aim to show the following lemma:
 
 11) **Let $$f : X \to Y$$ be an homeomorphism. Show that $$\pi_{1}(X, x) \simeq \pi_{1}(Y, f(x))$$ are isomorphic
     as groups.**
@@ -690,6 +690,14 @@ inclusion of the unit circle into the unit disk. Deduce from the first section
 that $$\pi_{1}(id_{\mathbb{S}^{1}}, (1, 0)) = \pi_{1}(r, (1, 0)) \circ \pi_{1}(\iota, (1, 0))$$ must be the null
 morphism $$\mathbb{Z} \to \mathbb{Z}$$**.
 
+> We first compute $$\pi_{1}(\mathbb{B}^{2}, (1,0))$$:  
+> Let $$[\gamma] \in \pi_{1}(\mathbb{B}^{2}, (1,0))$$, let $$H: [0,1]^{2} \to \pi_{1}(\mathbb{B}^{2}, (1,0))$$ defined as  
+> $$\forall (s,t) \in [0,1]^{2}$$, $$H(s,t) := (1-s)\gamma(t) + s \cdot (1,0)$$. Since $$\mathbb{B}^{2}$$ is convex, $$H(s, t)$$ is in $$\mathbb{B}^{2}$$.    
+> We have, $$\forall t \in [0,1]$$, $$H(0, t) = \gamma(t)$$ and $$H(1, t) = (1,0) = c_{(1,0)}(t)$$  
+> and $$\forall s \in [0,1]$$, $$H(s, 0) = (1-s) \cdot (1,0) + s \cdot (1,0) = (1,0)$$ and $$H(s, 1) = (1-s) \cdot (1,0) + s \cdot (1,0) = (1,0)$$.  
+> $$H$$ is continuous and is a homotopy between $$\gamma$$ and $$c_{(1,0)}$$, therefore, $$\pi_{1}(\mathbb{B}^{2}, (1,0)) = \{[c_{(1,0)}]\}$$.  
+> Since $$\pi_{1}(id_{\mathbb{S}^{1},(1,0)}) = id_{\pi_{1}(\mathbb{S}^{1}, (1, 0))} = \pi_{1}(r, (1,0)) \circ \pi_{1}(\iota,(1, 0))$$, $$\pi_{1}(\iota, (1,0))$$ must be injective, but that's impossible since $$\pi_{1}(\mathbb{S}^{1},(1,0))$$ has more than two elements.
+
 **b) Deduce an absurdity 😣**
 
 We then prove Theorem 2.1 by an _evil_ contradiction 👿 (This requires the excluded middle, which is very bad logical
@@ -702,5 +710,39 @@ taste)
    that $$r(x) \in \mathbb{S}^{1}$$**.
 
 **a) Make a drawing illustrating a point $$x, f(x)$$ and $$r(x)$$ (yes, this is important!)** I did my best 🫡.
+
+> ![Drawing illustrating a point x, f(x) and r(x)](./the-fundamental-group-P2q2.png)
+
 **b) Show that $$\lambda$$ is well defined and continuous. Deduce that $$r$$ is continuous**.
+
+> Let $$d: \R_{+}^{*} \to \mathbb{B}^{2}$$ be defined as $$\forall t \in \R_{+}^{*}$$, $$d(t) := f(x) + t(x - f(x))$$.  
+> $$d$$ describes the ray $$]f(x), x)$$.  
+> If $$d$$ intersects the unit circle $$\mathbb{S}^{1}$$ for some $$t \in \R_{+}{*}$$, we have:  
+> $$
+> \begin{equation}
+> \begin{split} ||d(t)||^{2} &= ||f(x) + t(x - f(x))||^{2} \\
+> 1 &= ||f(x)||^{2} + ||x - f(x)||^{2}t^{2} + 2\braket{f(x)|x-f(x)}t \\
+> 0&= ||f(x)||^{2} - 1 + ||x - f(x)||^{2}t^{2} + 2(\braket{f(x)|x} - ||f(x)||^{2})t \\
+> 0 &= at^{2} + bt + c \text{ with }\begin{cases} a = ||x - f(x)||^{2} \\ b = 2\braket{f(x)|x} - 2||f(x)||^{2} \\ c = ||f(x)||^{2} - 1 \end{cases}
+> \end{split}
+> \end{equation}
+> $$  
+> We then have $$\Delta = b^{2} - 4ac \ge b^{2}$$ since $$a \gt 0$$ from $$f(x) \neq x$$, and $$c \le 0$$ from $$f(x) \in \mathbb{B}^{2}$$.  
+> We then have two cases, $$||f(x)|| = 1$$ and $$||f(x)|| \lt 1$$.  
+> Case $$||f(x)|| \lt 1$$:  
+> $$\Delta = b^{2} - 4ac \gt |b|^{2}$$, $$t_{-} = \frac{-b - \sqrt{\Delta}}{2a} \lt 0$$, which is not a solution in $$\R_{+}^{*}$$,  
+> and $$t_{+} = \frac{-b + \sqrt{\Delta}}{2a} \gt 0$$.  
+> Case $$||f(x)|| = 1$$:  
+> $$\Delta = b^{2}$$, $$t_{-} = \frac{-b - |b|}{2a} \le 0$$, which is not a solution in $$\R_{+}^{*}$$,  
+> and $$t_{+} = \frac{-b + |b|}{2a}$$, and since $$b = 2\braket{f(x)|x} - 2$$ and $$x \neq f(x)$$, $$\braket{f(x)|x} \lt 1$$, thus $$b \gt 0$$ and $$t_{+} \gt 0$$.  
+> Therefore, $$\lambda(x)$$ is the unique strictly positive solution of $$||d(t)|| = 1$$, and since all involved maps, $$x \mapsto ||x||$$ and $$t \mapsto \sqrt{t}$$ are continuous, $$\lambda$$ is continuous, and so is $$r$$.
+
+
 **c) Conclude using Lemma 2.2**.
+
+> We prove that $$r$$ restricts to the identity on $$\mathbb{S}^{1}$$.  
+> Let $$x \in \mathbb{B}^{2}$$ on the unit circle, i.e.: $$||x|| = 1$$.  
+> Then, since $$x \in ]f(x), x)$$ and $$||x|| = 1$$, $$x$$ is the unique intersection of the ray $$]f(x),x)$$ with the unit circle $$\mathbb{S}^{1}$$, thus $$r(x) = x$$.  
+> But if $$f$$ admits no fixed points, we can construct $$r$$ such that it is continuous and restricts to the identity on $$\mathbb{S}^{1}$$, which is impossible by Lemma 2.2.  
+> Therefore, $$f$$ must admit a fixed point.  
+> Good luck finding it though :)
