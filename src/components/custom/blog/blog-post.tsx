@@ -68,6 +68,15 @@ function resolveUrl(url: string): string {
   return new URL(url, currentUrl).toString();
 }
 
+function resolveImgTheme(url: string): string {
+  const { theme } = useTheme();
+  if (url.startsWith("./")) {
+    const newUrl = url.split(".");
+    return newUrl.slice(0, -1).join(".") + "-" + theme + "." + newUrl[newUrl.length - 1];
+  }
+  return url;
+}
+
 export function BlogPost() {
   const { slug } = useParams();
   const { theme } = useTheme();
@@ -210,7 +219,7 @@ export function BlogPost() {
             img({ className, alt, src, ...rest }) {
               return (
                 <img
-                  src={resolveUrl(src ?? "")}
+                  src={resolveUrl(resolveImgTheme(src ?? ""))}
                   {...rest}
                   alt={alt}
                   className={cn("justify-self-center rounded-lg", className)}
