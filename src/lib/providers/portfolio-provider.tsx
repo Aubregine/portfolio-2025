@@ -18,6 +18,12 @@ const MOCK_PROJECTS: any[] = [
     github: "https://github.com/Aubregine/portfolio-2025",
     image: "portfolio/portfolio-2025-preview.png",
   },
+  {
+    name: "Rust Mandelbrot Viewer",
+    description: "A very basic Mandelbrot viewer made in Rust. Zoom up to 10^-15",
+    github: "https://github.com/Aubregine/mandelbrot",
+    image: "portfolio/mandelbrot-viewer-preview.png",
+  },
 ];
 
 export function PortfolioProvider({ children }: { children: ReactNode }) {
