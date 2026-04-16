@@ -49,11 +49,11 @@ that $$\R^{n} \setminus \{ a_{1}, \ldots, a_{n} \}$$ is path connected**.
 2)
 
 **a) Show that $$\mathbb{S}^1 := \{ (x, y) \in \R^2\ |\ x^{2} + y^{2} = 1 \}$$ is path connected**.
-> Let $$a = (x_{1}, y_{1}) \in \mathbb{S}^{1}$$ and $$b = (x_{2}, y_{2}) \in \mathbb{S}^1$$.  
-> Let $$\theta_{i} = \begin{cases} \arccos \( x_{i} ) &\quad\text{if } y_{i} \ge 0 \\ - \arccos \( x_{i} ) &\quad\text{if } y_{i} \lt 0 \end{cases}$$  
+> Let $$a = (x_{1}, y_{1}) \in \mathbb{S}^{1}$$ and $$b = (x_{2}, y_{2}) \in \mathbb{S}^{1}$$.  
+> Let $$\theta_{i} = \begin{cases} \arccos (x_{i}) &\quad\text{if } y_{i} \ge 0 \\ - \arccos (x_{i}) &\quad\text{if } y_{i} \lt 0 \end{cases}$$  
 > Let $$\gamma : [ 0, 1 ] \to \R^2$$ such that $$\forall t \in [ 0, 1 ],\ \gamma (t) = \Big( \cos \big( (1 - t) \theta_{1} + t \theta_{2} \big),\ \sin \big( (1 - t) \theta_{1} + t \theta_{2} \big) \Big)$$  
-> Since $$\forall t \in [0,1],\ \cos \big( (1-t) \theta_{1} + t \theta_{2} \big)^{2} + \sin \big( (1-t) \theta_{1} + t \theta_{2} \big)^{2} = 1$$, $$\gamma \( [0,1] ) \subset \mathbb{S}^1$$  
-> We now consider $$\gamma' : [ 0, 1 ] \to \mathbb{S}^1$$ the corestriction of $$\gamma$$ to $$\mathbb{S}^1$$.  
+> Since $$\forall t \in [0,1],\ \cos \big( (1-t) \theta_{1} + t \theta_{2} \big)^{2} + \sin \big( (1-t) \theta_{1} + t \theta_{2} \big)^{2} = 1$$, $$\gamma ([0,1]) \subset \mathbb{S}^1$$  
+> We now consider $$\gamma' : [ 0, 1 ] \to \mathbb{S}^1$$ the corestriction of $$\gamma$$ to $$\mathbb{S}^{1}$$.  
 > $$\gamma'$$ is continuous and  
 > $$ \gamma' (0) = \begin{cases} \Big( \cos \big( \arccos(x_{1}) \big),\ \sin \Big( \arccos( x_{1} ) \Big) &\quad\text{if } y_{1} \ge 0 \\ \Big( \cos \big( -\arccos(x_{1}) \big),\ \sin \big( -\arccos(x_{1}) \big) \Big) &\quad\text{if } y_{1} \lt 0 \end{cases}$$  
 > $$ \gamma' (0) = \begin{cases} ( x_{1} ,\ \sqrt{1-x_{1}^2} ) &\quad\text{if } y_{1} \ge 0 \\ ( x_{1},\ - \sqrt{1 - x_{1}^2} ) &\quad\text{if } y_{1} \lt 0 \end{cases}$$  
